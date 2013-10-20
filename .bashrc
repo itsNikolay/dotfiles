@@ -85,6 +85,14 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias h='history'
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+alias ports='netstat -tulanp'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
