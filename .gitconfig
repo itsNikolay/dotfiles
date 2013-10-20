@@ -11,7 +11,7 @@
 	co = checkout
 	ci = commit
 	br = branch
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an %C(blue)%ae>%Creset' --abbrev-commit --date=relative
 	put = push origin HEAD
 	up = pull --rebase --stat
 	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
