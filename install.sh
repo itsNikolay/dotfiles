@@ -8,3 +8,6 @@ ln -s `pwd`/.bash_aliases ~/.bash_aliases
 
 rm ~/.vimrc
 ln -s `pwd`/.vimrc ~/.vimrc
+
+rm ~/.bashrc
+ln -s `pwd`/.bashrc ~/.bashrc
