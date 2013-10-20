@@ -1,0 +1,19 @@
+[user]
+	name = Ponomarev Nikolay
+	email = itsnikolay@gmail.com
+[core]
+	autocrlf = input
+	excludesfile = /home/itsnikolay/.gitignore_global
+[color]
+	ui = true
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	put = push origin HEAD
+	up = pull --rebase --stat
+	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+	lc = log ORIG_HEAD.. --stat --no-merges
