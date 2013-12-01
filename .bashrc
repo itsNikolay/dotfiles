@@ -93,6 +93,7 @@ alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias ports='netstat -tulanp'
+alias bun="bundle | grep 'Updating\|Installing'"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
