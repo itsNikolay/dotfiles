@@ -15,6 +15,9 @@
 "   Basic {{{
       filetype plugin indent on
 
+    " Ack=grep
+      let g:ackprg = "ack-grep -H --nocolor --nogroup --column"
+
       set backspace=indent,eol,start " make backspace a more flexible
       let loaded_matchparen=1 " match paranthesis
       set backup " create backup

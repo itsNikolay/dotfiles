@@ -18,3 +18,5 @@
 	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
   lc = log ORIG_HEAD.. --stat --no-merges
   day = "whatchanged --since='1 day ago' -p"
+[push]
+	default = current
