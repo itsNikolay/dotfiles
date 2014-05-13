@@ -32,7 +32,7 @@
       set wildmenu " wildmenu when autocomplting option
       set wildmode=full " complete the full match, this is default behaviour
       set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " there files will be ignored when completing in wild menu
-      set clipboard=unnamed " share clipboard
+      set clipboard=unnamedplus " share clipboard
       "set clipboard+=unnamed,unnamedplus,autoselect " share clipboard
       set history=1000
       set tags=.tags;/ " save tags generated for files in current working directory
@@ -181,7 +181,7 @@
 
       " copy from clipboard with ease (<leader>p => paste what you copied by CTRL+c in clipboard)
       nnoremap <leader>p "+p
-      nnoremap <leader>yy "+yy
+      nnoremap <leader>y "+y
 
       " start ack search, (using ACK tool, like grep but for source code)
       nnoremap <leader>a :Ack 
