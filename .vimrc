@@ -32,7 +32,7 @@
       set wildmenu " wildmenu when autocomplting option
       set wildmode=full " complete the full match, this is default behaviour
       set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " there files will be ignored when completing in wild menu
-      set clipboard=unnamedplus " share clipboard
+      set clipboard^=unnamedplus " share clipboard
       "set clipboard+=unnamed,unnamedplus,autoselect " share clipboard
       set history=1000
       set tags=.tags;/ " save tags generated for files in current working directory
@@ -42,6 +42,10 @@
     " }}}
 
     " UI {{{
+    "
+      "syntax enable
+      "set background=light
+      "colorscheme solarized
       colorscheme railscasts " Color scheme
 
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
@@ -147,8 +151,9 @@
       inoremap <C-a> <Esc>^i
       inoremap <C-e> <Esc>A
 
-      " Save like a pro (CTRL+s)
+      " Save like a pro (CTRL+s) test4
       nnoremap <c-s> :w<cr>
+      nnoremap <leader>w :w<cr>
 
       " Quit like a pro
       nnoremap <C-M-q> :Kwbd<CR>
@@ -184,7 +189,7 @@
       nnoremap <leader>y "+y
 
       " start ack search, (using ACK tool, like grep but for source code)
-      nnoremap <leader>a :Ack 
+      nnoremap <leader>a :Ack! 
 
       " reformat whole file
       nnoremap <leader>= ggVG=
@@ -370,6 +375,7 @@
 
       " NERDTree {{{
       nnoremap <F1> :NERDTreeToggle<CR>
+      nnoremap <leader>n :NERDTreeToggle<CR>
       let g:NERDTreeMinimalUI=1
       let g:NERDTreeDirArrows=1
       let g:NERTreeHighlightCursorLine=1
@@ -408,7 +414,6 @@
 
     " GUI setting
     " {{{
-    if has('gui_running')
       set guifont=Dejavu\ Sans\ Mono\ 9
       set guioptions-=m  "remove menu bar
       set guioptions-=T  "remove toolbar
@@ -453,7 +458,6 @@
 
       "
       " }}}
-    endif
     " }}}
 " }}}
 
@@ -524,11 +528,35 @@
 " }}}
 au BufRead,BufNewFile *.hamlc set ft=haml
 
+:ino <C-C> <Esc>
 
-let g:tmux_navigator_no_mappings = 1
+if has("autocmd")
+  au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+  au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+  au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+  au VimEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+endif
 
-nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
-nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
-nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
-nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
-nnoremap <silent> {Previoust-Mapping} :TmuxNavigatePrevious<cr>
+ " Run the current file with rspec
+ map <Leader>vrb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+
+ " Prompt for a command to run
+ map <Leader>vp :VimuxPromptCommand<CR>
+
+ " Run last command executed by VimuxRunCommand
+ map <Leader>vl :VimuxRunLastCommand<CR>
+
+ " Inspect runner pane
+ map <Leader>vi :VimuxInspectRunner<CR>
+
+ " Close vim tmux runner opened by VimuxRunCommand
+ map <Leader>vq :VimuxCloseRunner<CR>
+
+ " Interrupt any command running in the runner pane
+ map <Leader>vx :VimuxInterruptRunner<CR>
+
+ " Zoom the runner pane (use <bind-key> z to restore runner pane)
+ map <Leader>vz :call VimuxZoomRunner()<CR>
+
+" Blowfish encrypt
+:set cm=blowfish
