@@ -94,6 +94,8 @@ alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias ports='netstat -tulanp'
 alias bun="bundle | grep 'Updating\|Installing'"
+alias be="bundle exec"
+alias ber="bundle exec rake"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -114,8 +116,6 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
