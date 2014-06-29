@@ -120,3 +120,5 @@ fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 source ~/.git-prompt.sh
+
+bindkey -v

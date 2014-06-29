@@ -47,8 +47,9 @@
       set background=light
       "colorscheme solarized
       "colorscheme railscasts " Color scheme
-      colorscheme fokus " Color scheme
+      "colorscheme fokus " Color scheme
       "colorscheme mac_classic " Color scheme
+      colorscheme github " Color scheme
 
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
@@ -587,3 +588,8 @@ else
   map <C-k> <C-w>k
   map <C-l> <C-w>l
 endif
+
+
+"Rocket hach
+nmap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<cr>
+vmap <Leader>h :%s/\(\w\+\):\s/:\1 => /gc<cr>
