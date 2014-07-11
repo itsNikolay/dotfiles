@@ -47,9 +47,11 @@
       set background=light
       "colorscheme solarized
       "colorscheme railscasts " Color scheme
-      "colorscheme fokus " Color scheme
+      colorscheme fokus " Color scheme
       "colorscheme mac_classic " Color scheme
-      colorscheme github " Color scheme
+      "colorscheme github " Color scheme
+      "colorscheme Tomorrow " Color scheme
+      "colorscheme solarized " Color scheme
 
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent

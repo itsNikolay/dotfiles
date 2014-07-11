@@ -114,38 +114,38 @@ hi link xmlAttrib PreProc
 hi xmlString guifg=#888888
 
 " javascript
-hi javaScriptParens guifg=#bbbbbb
-hi link javaScriptBraces javaScriptFunction
+"hi javaScriptParens guifg=#bbbbbb
+"hi link javaScriptBraces javaScriptFunction
 
 " ruuubyyyy
-hi link rubyDefine PreProc
-hi link rubyIdentifier Identifier
-hi railsClass guifg=#ff4080
-hi link rubyConditional Conditional
-hi link rubyInstanceVariable Type
-hi link rubyClassVariable rubyInstanceVariable
-hi link rubyBeginEnd rubyIdentifier
-hi link rubyBlockParameterList rubyBlockParameter
-hi link rubyConstant Constant
-hi link rubyControl rubyBeginEnd
-hi link rubyInterpolationDelimiter Comment
-hi link rubyOptionalDo rubyBeginEnd
-hi link rubyOperator Operator
-hi link rubyPseudoVariable rubyBoolean
-hi link rubyStringEscape Normal
-hi rubySymbol guifg=#27A3A3
-hi link railsMethod xmlTagName
-hi rubyAccess guifg=#855A76 guibg=#F5D7EB
-hi rubyRegexp guifg=#D63267
-hi link rubyRegexpDelimiter rubyRegexp
-hi rubyRegexpSpecial guifg=#D63267
-hi link cucumberWhenTable String
-hi link cucumberThenTable cucumberWhenTable
-hi link cucumberThen railsClass
-hi link cucumberWhen Conditional
-hi link cucumberGiven Type
-hi link cucumberScenario Function
-hi link cucumberFeature Function
+"hi link rubyDefine PreProc
+"hi link rubyIdentifier Identifier
+"hi railsClass guifg=#ff4080
+"hi link rubyConditional Conditional
+"hi link rubyInstanceVariable Type
+"hi link rubyClassVariable rubyInstanceVariable
+"hi link rubyBeginEnd rubyIdentifier
+"hi link rubyBlockParameterList rubyBlockParameter
+"hi link rubyConstant Constant
+"hi link rubyControl rubyBeginEnd
+"hi link rubyInterpolationDelimiter Comment
+"hi link rubyOptionalDo rubyBeginEnd
+"hi link rubyOperator Operator
+"hi link rubyPseudoVariable rubyBoolean
+"hi link rubyStringEscape Normal
+"hi rubySymbol guifg=#27A3A3
+"hi link railsMethod xmlTagName
+"hi rubyAccess guifg=#855A76 guibg=#F5D7EB
+"hi rubyRegexp guifg=#D63267
+"hi link rubyRegexpDelimiter rubyRegexp
+"hi rubyRegexpSpecial guifg=#D63267
+"hi link cucumberWhenTable String
+"hi link cucumberThenTable cucumberWhenTable
+"hi link cucumberThen railsClass
+"hi link cucumberWhen Conditional
+"hi link cucumberGiven Type
+"hi link cucumberScenario Function
+"hi link cucumberFeature Function
 
 " php
 hi link phpQuoteSingle Delimiter
@@ -215,7 +215,8 @@ hi Delimiter                 guifg=#519F50
 hi Error                     guifg=#FFFFFF guibg=#990000 ctermfg=221 ctermbg=88
 
 "rubyFunction
-hi Function                  guifg=#FFC66D gui=NONE ctermfg=221 cterm=NONE
+hi Function                  guifg=#FFC66D gui=NONE ctermfg=202 cterm=NONE
+"hi Function                  guifg=#FFC66D gui=NONE ctermfg=221 cterm=NONE
 
 "rubyIdentifier
 "@var, @@var, $var, etc
@@ -223,7 +224,8 @@ hi Identifier                guifg=#D0D0FF gui=NONE ctermfg=73 cterm=NONE
 
 "rubyInclude
 "include, autoload, extend, load, require
-hi Include                   guifg=#CC7833 gui=NONE ctermfg=173 cterm=NONE
+"hi Include                   guifg=#CC7833 gui=NONE ctermfg=173 cterm=NONE
+hi Include                   guifg=#CC7833 gui=NONE ctermfg=166 cterm=NONE
 
 "rubyKeyword, rubyKeywordAsMethod
 "alias, undef, super, yield, callcc, caller, lambda, proc
@@ -263,4 +265,5 @@ hi link htmlEndTag           xmlEndTag
 hi xmlTag                    guifg=#E8BF6A
 hi xmlTagName                guifg=#E8BF6A
 hi xmlEndTag                 guifg=#E8BF6A
+
 
