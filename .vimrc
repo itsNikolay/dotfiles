@@ -41,6 +41,17 @@
 
     " }}}
 
+    " Folding
+      set foldtext=MyFoldFunction()
+      set fillchars=fold:\ 
+
+      function! MyFoldFunction()
+        let line = getline(v:foldstart)
+        let lastline = getline(v:foldend)
+        let numfolded = v:foldend - v:foldstart + 1
+        return line . '  folded ' . numfolded . ' lines'
+      endfunction
+
     " UI {{{
     "
       "syntax enable
@@ -406,10 +417,10 @@
       nnoremap <leader>rr :Rake 
       nnoremap <leader>ri :Rinitializer 
       " routes leads to empty initializer path
-      nnoremap <leader>ro :Rinitializer<CR>
-      nnoremap <leader>rv :Rview 
-      nnoremap <leader>rc :Rcontroller 
-      nnoremap <leader>rm :Rmodel 
+      nnoremap <leader>ro :RVinitializer<CR>
+      nnoremap <leader>rv :RVview 
+      nnoremap <leader>rc :RVcontroller 
+      nnoremap <leader>rm :RVmodel 
 
       " set rails status line
       let g:rails_statusline = 1
@@ -592,6 +603,6 @@ else
 endif
 
 
-"Rocket hach
-nmap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<cr>
-vmap <Leader>h :%s/\(\w\+\):\s/:\1 => /gc<cr>
+"Rocket hash
+nmap <leader>19 :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<cr>
+nmap <leader>18 :%s/\(\w\+\):\s/:\1 => /gc<cr>
