@@ -114,31 +114,31 @@ hi link xmlAttrib PreProc
 hi xmlString guifg=#888888
 
 " javascript
-"hi javaScriptParens guifg=#bbbbbb
-"hi link javaScriptBraces javaScriptFunction
+hi javaScriptParens guifg=#bbbbbb
+hi link javaScriptBraces javaScriptFunction
 
 " ruuubyyyy
-"hi link rubyDefine PreProc
-"hi link rubyIdentifier Identifier
-"hi railsClass guifg=#ff4080
-"hi link rubyConditional Conditional
-"hi link rubyInstanceVariable Type
-"hi link rubyClassVariable rubyInstanceVariable
-"hi link rubyBeginEnd rubyIdentifier
-"hi link rubyBlockParameterList rubyBlockParameter
-"hi link rubyConstant Constant
-"hi link rubyControl rubyBeginEnd
-"hi link rubyInterpolationDelimiter Comment
-"hi link rubyOptionalDo rubyBeginEnd
-"hi link rubyOperator Operator
-"hi link rubyPseudoVariable rubyBoolean
-"hi link rubyStringEscape Normal
-"hi rubySymbol guifg=#27A3A3
-"hi link railsMethod xmlTagName
-"hi rubyAccess guifg=#855A76 guibg=#F5D7EB
-"hi rubyRegexp guifg=#D63267
-"hi link rubyRegexpDelimiter rubyRegexp
-"hi rubyRegexpSpecial guifg=#D63267
+hi link rubyDefine PreProc
+hi link rubyIdentifier Identifier
+hi railsClass guifg=#ff4080
+hi link rubyConditional Conditional
+hi link rubyInstanceVariable Type
+hi link rubyClassVariable rubyInstanceVariable
+hi link rubyBeginEnd rubyIdentifier
+hi link rubyBlockParameterList rubyBlockParameter
+hi link rubyConstant Constant
+hi link rubyControl rubyBeginEnd
+hi link rubyInterpolationDelimiter Comment
+hi link rubyOptionalDo rubyBeginEnd
+hi link rubyOperator Operator
+hi link rubyPseudoVariable rubyBoolean
+hi link rubyStringEscape Normal
+hi rubySymbol guifg=#27A3A3
+hi link railsMethod xmlTagName
+hi rubyAccess guifg=#855A76 guibg=#F5D7EB
+hi rubyRegexp guifg=#D63267
+hi link rubyRegexpDelimiter rubyRegexp
+hi rubyRegexpSpecial guifg=#D63267
 "hi link cucumberWhenTable String
 "hi link cucumberThenTable cucumberWhenTable
 "hi link cucumberThen railsClass
@@ -256,7 +256,6 @@ hi Title                     guifg=#FFFFFF ctermfg=15
 hi Type                      guifg=#DA4939 gui=NONE
 
 hi DiffAdd                   guifg=#E6E1DC guibg=#144212
-hi DiffDelete                guifg=#E6E1DC guibg=#660000
 
 hi link htmlTag              xmlTag
 hi link htmlTagName          xmlTagName

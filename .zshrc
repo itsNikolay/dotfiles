@@ -77,3 +77,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 bindkey -v
 export TERM="xterm-256color"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
