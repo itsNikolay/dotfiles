@@ -1,20 +1,45 @@
 " Init
 " {{{
-  runtime bundle/vim-pathogen/autoload/pathogen.vim
-
-  call pathogen#infect()
-  call pathogen#helptags()
-
-  set nocompatible
-  syntax on
+  set nocompatible              " be iMproved, required
+  filetype off                  " required
   set encoding=utf-8
+
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
+
+  Plugin 'gmarik/Vundle.vim'
+  Plugin 'ack.vim'
+  Plugin 'ctrlp.vim'
+  Plugin 'html5.vim'
+  Plugin 'The-NERD-tree'
+  Plugin 'The-NERD-Commenter'
+  Plugin 'ervandew/supertab'
+  Plugin 'Syntastic'
+  Plugin 'vim-coffee-script'
+  Plugin 'commentary.vim'
+  Plugin 'css_color.vim'
+  Plugin 'endwise.vim'
+  Plugin 'fugitive.vim'
+  Plugin 'go.vim'
+  Plugin 'javascript.vim'
+  Plugin 'rails.vim'
+  Plugin 'ruby.vim'
+  Plugin 'vimux'
+  Plugin 'christoomey/vim-tmux-navigator'
+  Plugin 'surround.vim'
+  Plugin 'MarcWeber/vim-addon-mw-utils'
+  Plugin 'tomtom/tlib_vim'
+  Plugin 'garbas/vim-snipmate'
+  Plugin 'honza/vim-snippets'
+
+  " All of your Plugins must be added before the following line
+  call vundle#end()            " required
+  filetype plugin indent on    " required
 " }}}
 
 " Settings
 " {{{
 "   Basic {{{
-      filetype plugin indent on
-
     " Ack=grep
       let g:ackprg = "ack-grep -H --nocolor --nogroup --column"
 
@@ -273,6 +298,10 @@
         autocmd FileType ruby,eruby             let g:rubycomplete_buffer_loading = 1
       augroup END
       " }}}
+      " Custom form SnipMate
+      let g:snipMate = {}
+      let g:snipMate.scope_aliases = {}
+      let g:snipMate.scope_aliases['ruby'] = 'ruby,rails'
 
       " Coffescript
       " {{{
@@ -359,8 +388,8 @@
       " }}}
 
       " supertab {{{
-      let g:SuperTabDefaultCompletionType = 'context'
-      let g:SuperTabContextDefaultCompletionType = '<c-n>'
+      "let g:SuperTabDefaultCompletionType = 'context'
+      "let g:SuperTabContextDefaultCompletionType = '<c-n>'
       " }}}
 
       " syntastic {{{
