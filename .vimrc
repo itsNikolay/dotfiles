@@ -24,13 +24,14 @@
   Plugin 'javascript.vim'
   Plugin 'rails.vim'
   Plugin 'ruby.vim'
-  Plugin 'vimux'
+  Plugin 'benmills/vimux'
   Plugin 'christoomey/vim-tmux-navigator'
   Plugin 'surround.vim'
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
   Plugin 'garbas/vim-snipmate'
   Plugin 'honza/vim-snippets'
+  Plugin 'Lokaltog/vim-powerline'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
