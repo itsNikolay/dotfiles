@@ -19,7 +19,8 @@
   Plugin 'commentary.vim'
   Plugin 'css_color.vim'
   Plugin 'endwise.vim'
-  Plugin 'fugitive.vim'
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'airblade/vim-gitgutter'
   Plugin 'go.vim'
   Plugin 'javascript.vim'
   Plugin 'rails.vim'
@@ -31,7 +32,8 @@
   Plugin 'tomtom/tlib_vim'
   Plugin 'garbas/vim-snipmate'
   Plugin 'honza/vim-snippets'
-  Plugin 'Lokaltog/vim-powerline'
+  "Plugin 'Lokaltog/vim-powerline'
+  Plugin 'bling/vim-airline'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
