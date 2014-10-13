@@ -8,21 +8,20 @@
   call vundle#begin()
 
   Plugin 'gmarik/Vundle.vim'
-  Plugin 'ack.vim'
+  Plugin 'mileszs/ack.vim'
   Plugin 'ctrlp.vim'
   Plugin 'html5.vim'
   Plugin 'The-NERD-tree'
   Plugin 'The-NERD-Commenter'
   Plugin 'ervandew/supertab'
   Plugin 'Syntastic'
-  Plugin 'vim-coffee-script'
+  Plugin 'kchmck/vim-coffee-script'
   Plugin 'commentary.vim'
   Plugin 'css_color.vim'
   Plugin 'endwise.vim'
   Plugin 'tpope/vim-fugitive'
-  Plugin 'airblade/vim-gitgutter'
   Plugin 'go.vim'
-  Plugin 'javascript.vim'
+  Plugin 'pangloss/vim-javascript'
   Plugin 'rails.vim'
   Plugin 'ruby.vim'
   Plugin 'benmills/vimux'
@@ -32,8 +31,12 @@
   Plugin 'tomtom/tlib_vim'
   Plugin 'garbas/vim-snipmate'
   Plugin 'honza/vim-snippets'
-  "Plugin 'Lokaltog/vim-powerline'
   Plugin 'bling/vim-airline'
+  Plugin 'tpope/vim-haml'
+  Plugin 'Shougo/vimshell.vim'
+  Plugin 'slim-template/vim-slim'
+  Plugin 'elzr/vim-json'
+  Plugin 'lucapette/vim-ruby-doc'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
