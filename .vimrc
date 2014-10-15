@@ -17,7 +17,6 @@
   Plugin 'Syntastic'
   Plugin 'kchmck/vim-coffee-script'
   Plugin 'commentary.vim'
-  Plugin 'css_color.vim'
   Plugin 'endwise.vim'
   Plugin 'tpope/vim-fugitive'
   Plugin 'go.vim'
@@ -339,31 +338,6 @@
       let g:html5_rdfa_attributes_complete = 0
       let g:html5_microdata_attributes_complete = 0
       let g:html5_aria_attributes_complete = 0
-      " }}}
-
-      " vim-javascript
-      " {{{
-      let g:html_indent_inctags = "html,body,head,tbody"
-      let g:html_indent_script1 = "inc"
-      let g:html_indent_style1 = "inc"
-      " }}}
-
-      " Statusline (vim-powerline)
-      " {{{
-      " Powerline statusbar
-      set laststatus=2
-      set statusline=\ "
-      set statusline+=%f\ " file name
-      set statusline+=[
-      set statusline+=%{strlen(&ft)?&ft:'none'}, " filetype
-      set statusline+=%{&fileformat}] " file format
-      set statusline+=%#warningmsg#
-      set statusline+=%{SyntasticStatuslineFlag()}
-      set statusline+=%*
-      set statusline+=\ %{fugitive#statusline()}
-      set statusline+=%h%1*%m%r%w%0* " flag
-      set statusline+=%= " right align
-      set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
       " }}}
 
       " CtrlP
