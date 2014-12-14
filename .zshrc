@@ -56,7 +56,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH:/home/itsnikolay/android/android-sdk-linux/tools
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386/jre
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

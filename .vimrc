@@ -9,8 +9,8 @@
 
   Plugin 'gmarik/Vundle.vim'
   Plugin 'mileszs/ack.vim'
-  Plugin 'ctrlp.vim'
-  Plugin 'html5.vim'
+  Plugin 'kien/ctrlp.vim'
+  Plugin 'othree/html5.vim'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'ervandew/supertab'
@@ -19,13 +19,13 @@
   Plugin 'commentary.vim'
   Plugin 'endwise.vim'
   Plugin 'tpope/vim-fugitive'
-  Plugin 'go.vim'
+  Plugin 'fatih/vim-go'
   Plugin 'pangloss/vim-javascript'
-  Plugin 'rails.vim'
-  Plugin 'ruby.vim'
+  Plugin 'tpope/vim-rails'
+  Plugin 'vim-ruby/vim-ruby'
   Plugin 'benmills/vimux'
   Plugin 'christoomey/vim-tmux-navigator'
-  Plugin 'surround.vim'
+  Plugin 'tpope/vim-surround'
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
   Plugin 'garbas/vim-snipmate'
@@ -34,8 +34,8 @@
   Plugin 'tpope/vim-haml'
   Plugin 'Shougo/vimshell.vim'
   Plugin 'slim-template/vim-slim'
-  Plugin 'elzr/vim-json'
   Plugin 'lucapette/vim-ruby-doc'
+  Plugin 'Valloric/YouCompleteMe'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -84,7 +84,7 @@
 
     " UI {{{
     "
-      "syntax enable
+      syntax enable
       set background=light
       "colorscheme solarized
       "colorscheme railscasts " Color scheme
@@ -583,6 +583,10 @@ endif
  " Zoom the runner pane (use <bind-key> z to restore runner pane)
  map <Leader>vz :call VimuxZoomRunner()<CR>
 
+let g:VimuxHeight = "26"
+let g:VimuxOrientation = "h"
+
+
 " Blowfish encrypt
 :set cm=blowfish
 
@@ -615,3 +619,5 @@ endif
 "Rocket hash
 nmap <leader>19 :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<cr>
 nmap <leader>18 :%s/\(\w\+\):\s/:\1 => /gc<cr>
+:highlight Pmenu guibg=brown gui=bold
+:highlight Pmenu ctermbg=238 gui=bold

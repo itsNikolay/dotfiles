@@ -12,12 +12,12 @@ hi clear
 
 set background=light
 if version > 580
-    " no guarantees for version 5.8 and below, but this makes it stop
-    " complaining
-    hi clear
-    if exists("syntax_on")
-        syntax reset
-    endif
+  " no guarantees for version 5.8 and below, but this makes it stop
+  " complaining
+  hi clear
+  if exists("syntax_on")
+    syntax reset
+  endif
 endif
 let g:colors_name="fokus"
 
@@ -60,8 +60,12 @@ hi FoldColumn   gui=NONE guifg=#40a098 guibg=#f0f0f0
 hi Directory    gui=NONE guifg=#0070b8 guibg=NONE
 hi LineNr       gui=NONE guifg=#acacac guibg=NONE
 hi NonText      gui=BOLD guifg=#aaaaaa
-hi Pmenu        guifg=#404040 guibg=#FFddF5
-hi PmenuSel     guifg=#ff00aa guibg=#ffffff
+"hi Pmenu        guifg=#404040 guibg=#FFddF5
+"hi PmenuSel     guifg=#ff00aa guibg=#ffffff
+hi Pmenu      ctermfg=Cyan    ctermbg=Blue cterm=None guifg=Cyan guibg=DarkBlue 
+hi PmenuSel   ctermfg=White   ctermbg=Blue cterm=Bold guifg=White guibg=DarkBlue gui=Bold 
+hi PmenuSbar                  ctermbg=Cyan            guibg=Cyan 
+hi PmenuThumb ctermfg=White                           guifg=White 
 hi SpecialKey   gui=NONE guifg=#4040ff guibg=NONE
 hi Title        gui=NONE guifg=#0050a0 guibg=NONE
 hi Visual       gui=NONE guifg=NONE guibg=#FFddF5
