@@ -8,12 +8,13 @@
   call vundle#begin()
 
   Plugin 'gmarik/Vundle.vim'
+
+  "Plugin 'Valloric/YouCompleteMe'
   Plugin 'mileszs/ack.vim'
   Plugin 'kien/ctrlp.vim'
   Plugin 'othree/html5.vim'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/nerdcommenter'
-  Plugin 'ervandew/supertab'
   Plugin 'Syntastic'
   Plugin 'kchmck/vim-coffee-script'
   Plugin 'commentary.vim'
@@ -26,16 +27,19 @@
   Plugin 'benmills/vimux'
   Plugin 'christoomey/vim-tmux-navigator'
   Plugin 'tpope/vim-surround'
+
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
   Plugin 'garbas/vim-snipmate'
   Plugin 'honza/vim-snippets'
+  Plugin 'ervandew/supertab'
+  "
   Plugin 'bling/vim-airline'
   Plugin 'tpope/vim-haml'
   Plugin 'Shougo/vimshell.vim'
   Plugin 'slim-template/vim-slim'
   Plugin 'lucapette/vim-ruby-doc'
-  Plugin 'Valloric/YouCompleteMe'
+  Plugin 'merlinrebrovic/focus.vim'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -62,7 +66,7 @@
       set wildmenu " wildmenu when autocomplting option
       set wildmode=full " complete the full match, this is default behaviour
       set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " there files will be ignored when completing in wild menu
-      set clipboard^=unnamedplus " share clipboard
+      set clipboard=unnamedplus " share clipboard
       "set clipboard+=unnamed,unnamedplus,autoselect " share clipboard
       set history=1000
       set tags=.tags;/ " save tags generated for files in current working directory
@@ -88,11 +92,10 @@
       set background=light
       "colorscheme solarized
       "colorscheme railscasts " Color scheme
-      colorscheme fokus " Color scheme
+      "colorscheme fokus " Color scheme
       "colorscheme mac_classic " Color scheme
       "colorscheme github " Color scheme
       "colorscheme Tomorrow " Color scheme
-      "colorscheme solarized " Color scheme
 
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
@@ -619,5 +622,3 @@ endif
 "Rocket hash
 nmap <leader>19 :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<cr>
 nmap <leader>18 :%s/\(\w\+\):\s/:\1 => /gc<cr>
-:highlight Pmenu guibg=brown gui=bold
-:highlight Pmenu ctermbg=238 gui=bold

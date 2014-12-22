@@ -7,7 +7,8 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="random"
-ZSH_THEME="frisk"
+#ZSH_THEME="frisk"
+ZSH_THEME="eastwood"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -50,7 +51,7 @@ ZSH_THEME="frisk"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode)
+plugins=(git ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano)
 
 source $ZSH/oh-my-zsh.sh
 
