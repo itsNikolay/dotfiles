@@ -40,6 +40,8 @@
   Plugin 'slim-template/vim-slim'
   Plugin 'lucapette/vim-ruby-doc'
   Plugin 'merlinrebrovic/focus.vim'
+  Plugin 'AndrewRadev/vim-eco'
+  Plugin 'jiangmiao/auto-pairs'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -622,3 +624,6 @@ endif
 "Rocket hash
 nmap <leader>19 :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<cr>
 nmap <leader>18 :%s/\(\w\+\):\s/:\1 => /gc<cr>
+
+" auto-pairs plugin on
+let g:AutoPairsFlyMode = 1
