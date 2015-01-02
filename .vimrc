@@ -627,3 +627,9 @@ nmap <leader>18 :%s/\(\w\+\):\s/:\1 => /gc<cr>
 
 " auto-pairs plugin on
 let g:AutoPairsFlyMode = 1
+
+"Hightlight diff
+highlight DiffAdd    term=reverse ctermbg=148
+highlight DiffChange term=reverse ctermbg=081
+highlight DiffText   term=reverse ctermbg=084
+highlight DiffDelete term=reverse ctermbg=160
