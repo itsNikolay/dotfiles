@@ -1,3 +1,12 @@
 [Desktop Entry]
+Name=Terminal Fullscreen
+Comment=Use the command line in fullscreen
+Icon=utilities-terminal
 Type=Application
-Exec=gnome-terminal
+Exec=/usr/bin/gnome-terminal --window --full-screen
+Categories=GNOME;GTK;Utility;TerminalEmulator;
+StartupNotify=true
+OnlyShowIn=GNOME;Unity;
+Keywords=Run;
+Actions=New
+X-Ubuntu-Gettext-Domain=gnome-terminal

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+ln -s `pwd`/.ackrc        ~/. -f;
+ln -s `pwd`/.bash_aliases ~/. -f;
+ln -s `pwd`/.bashrc       ~/. -f;
+ln -s `pwd`/.gemrc        ~/. -f;
+ln -s `pwd`/.gitconfig    ~/. -f;
+ln -s `pwd`/.git-promt.sh ~/. -f;
+ln -s `pwd`/.tmux         ~/. -f;
+ln -s `pwd`/.vimrc        ~/. -f;
+ln -s `pwd`/.zshrc        ~/. -f;
