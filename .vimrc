@@ -436,6 +436,7 @@
       nnoremap <leader>rv :RTview 
       nnoremap <leader>rc :RTcontroller 
       nnoremap <leader>rm :RTmodel 
+      nnoremap <leader>rh :RThelper 
       nnoremap <leader>rl :RTlib 
       nnoremap <leader>rj :RTjavascript 
       nnoremap <leader>rst :RTstylesheet 
