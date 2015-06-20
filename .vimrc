@@ -99,7 +99,7 @@
       "colorscheme github " Color scheme
       "colorscheme Tomorrow " Color scheme
 
-      set tabstop=4 " when there's tab, it should be indented by 4 spaces
+      set tabstop=2 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
       set shiftround " round the indent to shiftwidth (when at 3 spaces, and I hit > go to 4, not 5)
       set autoindent
@@ -113,7 +113,7 @@
       set smartcase " use smartcase, when search query starts with Uppercase, turn off case insensitive search
 
       set list " show trailing characters
-      set listchars=tab:▸\ ,trail:¬,extends:❯,precedes:❮,nbsp:~ " it show ¬ character when as you type, fill free to comment out set list
+      set listchars=tab:·\ ,trail:¬,extends:❯,precedes:❮,nbsp:~ " it show ¬ character when as you type, fill free to comment out set list tab:▸\ ,
 
       set number " set line numbering
       set novisualbell " do not blink
@@ -140,7 +140,7 @@
       set shiftround " round the indent to shiftwidth (when at 3 spaces, and I hit > go to 4, not 5)
       set shiftwidth=2 " auto-indent amount when using >> <<
       set softtabstop=2 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
-      set tabstop=4 " real tabs should be 4, and they will show with set list on
+      set tabstop=2 " real tabs should be 4, and they will show with set list on
 
       set completeopt=longest,menu,preview
       " }}}
@@ -209,6 +209,7 @@
       " Quit like a pro
       nnoremap <C-M-q> :Kwbd<CR>
       nnoremap <leader>q :q<CR>
+      nnoremap <leader>x :wq<cr>
 
       " this key combination gets rid of the search highlights.
       nmap <leader><space> :noh<cr>
@@ -431,10 +432,19 @@
       nnoremap <leader>rr :Rake 
       nnoremap <leader>ri :Rinitializer 
       " routes leads to empty initializer path
-      nnoremap <leader>ro :RVinitializer<CR>
-      nnoremap <leader>rv :RVview 
-      nnoremap <leader>rc :RVcontroller 
-      nnoremap <leader>rm :RVmodel 
+      nnoremap <leader>ro :RTinitializer<CR>
+      nnoremap <leader>rv :RTview 
+      nnoremap <leader>rc :RTcontroller 
+      nnoremap <leader>rm :RTmodel 
+      nnoremap <leader>rh :RThelper 
+      nnoremap <leader>rl :RTlib 
+      nnoremap <leader>rj :RTjavascript 
+      nnoremap <leader>rst :RTstylesheet 
+      nnoremap <leader>rs :RTspec 
+      nnoremap <leader>rlo :RTlocale 
+      nnoremap <leader>rma :RTmailer 
+      nnoremap <leader>rmi :RTmigration 
+      nnoremap <leader>rsc :RTschema 
 
       " set rails status line
       let g:rails_statusline = 1
