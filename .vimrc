@@ -409,6 +409,8 @@
       let g:NERDTreeMinimalUI=1
       let g:NERDTreeDirArrows=1
       let g:NERTreeHighlightCursorLine=1
+      let g:NERDTreeShowBookmarks=1
+      let g:NERDTreeShowLineNumbers=1
       "}}}
       "
       " NerdTree Tabs {{{
@@ -633,3 +635,6 @@ highlight DiffAdd    term=reverse ctermbg=148
 highlight DiffChange term=reverse ctermbg=081
 highlight DiffText   term=reverse ctermbg=084
 highlight DiffDelete term=reverse ctermbg=160
+
+"Open NerdTree on start
+autocmd VimEnter * NERDTree
