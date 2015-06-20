@@ -8,7 +8,8 @@ export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="random"
 #ZSH_THEME="frisk"
-ZSH_THEME="eastwood"
+#ZSH_THEME="eastwood"
+ZSH_THEME="wezm"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -59,7 +60,7 @@ source $HOME/.gvm/scripts/gvm
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH:/home/itsnikolay/android/android-sdk-linux/tools
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386/jre
+#export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386/jre
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
