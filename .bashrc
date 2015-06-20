@@ -122,3 +122,6 @@ eval "$(rbenv init -)"
 source ~/.git-prompt.sh
 
 bindkey -v
+
+export NVM_DIR="/home/itsnikolay/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
