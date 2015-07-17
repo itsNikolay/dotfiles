@@ -91,3 +91,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # GO
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=/home/itsnikolay/gocode
+
+export NVM_DIR="/Users/itsnikolay/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
