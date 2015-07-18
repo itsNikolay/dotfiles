@@ -5,12 +5,11 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew install vim git tmux \
              openssl libyaml libffi \
              htop \
-             mysql \
+             mysql postgres sqlite3 \
              redis \
              ack \
-             postgres \
              rbenv ruby-build \
-             chrome skype
+             Caskroom/cask/google-chrome Caskroom/cask/skype Caskroom/cask/dash
 ```
 
 ```
