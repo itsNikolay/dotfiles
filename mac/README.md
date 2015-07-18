@@ -10,7 +10,9 @@ brew install vim git tmux \
              ack \
              rbenv ruby-build \
              Caskroom/cask/google-chrome Caskroom/cask/skype Caskroom/cask/dash \
-             Caskroom/cask/seil
+             Caskroom/cask/seil \
+             Caskroom/cask/keepassx \
+             Caskroom/cask/dropbox
 ```
 
 ```
