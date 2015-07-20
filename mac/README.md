@@ -16,7 +16,8 @@ brew install vim git tmux \
              Caskroom/cask/seil \
              Caskroom/cask/keepassx \
              Caskroom/cask/dropbox \
-             Caskroom/cask/iterm2
+             Caskroom/cask/iterm2 \
+             Caskroom/cask/java
 ```
 
 ```
