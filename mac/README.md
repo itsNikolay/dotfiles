@@ -8,11 +8,15 @@ brew install vim git tmux \
              mysql postgres sqlite3 \
              redis \
              ack \
-             rbenv ruby-build \
-             Caskroom/cask/google-chrome Caskroom/cask/skype Caskroom/cask/dash \
+             rbenv ruby-build rbenv-gem-rehash \
+             Caskroom/cask/google-chrome \
+             Caskroom/cask/firefox \
+             Caskroom/cask/skype \
+             Caskroom/cask/dash \
              Caskroom/cask/seil \
              Caskroom/cask/keepassx \
-             Caskroom/cask/dropbox
+             Caskroom/cask/dropbox \
+             Caskroom/cask/iterm2
 ```
 
 ```

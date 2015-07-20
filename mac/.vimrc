@@ -43,6 +43,8 @@
   Plugin 'AndrewRadev/vim-eco'
   Plugin 'jiangmiao/auto-pairs'
 
+  Plugin 'sjl/vitality.vim'
+
   Plugin 'rizzatti/dash.vim'
 
   " All of your Plugins must be added before the following line
@@ -99,6 +101,8 @@
       "colorscheme mac_classic " Color scheme
       "colorscheme github " Color scheme
       "colorscheme Tomorrow " Color scheme
+
+      let g:airline_theme='light'
 
       set tabstop=2 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
