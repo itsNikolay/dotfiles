@@ -44,6 +44,8 @@
   Plugin 'jiangmiao/auto-pairs'
 
   Plugin 'sjl/vitality.vim'
+  Plugin 'bendavis78/vim-polymer'
+
 
   Plugin 'rizzatti/dash.vim'
 
@@ -439,19 +441,19 @@
       nnoremap <leader>rr :Rake 
       nnoremap <leader>ri :Rinitializer 
       " routes leads to empty initializer path
-      nnoremap <leader>ro :RTinitializer<CR>
-      nnoremap <leader>rv :RTview 
-      nnoremap <leader>rc :RTcontroller 
-      nnoremap <leader>rm :RTmodel 
-      nnoremap <leader>rh :RThelper 
-      nnoremap <leader>rl :RTlib 
-      nnoremap <leader>rj :RTjavascript 
-      nnoremap <leader>rst :RTstylesheet 
-      nnoremap <leader>rs :RTspec 
-      nnoremap <leader>rlo :RTlocale 
-      nnoremap <leader>rma :RTmailer 
-      nnoremap <leader>rmi :RTmigration 
-      nnoremap <leader>rsc :RTschema 
+      nnoremap <leader>ro :Tinitializer<CR>
+      nnoremap <leader>rv :Tview 
+      nnoremap <leader>rc :Tcontroller 
+      nnoremap <leader>rm :Tmodel 
+      nnoremap <leader>rh :Thelper 
+      nnoremap <leader>rl :Tlib 
+      nnoremap <leader>rj :Tjavascript 
+      nnoremap <leader>rst :Tstylesheet 
+      nnoremap <leader>rs :Tspec 
+      nnoremap <leader>rlo :Tlocale 
+      nnoremap <leader>rma :Tmailer 
+      nnoremap <leader>rmi :Tmigration 
+      nnoremap <leader>rsc :Tschema 
 
       " set rails status line
       let g:rails_statusline = 1
@@ -646,3 +648,6 @@ highlight DiffDelete term=reverse ctermbg=160
 
 "Open NerdTree on start
 autocmd VimEnter * NERDTree
+
+" syntastic
+let g:syntastic_html_checkers=['']
