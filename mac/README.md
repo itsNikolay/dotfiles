@@ -21,7 +21,8 @@ brew install vim git tmux \
              Caskroom/cask/mysqlworkbench \
              Caskroom/cask/gimp \
              heroku-toolbelt \
-             Caskroom/cask/libreoffice
+             Caskroom/cask/libreoffice \
+             cmake
 ```
 
 ```

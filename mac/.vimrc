@@ -9,7 +9,6 @@
 
   Plugin 'gmarik/Vundle.vim'
 
-  "Plugin 'Valloric/YouCompleteMe'
   Plugin 'mileszs/ack.vim'
   Plugin 'kien/ctrlp.vim'
   Plugin 'othree/html5.vim'
@@ -30,10 +29,11 @@
 
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
+  Plugin 'ervandew/supertab'
+  Plugin 'Valloric/YouCompleteMe'
   Plugin 'garbas/vim-snipmate'
   Plugin 'honza/vim-snippets'
-  Plugin 'ervandew/supertab'
-  "
+
   Plugin 'bling/vim-airline'
   Plugin 'tpope/vim-haml'
   Plugin 'Shougo/vimshell.vim'
@@ -47,7 +47,7 @@
   Plugin 'bendavis78/vim-polymer'
 
 
-  Plugin 'rizzatti/dash.vim'
+  "Plugin 'rizzatti/dash.vim'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -454,6 +454,8 @@
       nnoremap <leader>rma :Tmailer 
       nnoremap <leader>rmi :Tmigration 
       nnoremap <leader>rsc :Tschema 
+
+      nnoremap <leader>rt :AV<CR>
 
       " set rails status line
       let g:rails_statusline = 1
