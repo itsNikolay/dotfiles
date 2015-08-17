@@ -44,7 +44,7 @@
   Plugin 'jiangmiao/auto-pairs'
 
   Plugin 'sjl/vitality.vim'
-  Plugin 'bendavis78/vim-polymer'
+  "Plugin 'bendavis78/vim-polymer'
 
 
   "Plugin 'rizzatti/dash.vim'
