@@ -88,3 +88,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Tmuxinator
 #source ~/.bin/tmuxinator.zsh
+
+export GO15VENDOREXPERIMENT=1
