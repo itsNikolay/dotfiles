@@ -45,6 +45,7 @@
 
   Plugin 'sjl/vitality.vim'
   "Plugin 'bendavis78/vim-polymer'
+  Plugin 'digitaltoad/vim-jade'
 
 
   "Plugin 'rizzatti/dash.vim'
