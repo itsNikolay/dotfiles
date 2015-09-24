@@ -23,7 +23,8 @@ brew install vim git tmux \
              heroku-toolbelt \
              Caskroom/cask/libreoffice \
              cmake \
-             imagemagick
+             imagemagick \
+             Caskroom/cask/xquartz
 ```
 
 ```
