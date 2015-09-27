@@ -2,7 +2,7 @@
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ````
 ```
-brew install vim git tmux \
+brew install vim git git-lfs tmux \
              openssl libyaml libffi \
              htop \
              mysql postgres sqlite3 \
