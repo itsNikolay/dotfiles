@@ -46,6 +46,7 @@
   Plugin 'sjl/vitality.vim'
   "Plugin 'bendavis78/vim-polymer'
   Plugin 'digitaltoad/vim-jade'
+  Plugin 'altercation/vim-colors-solarized'
 
 
   "Plugin 'rizzatti/dash.vim'
@@ -98,12 +99,13 @@
     "
       syntax enable
       set background=light
-      "colorscheme solarized
+      colorscheme solarized
       "colorscheme railscasts " Color scheme
       "colorscheme fokus " Color scheme
       "colorscheme mac_classic " Color scheme
       "colorscheme github " Color scheme
       "colorscheme Tomorrow " Color scheme
+      "colorscheme solarized
 
       let g:airline_theme='light'
 
