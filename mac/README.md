@@ -65,5 +65,5 @@ rbenv install 2.2.2 &&
 gvm install go1.4.2 &&
 nvm install v0.12.7 &&
 nvm alias default 0.12.7 &&
-npm install -g bower
+npm install -g bower jshint
 ```
