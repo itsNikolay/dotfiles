@@ -48,6 +48,7 @@
   Plugin 'digitaltoad/vim-jade'
   Plugin 'altercation/vim-colors-solarized'
   Plugin 'rizzatti/dash.vim'
+  Plugin 'mitsuhiko/vim-jinja'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required

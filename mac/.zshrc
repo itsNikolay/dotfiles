@@ -90,3 +90,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #source ~/.bin/tmuxinator.zsh
 
 export GO15VENDOREXPERIMENT=1
+
+export NVM_DIR="/Users/nikolayponomarev/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

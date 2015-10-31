@@ -24,7 +24,8 @@ brew install vim git git-lfs tmux \
              Caskroom/cask/libreoffice \
              cmake \
              imagemagick \
-             Caskroom/cask/xquartz
+             Caskroom/cask/xquartz \
+             ansible
 ```
 
 ```
@@ -38,6 +39,9 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 ```
 sudo mv /usr/bin/vim /usr/bin/vim73
+which vim
+_ ln -sf /usr/local/Cellar/vim/7.4.898/bin/vim /usr/local/bin
+_ ln -sf /usr/local/bin/vim /usr/local/bin/vi
 ```
 
 ```
