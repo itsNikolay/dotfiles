@@ -25,12 +25,13 @@ brew install vim git git-lfs tmux \
              cmake \
              imagemagick \
              Caskroom/cask/xquartz \
-             ansible
+             ansible \
+             ssh-copy-id \
+             Caskroom/cask/bittorrent \
+             Caskroom/cask/sourcetree \
+             reattach-to-user-namespace
 ```
 
-```
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-```
 
 ```
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -38,6 +39,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 ```
 
 ```
+vundle
 sudo mv /usr/bin/vim /usr/bin/vim73
 which vim
 _ ln -sf /usr/local/Cellar/vim/7.4.898/bin/vim /usr/local/bin
@@ -69,5 +71,9 @@ rbenv install 2.2.2 &&
 gvm install go1.4.2 &&
 nvm install v0.12.7 &&
 nvm alias default 0.12.7 &&
-npm install -g bower jshint
+npm install -g bower eslint babel-eslint eslint-plugin-react
+```
+
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```

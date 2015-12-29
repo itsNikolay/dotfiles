@@ -53,14 +53,14 @@ ZSH_THEME="nicoulaj"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv tmuxinator web-search colorize jira docker nvm brew brew-cask)
+plugins=(git ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv tmuxinator web-search colorize jira docker nvm brew brew-cask rsync vundle golang vi-mode npm)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.gvm/scripts/gvm
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH:/home/itsnikolay/android/android-sdk-linux/tools:/usr/X11/bin
+#export PATH=$HOME/bin:/usr/local/bin:$PATH:/home/itsnikolay/android/android-sdk-linux/tools:/usr/X11/bin
 #export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386/jre
 # export MANPATH="/usr/local/man:$MANPATH"
 

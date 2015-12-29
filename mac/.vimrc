@@ -49,6 +49,7 @@
   Plugin 'altercation/vim-colors-solarized'
   Plugin 'rizzatti/dash.vim'
   Plugin 'mitsuhiko/vim-jinja'
+  Plugin 'mxw/vim-jsx'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -142,8 +143,8 @@
       set showbreak=↪ " character show when wrapping line
 
       set foldenable " folding text into clusters (+) according to  {{{ }}} or comments for example.
-      "set foldmethod=manual " default options, we create fold manually.
-      set foldmethod=syntax " default options, we create fold manually.
+      set foldmethod=manual " default options, we create fold manually.
+      "set foldmethod=syntax " default options, we create fold manually.
       set showmatch " when use insert bracket, briefly jump to matching one (i like it, but i might be annoying)
 
       set infercase " case inferred by default
@@ -656,4 +657,7 @@ autocmd VimEnter * NERDTree
 
 " syntastic
 let g:syntastic_html_checkers=['']
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
+
+" Dash search word under cursor in Dash
+:nmap <silent> <leader>d <Plug>DashSearch
