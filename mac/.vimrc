@@ -15,7 +15,7 @@
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'scrooloose/syntastic'
-  Plugin 'kchmck/vim-coffee-script'
+  "Plugin 'kchmck/vim-coffee-script'
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-endwise'
   Plugin 'tpope/vim-fugitive'
@@ -34,7 +34,9 @@
   Plugin 'garbas/vim-snipmate'
   Plugin 'honza/vim-snippets'
 
-  Plugin 'bling/vim-airline'
+  "Plugin 'bling/vim-airline'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
   Plugin 'tpope/vim-haml'
   Plugin 'Shougo/vimshell.vim'
   Plugin 'slim-template/vim-slim'
@@ -107,7 +109,7 @@
       "colorscheme Tomorrow " Color scheme
       "colorscheme solarized
 
-      let g:airline_theme='light'
+      let g:airline_theme='solarized'
 
       set tabstop=2 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
@@ -166,7 +168,7 @@
       set cursorline
 
       "improve autocomplete menu color
-      highlight Pmenu ctermbg=238
+      "highlight Pmenu ctermbg=238
       " }}}
       "
 
@@ -416,13 +418,13 @@
       " }}}
 
       " NERDTree {{{
-      nnoremap <F1> :NERDTreeToggle<CR>
+      "nnoremap <F1> :NERDTreeToggle<CR>
       nnoremap <leader>n :NERDTreeToggle<CR>
       let g:NERDTreeMinimalUI=1
-      let g:NERDTreeDirArrows=1
+      "let g:NERDTreeDirArrows=1
       let g:NERTreeHighlightCursorLine=1
-      let g:NERDTreeShowBookmarks=1
-      let g:NERDTreeShowLineNumbers=1
+      "let g:NERDTreeShowBookmarks=1
+      "let g:NERDTreeShowLineNumbers=1
       "}}}
       "
       " NerdTree Tabs {{{
@@ -647,17 +649,20 @@ nmap <leader>18 :%s/\(\w\+\):\s/:\1 => /gc<cr>
 let g:AutoPairsFlyMode = 1
 
 "Hightlight diff
-highlight DiffAdd    term=reverse ctermbg=148
-highlight DiffChange term=reverse ctermbg=081
-highlight DiffText   term=reverse ctermbg=084
-highlight DiffDelete term=reverse ctermbg=160
+"highlight DiffAdd    term=reverse ctermbg=148
+"highlight DiffChange term=reverse ctermbg=081
+"highlight DiffText   term=reverse ctermbg=084
+"highlight DiffDelete term=reverse ctermbg=160
 
 "Open NerdTree on start
-autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree
 
 " syntastic
 let g:syntastic_html_checkers=['']
-let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_checkers = ['eslint']
 
 " Dash search word under cursor in Dash
 :nmap <silent> <leader>d <Plug>DashSearch
+
+" Concealing Characters
+let b:javascript_fold = 0

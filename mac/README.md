@@ -29,8 +29,10 @@ brew install vim git git-lfs tmux \
              ssh-copy-id \
              Caskroom/cask/bittorrent \
              Caskroom/cask/sourcetree \
-             reattach-to-user-namespace
-```
+             reattach-to-user-namespace \
+             Caskroom/cask/dockertoolbox
+
+             brew install tmux-mem-cpu-load
 
 
 ```

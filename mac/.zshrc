@@ -91,5 +91,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export GO15VENDOREXPERIMENT=1
 
+# brew public key
+export HOMEBREW_GITHUB_API_TOKEN=81e3508495826431fa8da6721b511373b8e0a8ce
+
 export NVM_DIR="/Users/nikolayponomarev/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
