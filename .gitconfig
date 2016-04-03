@@ -32,3 +32,5 @@
 	trustExitCode = true
 [rebase]
 	autostash = true
+[http]
+	cookiefile = /Users/nikolayponomarev/.gitcookies

@@ -53,7 +53,7 @@ ZSH_THEME="nicoulaj"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv tmuxinator web-search colorize jira docker nvm brew brew-cask rsync vundle golang vi-mode npm)
+plugins=(git ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv colorize nvm brew brew-cask rsync vundle golang vi-mode npm docker history postgres rake-fast)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.gvm/scripts/gvm
@@ -90,9 +90,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #source ~/.bin/tmuxinator.zsh
 
 export GO15VENDOREXPERIMENT=1
-
-# brew public key
-export HOMEBREW_GITHUB_API_TOKEN=81e3508495826431fa8da6721b511373b8e0a8ce
 
 export NVM_DIR="/Users/nikolayponomarev/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

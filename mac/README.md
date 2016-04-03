@@ -1,6 +1,7 @@
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ````
+
 ```
 brew install vim git git-lfs tmux \
              openssl libyaml libffi \
@@ -8,6 +9,7 @@ brew install vim git git-lfs tmux \
              mysql postgres sqlite3 \
              redis \
              ack \
+             ag \
              rbenv ruby-build rbenv-gem-rehash \
              Caskroom/cask/google-chrome \
              Caskroom/cask/firefox \
@@ -34,6 +36,7 @@ brew install vim git git-lfs tmux \
 
              brew install tmux-mem-cpu-load
 
+```
 
 ```
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -60,7 +63,6 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | b
 
 ```
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-
 ```
 
 ```
