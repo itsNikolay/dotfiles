@@ -32,7 +32,9 @@ brew install vim git git-lfs tmux \
              Caskroom/cask/bittorrent \
              Caskroom/cask/sourcetree \
              reattach-to-user-namespace \
-             Caskroom/cask/dockertoolbox
+             Caskroom/cask/dockertoolbox \
+             gdb \
+             cgdb \
 
              brew install tmux-mem-cpu-load
 

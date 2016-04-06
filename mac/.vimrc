@@ -52,6 +52,7 @@
   Plugin 'rizzatti/dash.vim'
   Plugin 'mitsuhiko/vim-jinja'
   Plugin 'mxw/vim-jsx'
+  Plugin 'acarapetis/vim-colors-github'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -101,7 +102,8 @@
     "
       syntax enable
       set background=light
-      colorscheme solarized
+      colorscheme github
+      "colorscheme solarized
       "colorscheme railscasts " Color scheme
       "colorscheme fokus " Color scheme
       "colorscheme mac_classic " Color scheme
@@ -109,7 +111,8 @@
       "colorscheme Tomorrow " Color scheme
       "colorscheme solarized
 
-      let g:airline_theme='solarized'
+      let g:airline_theme='sol'
+      "let g:airline_theme='solarized'
 
       set tabstop=2 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
@@ -674,3 +677,18 @@ let g:syntastic_html_checkers=['']
 
 " Concealing Characters
 let b:javascript_fold = 0
+
+"white bg for tab
+:hi TabLineFill term=bold cterm=bold ctermbg=255
+:hi SpecialKey  term=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
+:hi NonText  term=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
+
+" vim-go enabling
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+
