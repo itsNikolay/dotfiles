@@ -9,7 +9,8 @@
 
   Plugin 'gmarik/Vundle.vim'
 
-  Plugin 'mileszs/ack.vim'
+  Plugin 'rking/ag.vim'
+  "Plugin 'mileszs/ack.vim'
   Plugin 'kien/ctrlp.vim'
   Plugin 'othree/html5.vim'
   Plugin 'scrooloose/nerdtree'
@@ -63,7 +64,11 @@
 " {{{
 "   Basic {{{
     " Ack=grep
-      let g:ackprg = "ack -H --nocolor --nogroup --column"
+      "if executable('ag')
+        "let g:ackprg = 'ag --vimgrep'
+      "else
+        "let g:ackprg = "ack -H --nocolor --nogroup --column"
+      "endif
 
       set backspace=indent,eol,start " make backspace a more flexible
       let loaded_matchparen=1 " match paranthesis
@@ -257,7 +262,8 @@
       nnoremap <leader>y "+y
 
       " start ack search, (using ACK tool, like grep but for source code)
-      nnoremap <leader>a :Ack! 
+      "nnoremap <leader>a :Ack! 
+      nnoremap <leader>a :Ag 
 
       " reformat whole file
       nnoremap <leader>= ggVG=
@@ -623,9 +629,6 @@ let g:VimuxHeight = "26"
 let g:VimuxOrientation = "h"
 
 
-" Blowfish encrypt
-:set cm=blowfish
-
 if exists('$TMUX')
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
     let previous_winnr = winnr()
@@ -684,11 +687,11 @@ let b:javascript_fold = 0
 :hi NonText  term=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 
 " vim-go enabling
-let g:go_highlight_operators = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_interfaces = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_generate_tags = 1
+"let g:go_highlight_operators = 1
+"let g:go_highlight_functions = 1
+"let g:go_highlight_methods = 1
+"let g:go_highlight_structs = 1
+"let g:go_highlight_interfaces = 1
+"let g:go_highlight_build_constraints = 1
+"let g:go_highlight_generate_tags = 1
 
