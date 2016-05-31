@@ -34,7 +34,7 @@ brew install vim git git-lfs tmux \
              reattach-to-user-namespace \
              Caskroom/cask/dockertoolbox \
              gdb \
-             cgdb \
+             cgdb
 
              brew install tmux-mem-cpu-load
 
@@ -82,4 +82,12 @@ npm install -g bower eslint babel-eslint eslint-plugin-react
 
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+YouCompleteMe
+```
+brew install cmake
+npm install -g typescript
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer --gocode-completer --tern-completer
 ```

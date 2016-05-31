@@ -31,13 +31,13 @@
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
   Plugin 'ervandew/supertab'
-  "Plugin 'Valloric/YouCompleteMe'
+  Plugin 'Valloric/YouCompleteMe'
   Plugin 'garbas/vim-snipmate'
   Plugin 'honza/vim-snippets'
 
   "Plugin 'bling/vim-airline'
-  Plugin 'vim-airline/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
+  "Plugin 'vim-airline/vim-airline'
+  "Plugin 'vim-airline/vim-airline-themes'
   Plugin 'tpope/vim-haml'
   Plugin 'Shougo/vimshell.vim'
   Plugin 'slim-template/vim-slim'
@@ -695,3 +695,5 @@ let b:javascript_fold = 0
 "let g:go_highlight_build_constraints = 1
 "let g:go_highlight_generate_tags = 1
 
+let g:ycm_key_list_select_completion = ['<C-j>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']

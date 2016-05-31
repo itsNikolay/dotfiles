@@ -1,8 +1,6 @@
 /log/
 /logs/
 /images/
-/javascripts/
-/stylesheets/
 /tmp/
 /vendor/
 *.sql
@@ -11,14 +9,9 @@
 *.csv
 *.tsv
 *.tmp*
-*.js
-*.css
-*.scss
 *.old
 *.json
 *.xml
-*.html
 *.plist
 *.pdf
-*.md
 *.log
