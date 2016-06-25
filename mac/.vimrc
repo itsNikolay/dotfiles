@@ -30,7 +30,7 @@
 
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
-  Plugin 'ervandew/supertab'
+  "Plugin 'ervandew/supertab'
   Plugin 'Valloric/YouCompleteMe'
   Plugin 'garbas/vim-snipmate'
   Plugin 'honza/vim-snippets'
@@ -54,6 +54,7 @@
   Plugin 'mitsuhiko/vim-jinja'
   Plugin 'mxw/vim-jsx'
   Plugin 'acarapetis/vim-colors-github'
+  Plugin 'majutsushi/tagbar'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -671,10 +672,6 @@ let g:AutoPairsFlyMode = 1
 "Open NerdTree on start
 "autocmd VimEnter * NERDTree
 
-" syntastic
-let g:syntastic_html_checkers=['']
-"let g:syntastic_javascript_checkers = ['eslint']
-
 " Dash search word under cursor in Dash
 :nmap <silent> <leader>d <Plug>DashSearch
 
@@ -696,4 +693,29 @@ let b:javascript_fold = 0
 "let g:go_highlight_generate_tags = 1
 
 let g:ycm_key_list_select_completion = ['<C-j>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_key_list_previous_completion = ['<C-k>']
+
+" Improve regexp
+set re=1
+set regexpengine=1
+
+"Youcompleteme fix
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+"Tagbar
+nnoremap <leader>t :Tagbar<cr>
+
+" Allow JSX in normal JS files
+let g:jsx_ext_required = 0
+
+" Ctags
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+\ }
