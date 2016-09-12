@@ -92,3 +92,13 @@ npm install -g typescript
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer --gocode-completer --tern-completer
 ```
+
+Vim spell check
+```
+mkdir -p ~/.vim/spell
+cd ~/.vim/spell
+wget http://ftp.vim.org/vim/runtime/spell/ru.koi8-r.sug
+wget http://ftp.vim.org/vim/runtime/spell/ru.koi8-r.spl
+wget http://ftp.vim.org/vim/runtime/spell/en.ascii.sug
+wget http://ftp.vim.org/vim/runtime/spell/en.ascii.spl
+```

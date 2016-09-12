@@ -55,6 +55,7 @@
   Plugin 'mxw/vim-jsx'
   Plugin 'acarapetis/vim-colors-github'
   Plugin 'majutsushi/tagbar'
+  Plugin 'exu/pgsql.vim'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -719,3 +720,6 @@ let g:tagbar_type_ruby = {
         \ 'F:singleton methods'
     \ ]
 \ }
+
+" Spell check
+set spell spelllang=ru,en
