@@ -39,6 +39,8 @@ brew install vim git git-lfs tmux \
 
              brew install tmux-mem-cpu-load
 
+brew case install xquartz
+
 ```
 
 ```

@@ -56,6 +56,9 @@
   Plugin 'acarapetis/vim-colors-github'
   Plugin 'majutsushi/tagbar'
   Plugin 'exu/pgsql.vim'
+  Plugin 'godlygeek/tabular'
+  Plugin 'plasticboy/vim-markdown'
+  Plugin 'ap/vim-buftabline'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -208,7 +211,8 @@
     " Binding
     " {{{
     " Map leader
-      let mapleader = ',' " used for lot of stuff, feel free to change it.
+      "let mapleader = ',' " used for lot of stuff, feel free to change it.
+      let mapleader = "\<Space>"
 
       " Open all folds
       nnoremap <space> :%foldopen<CR>
@@ -235,7 +239,8 @@
       nnoremap <leader>x :wq<cr>
 
       " this key combination gets rid of the search highlights.
-      nmap <leader><space> :noh<cr>
+      "nmap <leader><space> :noh<cr>
+      nmap <leader>, :noh<cr>
 
       " open vertical split and switch to it
       nnoremap <leader>v <C-w>v<C-w>l
