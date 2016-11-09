@@ -1,5 +1,3 @@
-# .railsrc
--B # Skip Bundle
--T # Skip Test-Unit
--d postgresql # Use postgres
--m https://raw.githubusercontent.com/itsNikolay/dotfiles/master/template.rb # Template
+--skip-test
+--database=postgresql
+--template=https://raw.githubusercontent.com/itsNikolay/dotfiles/master/template.rb

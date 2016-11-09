@@ -1,7 +1,7 @@
 if yes? 'Do initial commit?'
   git :init
   git add: '.'
-  git commit: 'initial'
+  git commit: '-m "initial"'
 end
 
 if yes? 'Add Rspec?'
@@ -17,8 +17,8 @@ if yes? 'Add Rspec?'
     gem 'spring'
     gem 'spring-commands-rspec'
   end
-  run :bundle
-  run spring: 'binstub --all'
+  run 'bundle'
+  run 'bin/spring binstub --all'
   generate 'rspec:install'
 end
 
@@ -27,7 +27,7 @@ if yes? 'Add Pry?'
     gem 'pry-rails'
     gem 'pry-byebug'
   end
-  run :bundle
+  run 'bundle'
 end
 
 if yes? 'Add Guard?'
@@ -36,12 +36,12 @@ if yes? 'Add Guard?'
     gem 'guard-rspec'
     gem 'guard-bundler'
   end
-  run :bundle
-  run bundle: 'exec guard init'
-  run bundle: 'exec guard init rspec'
-  run bundle: 'exec guard init bundler'
+  run 'bundle'
+  run 'bundle exec guard init'
+  run 'bundle exec guard init rspec'
+  run 'bundle exec guard init bundler'
 end
 
 git :init
 git add: '.'
-git commit: 'gems'
+git commit: '-m "gems"'
