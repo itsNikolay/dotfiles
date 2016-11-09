@@ -2,4 +2,4 @@
 -B # Skip Bundle
 -T # Skip Test-Unit
 -d postgresql # Use postgres
--m ~/projects/dotfiles/template.rb # Template
+-m https://raw.githubusercontent.com/itsNikolay/dotfiles/master/template.rb # Template
