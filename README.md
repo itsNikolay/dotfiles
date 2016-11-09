@@ -1,39 +1,106 @@
 ```
-sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion imagemagick graphicsmagick libmagickcore-dev libmagickwand-dev libreadline-dev \
-mysql-server mysql-client libmysqlclient-dev libmysqlclient-dev \
-postgresql-client-9.4 postgresql-9.4 postgresql-contrib-9.4 libpq-dev postgresql-server-dev-9.4 pgadmin3 \
-bison \
-zsh \
-vim-gnome \
--y
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+````
+
+```
+brew install vim git git-lfs tmux \
+             openssl libyaml libffi \
+             htop \
+             mysql postgres sqlite3 \
+             redis \
+             ack \
+             ag \
+             rbenv ruby-build rbenv-gem-rehash \
+             Caskroom/cask/google-chrome \
+             Caskroom/cask/firefox \
+             Caskroom/cask/skype \
+             Caskroom/cask/dash \
+             Caskroom/cask/seil \
+             Caskroom/cask/keepassx \
+             Caskroom/cask/dropbox \
+             Caskroom/cask/iterm2 \
+             Caskroom/cask/java \
+             Caskroom/cask/mysqlworkbench \
+             Caskroom/cask/gimp \
+             heroku-toolbelt \
+             Caskroom/cask/libreoffice \
+             cmake \
+             imagemagick \
+             Caskroom/cask/xquartz \
+             ansible \
+             ssh-copy-id \
+             Caskroom/cask/bittorrent \
+             Caskroom/cask/sourcetree \
+             reattach-to-user-namespace \
+             Caskroom/cask/dockertoolbox \
+             gdb \
+             cgdb \
+             ctags
+
+             brew install tmux-mem-cpu-load
+
+brew case install xquartz
+
 ```
 
-### zsh
-https://gist.github.com/tsabat/1498393
 ```
-wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-chsh -s `which zsh`
-sudo shutdown -r 0
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 ```
 
-### rbenv
 ```
-git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
-git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-rbenv install 2.2.2
-```
-
-### nvm
-```
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash
-nvm install 0.12
-nvm use 0.12
+vundle
+sudo mv /usr/bin/vim /usr/bin/vim73
+which vim
+_ ln -sf /usr/local/Cellar/vim/7.4.898/bin/vim /usr/local/bin
+_ ln -sf /usr/local/bin/vim /usr/local/bin/vi
 ```
 
-### gvm
+```
+ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+```
+
+```
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash
+```
+
 ```
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-gvm install go1.4.2
-gvm use go1.4.2
 ```
 
+```
+mkdir -p ~/.vim/tmp/swap
+mkdir -p ~/.vim/tmp/backup
+```
+
+```
+rbenv install 2.2.2 &&
+gvm install go1.4.2 &&
+nvm install v0.12.7 &&
+nvm alias default 0.12.7 &&
+npm install -g bower eslint babel-eslint eslint-plugin-react
+```
+
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+YouCompleteMe
+```
+brew install cmake
+npm install -g typescript
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer --gocode-completer --tern-completer
+```
+
+Vim spell check
+```
+mkdir -p ~/.vim/spell
+cd ~/.vim/spell
+wget http://ftp.vim.org/vim/runtime/spell/ru.koi8-r.sug
+wget http://ftp.vim.org/vim/runtime/spell/ru.koi8-r.spl
+wget http://ftp.vim.org/vim/runtime/spell/en.ascii.sug
+wget http://ftp.vim.org/vim/runtime/spell/en.ascii.spl
+```

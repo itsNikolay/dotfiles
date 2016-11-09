@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="frisk"
 #ZSH_THEME="eastwood"
 #ZSH_THEME="wezm"
-ZSH_THEME="philips"
+ZSH_THEME="nicoulaj"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -53,14 +53,14 @@ ZSH_THEME="philips"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv tmuxinator web-search colorize jira docker nvm)
+plugins=(git ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv colorize nvm brew brew-cask rsync vundle golang vi-mode npm docker history postgres rake-fast)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.gvm/scripts/gvm
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH:/home/itsnikolay/android/android-sdk-linux/tools
+#export PATH=$HOME/bin:/usr/local/bin:$PATH:/home/itsnikolay/android/android-sdk-linux/tools:/usr/X11/bin
 #export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386/jre
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -89,9 +89,13 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Tmuxinator
 #source ~/.bin/tmuxinator.zsh
 
-# GO
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=/home/itsnikolay/gocode
+export GO15VENDOREXPERIMENT=1
 
-export NVM_DIR="/Users/itsnikolay/.nvm"
+export NVM_DIR="/Users/nikolayponomarev/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+PATH="/Users/nikolayponomarev/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/nikolayponomarev/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/nikolayponomarev/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/nikolayponomarev/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/nikolayponomarev/perl5"; export PERL_MM_OPT;

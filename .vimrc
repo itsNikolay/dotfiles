@@ -9,14 +9,14 @@
 
   Plugin 'gmarik/Vundle.vim'
 
-  "Plugin 'Valloric/YouCompleteMe'
-  Plugin 'mileszs/ack.vim'
+  Plugin 'rking/ag.vim'
+  "Plugin 'mileszs/ack.vim'
   Plugin 'kien/ctrlp.vim'
   Plugin 'othree/html5.vim'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'scrooloose/syntastic'
-  Plugin 'kchmck/vim-coffee-script'
+  "Plugin 'kchmck/vim-coffee-script'
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-endwise'
   Plugin 'tpope/vim-fugitive'
@@ -30,11 +30,14 @@
 
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
+  "Plugin 'ervandew/supertab'
+  Plugin 'Valloric/YouCompleteMe'
   Plugin 'garbas/vim-snipmate'
   Plugin 'honza/vim-snippets'
-  Plugin 'ervandew/supertab'
-  "
-  Plugin 'bling/vim-airline'
+
+  "Plugin 'bling/vim-airline'
+  "Plugin 'vim-airline/vim-airline'
+  "Plugin 'vim-airline/vim-airline-themes'
   Plugin 'tpope/vim-haml'
   Plugin 'Shougo/vimshell.vim'
   Plugin 'slim-template/vim-slim'
@@ -42,6 +45,20 @@
   Plugin 'merlinrebrovic/focus.vim'
   Plugin 'AndrewRadev/vim-eco'
   Plugin 'jiangmiao/auto-pairs'
+
+  Plugin 'sjl/vitality.vim'
+  "Plugin 'bendavis78/vim-polymer'
+  Plugin 'digitaltoad/vim-jade'
+  Plugin 'altercation/vim-colors-solarized'
+  Plugin 'rizzatti/dash.vim'
+  Plugin 'mitsuhiko/vim-jinja'
+  Plugin 'mxw/vim-jsx'
+  Plugin 'acarapetis/vim-colors-github'
+  Plugin 'majutsushi/tagbar'
+  Plugin 'exu/pgsql.vim'
+  Plugin 'godlygeek/tabular'
+  Plugin 'plasticboy/vim-markdown'
+  Plugin 'ap/vim-buftabline'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -52,7 +69,11 @@
 " {{{
 "   Basic {{{
     " Ack=grep
-      let g:ackprg = "ack-grep -H --nocolor --nogroup --column"
+      "if executable('ag')
+        "let g:ackprg = 'ag --vimgrep'
+      "else
+        "let g:ackprg = "ack -H --nocolor --nogroup --column"
+      "endif
 
       set backspace=indent,eol,start " make backspace a more flexible
       let loaded_matchparen=1 " match paranthesis
@@ -68,8 +89,7 @@
       set wildmenu " wildmenu when autocomplting option
       set wildmode=full " complete the full match, this is default behaviour
       set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " there files will be ignored when completing in wild menu
-      set clipboard=unnamedplus " share clipboard
-      "set clipboard+=unnamed,unnamedplus,autoselect " share clipboard
+      set clipboard=unnamed " copy to the system clipboard
       set history=1000
       set tags=.tags;/ " save tags generated for files in current working directory
       set ttyfast " i got a fast terminal!
@@ -92,12 +112,17 @@
     "
       syntax enable
       set background=light
+      colorscheme github
       "colorscheme solarized
       "colorscheme railscasts " Color scheme
       "colorscheme fokus " Color scheme
       "colorscheme mac_classic " Color scheme
       "colorscheme github " Color scheme
       "colorscheme Tomorrow " Color scheme
+      "colorscheme solarized
+
+      let g:airline_theme='sol'
+      "let g:airline_theme='solarized'
 
       set tabstop=2 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
@@ -134,6 +159,7 @@
 
       set foldenable " folding text into clusters (+) according to  {{{ }}} or comments for example.
       set foldmethod=manual " default options, we create fold manually.
+      "set foldmethod=syntax " default options, we create fold manually.
       set showmatch " when use insert bracket, briefly jump to matching one (i like it, but i might be annoying)
 
       set infercase " case inferred by default
@@ -155,7 +181,7 @@
       set cursorline
 
       "improve autocomplete menu color
-      highlight Pmenu ctermbg=238
+      "highlight Pmenu ctermbg=238
       " }}}
       "
 
@@ -185,7 +211,8 @@
     " Binding
     " {{{
     " Map leader
-      let mapleader = ',' " used for lot of stuff, feel free to change it.
+      "let mapleader = ',' " used for lot of stuff, feel free to change it.
+      let mapleader = "\<Space>"
 
       " Open all folds
       nnoremap <space> :%foldopen<CR>
@@ -212,7 +239,8 @@
       nnoremap <leader>x :wq<cr>
 
       " this key combination gets rid of the search highlights.
-      nmap <leader><space> :noh<cr>
+      "nmap <leader><space> :noh<cr>
+      nmap <leader>, :noh<cr>
 
       " open vertical split and switch to it
       nnoremap <leader>v <C-w>v<C-w>l
@@ -241,7 +269,8 @@
       nnoremap <leader>y "+y
 
       " start ack search, (using ACK tool, like grep but for source code)
-      nnoremap <leader>a :Ack! 
+      "nnoremap <leader>a :Ack! 
+      nnoremap <leader>a :Ag 
 
       " reformat whole file
       nnoremap <leader>= ggVG=
@@ -348,6 +377,14 @@
 
       " CtrlP
       " {{{
+      " Ag search
+      let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+            \ --ignore .git
+            \ --ignore .svn
+            \ --ignore .hg
+            \ --ignore .DS_Store
+            \ --ignore "**/*.pyc"
+            \ -g ""'
       set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
       nnoremap <F3> :CtrlP<CR>
       nnoremap <F4> :CtrlPBuffer<CR>
@@ -405,13 +442,13 @@
       " }}}
 
       " NERDTree {{{
-      nnoremap <F1> :NERDTreeToggle<CR>
+      "nnoremap <F1> :NERDTreeToggle<CR>
       nnoremap <leader>n :NERDTreeToggle<CR>
       let g:NERDTreeMinimalUI=1
-      let g:NERDTreeDirArrows=1
+      "let g:NERDTreeDirArrows=1
       let g:NERTreeHighlightCursorLine=1
-      let g:NERDTreeShowBookmarks=1
-      let g:NERDTreeShowLineNumbers=1
+      "let g:NERDTreeShowBookmarks=1
+      "let g:NERDTreeShowLineNumbers=1
       "}}}
       "
       " NerdTree Tabs {{{
@@ -434,19 +471,21 @@
       nnoremap <leader>rr :Rake 
       nnoremap <leader>ri :Rinitializer 
       " routes leads to empty initializer path
-      nnoremap <leader>ro :RTinitializer<CR>
-      nnoremap <leader>rv :RTview 
-      nnoremap <leader>rc :RTcontroller 
-      nnoremap <leader>rm :RTmodel 
-      nnoremap <leader>rh :RThelper 
-      nnoremap <leader>rl :RTlib 
-      nnoremap <leader>rj :RTjavascript 
-      nnoremap <leader>rst :RTstylesheet 
-      nnoremap <leader>rs :RTspec 
-      nnoremap <leader>rlo :RTlocale 
-      nnoremap <leader>rma :RTmailer 
-      nnoremap <leader>rmi :RTmigration 
-      nnoremap <leader>rsc :RTschema 
+      nnoremap <leader>ro :Tinitializer<CR>
+      nnoremap <leader>rv :Tview 
+      nnoremap <leader>rc :Tcontroller 
+      nnoremap <leader>rm :Tmodel 
+      nnoremap <leader>rh :Thelper 
+      nnoremap <leader>rl :Tlib 
+      nnoremap <leader>rj :Tjavascript 
+      nnoremap <leader>rst :Tstylesheet 
+      nnoremap <leader>rs :Tspec 
+      nnoremap <leader>rlo :Tlocale 
+      nnoremap <leader>rma :Tmailer 
+      nnoremap <leader>rmi :Tmigration 
+      nnoremap <leader>rsc :Tschema 
+
+      nnoremap <leader>rt :AV<CR>
 
       " set rails status line
       let g:rails_statusline = 1
@@ -572,13 +611,6 @@ au BufRead,BufNewFile *.hamlc set ft=haml
 
 :ino <C-C> <Esc>
 
-if has("autocmd")
-  au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
-  au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
-  au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
-  au VimEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
-endif
-
  " Run the current file with rspec
  map <Leader>vrb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
 
@@ -603,9 +635,6 @@ endif
 let g:VimuxHeight = "26"
 let g:VimuxOrientation = "h"
 
-
-" Blowfish encrypt
-:set cm=blowfish
 
 if exists('$TMUX')
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
@@ -641,10 +670,61 @@ nmap <leader>18 :%s/\(\w\+\):\s/:\1 => /gc<cr>
 let g:AutoPairsFlyMode = 1
 
 "Hightlight diff
-highlight DiffAdd    term=reverse ctermbg=148
-highlight DiffChange term=reverse ctermbg=081
-highlight DiffText   term=reverse ctermbg=084
-highlight DiffDelete term=reverse ctermbg=160
+"highlight DiffAdd    term=reverse ctermbg=148
+"highlight DiffChange term=reverse ctermbg=081
+"highlight DiffText   term=reverse ctermbg=084
+"highlight DiffDelete term=reverse ctermbg=160
 
 "Open NerdTree on start
-autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree
+
+" Dash search word under cursor in Dash
+:nmap <silent> <leader>d <Plug>DashSearch
+
+" Concealing Characters
+let b:javascript_fold = 0
+
+"white bg for tab
+:hi TabLineFill term=bold cterm=bold ctermbg=255
+:hi SpecialKey  term=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
+:hi NonText  term=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
+
+" vim-go enabling
+"let g:go_highlight_operators = 1
+"let g:go_highlight_functions = 1
+"let g:go_highlight_methods = 1
+"let g:go_highlight_structs = 1
+"let g:go_highlight_interfaces = 1
+"let g:go_highlight_build_constraints = 1
+"let g:go_highlight_generate_tags = 1
+
+let g:ycm_key_list_select_completion = ['<C-j>']
+let g:ycm_key_list_previous_completion = ['<C-k>']
+
+" Improve regexp
+set re=1
+set regexpengine=1
+
+"Youcompleteme fix
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+"Tagbar
+nnoremap <leader>t :Tagbar<cr>
+
+" Allow JSX in normal JS files
+let g:jsx_ext_required = 0
+
+" Ctags
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+\ }
+
+" Spell check
+set spell spelllang=ru,en

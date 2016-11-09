@@ -1,8 +1,0 @@
-#!/bin/bash
-
-ln -s `pwd`/autostart/chrome.desktop      ~/.config/autostart/. -f;
-ln -s `pwd`/autostart/dropbox.desktop     ~/.config/autostart/. -f;
-ln -s `pwd`/autostart/screencloud.desktop ~/.config/autostart/. -f;
-ln -s `pwd`/autostart/skype.desktop       ~/.config/autostart/. -f;
-ln -s `pwd`/autostart/terminal.desktop    ~/.config/autostart/. -f;
-ln -s `pwd`/autostart/radiotray.desktop   ~/.config/autostart/. -f;
