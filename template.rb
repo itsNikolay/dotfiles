@@ -50,13 +50,15 @@ if yes?('Add Devise')
   generate 'devise', model_name
 end
 
-if yes?('Add Pundit')
+if yes?('Add Pundit?')
   gem 'pundit'
+  run 'bundle'
   generate 'pundit:install'
 end
 
-if yes?('Add Carrierwave')
+if yes?('Add Carrierwave?')
   gem 'carrierwave'
+  run 'bundle'
 end
 
 git :init
