@@ -253,6 +253,8 @@
       map <C-M-n> :tabedit %<CR>
       map <M-Right> :tabnext<cr>
       map <M-Left> :tabprevious<cr>
+      map <Left> :tabprevious<cr>
+      map <Right> :tabnext<cr>
 
       " buffers - moving around
       map <A-x-Left> :bprevious<CR>
