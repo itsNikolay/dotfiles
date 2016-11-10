@@ -4,7 +4,7 @@ if yes?('Do initial commit?')
   git commit: '-m "initial"'
 end
 
-if yes?('Add Rspec?')
+if rspec = yes?('Add Rspec?')
   gem_group :test do
     gem 'webmock'
     gem 'vcr'
@@ -33,12 +33,12 @@ end
 if yes?('Add Guard?')
   gem_group :development do
     gem 'guard'
-    gem 'guard-rspec'
+    gem 'guard-rspec' if rspec
     gem 'guard-bundler'
   end
   run 'bundle'
   run 'bundle exec guard init'
-  run 'bundle exec guard init rspec'
+  run 'bundle exec guard init rspec' if rspec
   run 'bundle exec guard init bundler'
 end
 
