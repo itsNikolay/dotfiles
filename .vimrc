@@ -9,14 +9,12 @@
 
   Plugin 'gmarik/Vundle.vim'
 
-  Plugin 'rking/ag.vim'
-  "Plugin 'mileszs/ack.vim'
+  Plugin 'mileszs/ack.vim'
   Plugin 'kien/ctrlp.vim'
   Plugin 'othree/html5.vim'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'scrooloose/syntastic'
-  "Plugin 'kchmck/vim-coffee-script'
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-endwise'
   Plugin 'tpope/vim-fugitive'
@@ -30,14 +28,10 @@
 
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
-  "Plugin 'ervandew/supertab'
   Plugin 'Valloric/YouCompleteMe'
   Plugin 'garbas/vim-snipmate'
   Plugin 'honza/vim-snippets'
 
-  "Plugin 'bling/vim-airline'
-  "Plugin 'vim-airline/vim-airline'
-  "Plugin 'vim-airline/vim-airline-themes'
   Plugin 'tpope/vim-haml'
   Plugin 'Shougo/vimshell.vim'
   Plugin 'slim-template/vim-slim'
@@ -47,7 +41,6 @@
   Plugin 'jiangmiao/auto-pairs'
 
   Plugin 'sjl/vitality.vim'
-  "Plugin 'bendavis78/vim-polymer'
   Plugin 'digitaltoad/vim-jade'
   Plugin 'altercation/vim-colors-solarized'
   Plugin 'rizzatti/dash.vim'
@@ -58,7 +51,6 @@
   Plugin 'exu/pgsql.vim'
   Plugin 'godlygeek/tabular'
   Plugin 'plasticboy/vim-markdown'
-  Plugin 'ap/vim-buftabline'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -69,11 +61,11 @@
 " {{{
 "   Basic {{{
     " Ack=grep
-      "if executable('ag')
-        "let g:ackprg = 'ag --vimgrep'
-      "else
-        "let g:ackprg = "ack -H --nocolor --nogroup --column"
-      "endif
+      if executable('ag')
+        let g:ackprg = 'ag --vimgrep --smart-case' 
+      else
+        let g:ackprg = "ack -H --nocolor --nogroup --column"
+      endif
 
       set backspace=indent,eol,start " make backspace a more flexible
       let loaded_matchparen=1 " match paranthesis
@@ -271,8 +263,8 @@
       nnoremap <leader>y "+y
 
       " start ack search, (using ACK tool, like grep but for source code)
-      "nnoremap <leader>a :Ack! 
-      nnoremap <leader>a :Ag 
+      nnoremap <leader>a :Ack! 
+      "nnoremap <leader>a :Ag 
 
       " reformat whole file
       nnoremap <leader>= ggVG=
@@ -387,6 +379,7 @@
             \ --ignore .DS_Store
             \ --ignore "**/*.pyc"
             \ -g ""'
+      let g:ctrlp_clear_cache_on_exit = 1
       set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
       nnoremap <F3> :CtrlP<CR>
       nnoremap <F4> :CtrlPBuffer<CR>
@@ -730,3 +723,6 @@ let g:tagbar_type_ruby = {
 
 " Spell check
 set spell spelllang=ru,en
+
+" Slim
+autocmd BufNewFile,BufRead *.slim setlocal filetype=slim

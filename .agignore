@@ -3,7 +3,6 @@
 /images/
 /tmp/
 /vendor/
-*.sql
 *.tags*
 *.gemtags*
 *.csv

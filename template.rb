@@ -12,6 +12,7 @@ if rspec = yes?('Add Rspec?')
   gem_group :development, :test do
     gem 'rspec-rails'
     gem 'factory_girl_rails'
+    # TODO: Add support file
   end
   gem_group :development do
     gem 'spring'
@@ -59,6 +60,14 @@ end
 if yes?('Add Carrierwave?')
   gem 'carrierwave'
   run 'bundle'
+end
+
+if yes?('Create database?')
+  rake 'db:create db:migrate'
+end
+
+if yes?('Add Slim?')
+  gem 'slim'
 end
 
 git :init
