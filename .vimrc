@@ -50,7 +50,16 @@
   Plugin 'majutsushi/tagbar'
   Plugin 'exu/pgsql.vim'
   Plugin 'godlygeek/tabular'
-  Plugin 'plasticboy/vim-markdown'
+  "Plugin 'plasticboy/vim-markdown'
+  Plugin 'tpope/vim-markdown'
+  Plugin 'ekalinin/Dockerfile.vim'
+  "Plugin 'ryanoasis/vim-devicons'
+  Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'airblade/vim-gitgutter'
+  Plugin 'yuttie/comfortable-motion.vim'
+  Plugin 'kchmck/vim-coffee-script'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -116,7 +125,7 @@
       let g:airline_theme='sol'
       "let g:airline_theme='solarized'
 
-      set tabstop=2 " when there's tab, it should be indented by 4 spaces
+      set tabstop=4 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
       set shiftround " round the indent to shiftwidth (when at 3 spaces, and I hit > go to 4, not 5)
       set autoindent
@@ -130,7 +139,7 @@
       set smartcase " use smartcase, when search query starts with Uppercase, turn off case insensitive search
 
       set list " show trailing characters
-      set listchars=tab:·\ ,trail:¬,extends:❯,precedes:❮,nbsp:~ " it show ¬ character when as you type, fill free to comment out set list tab:▸\ ,
+      set listchars=tab:·\ ,trail:¬,extends:❯,precedes:❮ " it show ¬ character when as you type, fill free to comment out set list tab:▸\ ,
 
       set number " set line numbering
       set novisualbell " do not blink
@@ -158,7 +167,7 @@
       set shiftround " round the indent to shiftwidth (when at 3 spaces, and I hit > go to 4, not 5)
       set shiftwidth=2 " auto-indent amount when using >> <<
       set softtabstop=2 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
-      set tabstop=2 " real tabs should be 4, and they will show with set list on
+      set tabstop=4 " real tabs should be 4, and they will show with set list on
 
       set completeopt=longest,menu,preview
       " }}}
@@ -267,7 +276,7 @@
       "nnoremap <leader>a :Ag 
 
       " reformat whole file
-      nnoremap <leader>= ggVG=
+      nnoremap <leader>= ggVG=''
 
       " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
       " (it will prompt for sudo password when writing)
@@ -686,12 +695,13 @@ let b:javascript_fold = 0
 
 " vim-go enabling
 "let g:go_highlight_operators = 1
-"let g:go_highlight_functions = 1
+let g:go_highlight_functions = 1
 "let g:go_highlight_methods = 1
 "let g:go_highlight_structs = 1
 "let g:go_highlight_interfaces = 1
 "let g:go_highlight_build_constraints = 1
 "let g:go_highlight_generate_tags = 1
+let g:go_fmt_command = "goimports"
 
 let g:ycm_key_list_select_completion = ['<C-j>']
 let g:ycm_key_list_previous_completion = ['<C-k>']
@@ -726,3 +736,14 @@ set spell spelllang=ru,en
 
 " Slim
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+
+" Golang files
+au BufRead,BufNewFile *.go set filetype=go
+
+" Icons
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+"let g:airline_powerline_fonts = 1
+
+"Show arline
+set laststatus=2

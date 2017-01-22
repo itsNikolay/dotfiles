@@ -86,9 +86,6 @@ export TERM="xterm-256color"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# Tmuxinator
-#source ~/.bin/tmuxinator.zsh
-
 export GO15VENDOREXPERIMENT=1
 
 export NVM_DIR="/Users/nikolayponomarev/.nvm"
@@ -99,3 +96,6 @@ PERL5LIB="/Users/nikolayponomarev/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; exp
 PERL_LOCAL_LIB_ROOT="/Users/nikolayponomarev/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/Users/nikolayponomarev/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/nikolayponomarev/perl5"; export PERL_MM_OPT;
+
+# Rabbitmq
+PATH=$PATH:/usr/local/sbin
