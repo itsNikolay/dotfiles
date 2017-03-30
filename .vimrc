@@ -10,7 +10,7 @@
   Plugin 'gmarik/Vundle.vim'
 
   Plugin 'mileszs/ack.vim'
-  Plugin 'kien/ctrlp.vim'
+  "Plugin 'kien/ctrlp.vim'
   Plugin 'othree/html5.vim'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/nerdcommenter'
@@ -35,31 +35,32 @@
   Plugin 'tpope/vim-haml'
   Plugin 'Shougo/vimshell.vim'
   Plugin 'slim-template/vim-slim'
-  Plugin 'lucapette/vim-ruby-doc'
+  "Plugin 'lucapette/vim-ruby-doc'
   Plugin 'merlinrebrovic/focus.vim'
-  Plugin 'AndrewRadev/vim-eco'
+  "Plugin 'AndrewRadev/vim-eco'
   Plugin 'jiangmiao/auto-pairs'
 
   Plugin 'sjl/vitality.vim'
   Plugin 'digitaltoad/vim-jade'
-  Plugin 'altercation/vim-colors-solarized'
+  "Plugin 'altercation/vim-colors-solarized'
   Plugin 'rizzatti/dash.vim'
   Plugin 'mitsuhiko/vim-jinja'
   Plugin 'mxw/vim-jsx'
   Plugin 'acarapetis/vim-colors-github'
   Plugin 'majutsushi/tagbar'
-  Plugin 'exu/pgsql.vim'
+  "Plugin 'exu/pgsql.vim'
   Plugin 'godlygeek/tabular'
   "Plugin 'plasticboy/vim-markdown'
   Plugin 'tpope/vim-markdown'
-  Plugin 'ekalinin/Dockerfile.vim'
+  "Plugin 'ekalinin/Dockerfile.vim'
   "Plugin 'ryanoasis/vim-devicons'
-  Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-  Plugin 'vim-airline/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
-  Plugin 'airblade/vim-gitgutter'
-  Plugin 'yuttie/comfortable-motion.vim'
+  "Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+  "Plugin 'vim-airline/vim-airline'
+  "Plugin 'vim-airline/vim-airline-themes'
+  "Plugin 'airblade/vim-gitgutter'
+  "Plugin 'yuttie/comfortable-motion.vim'
   Plugin 'kchmck/vim-coffee-script'
+  "Plugin 'easymotion/vim-easymotion'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -70,11 +71,11 @@
 " {{{
 "   Basic {{{
     " Ack=grep
-      if executable('ag')
-        let g:ackprg = 'ag --vimgrep --smart-case' 
-      else
-        let g:ackprg = "ack -H --nocolor --nogroup --column"
-      endif
+      "if executable('ag')
+        "let g:ackprg = 'ag --vimgrep --smart-case --hidden'
+      "else
+        "let g:ackprg = "ack -H --nocolor --nogroup --column"
+      "endif
 
       set backspace=indent,eol,start " make backspace a more flexible
       let loaded_matchparen=1 " match paranthesis
@@ -95,6 +96,8 @@
       set tags=.tags;/ " save tags generated for files in current working directory
       set ttyfast " i got a fast terminal!
       set ttimeoutlen=50  " Make Esc work faster
+      set path=**
+      set exrc " enable per project configuration files
 
     " }}}
 
@@ -513,7 +516,7 @@
 
       " Bindings
       " {{{
-      nnoremap <c-o> :browse tabnew :pwd<CR>
+      "nnoremap <c-o> :browse tabnew :pwd<CR>
       nnoremap <C-M-s> :browse saveas :pwd<CR>
       nnoremap <C-M-f> :set guifont=*<CR>
 
@@ -737,13 +740,6 @@ set spell spelllang=ru,en
 " Slim
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 
-" Golang files
-au BufRead,BufNewFile *.go set filetype=go
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
-" Icons
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
-"let g:airline_powerline_fonts = 1
-
-"Show arline
-set laststatus=2
+set secure " to the end of the file

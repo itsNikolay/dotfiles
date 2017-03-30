@@ -1,0 +1,10 @@
+# Always color, even if piping to a another program
+--color
+
+# Ignore dirs
+--ignore-dir=log
+--ignore-dir=tmp
+
+# Ignore files
+--ignore-file=is:.byebug_history
+--ignore-file=is:tags
