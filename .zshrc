@@ -56,7 +56,7 @@ ZSH_THEME="nicoulaj"
 plugins=(git ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv colorize nvm brew brew-cask rsync vundle golang vi-mode npm docker history postgres rake-fast)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.gvm/scripts/gvm
+#source $HOME/.gvm/scripts/gvm
 
 # User configuration
 
@@ -86,8 +86,6 @@ export TERM="xterm-256color"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export GO15VENDOREXPERIMENT=1
-
 export NVM_DIR="/Users/nikolayponomarev/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -99,3 +97,8 @@ PERL_MM_OPT="INSTALL_BASE=/Users/nikolayponomarev/perl5"; export PERL_MM_OPT;
 
 # Rabbitmq
 PATH=$PATH:/usr/local/sbin
+
+# GO
+#export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$(go env GOPATH)/bin

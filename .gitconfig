@@ -10,3 +10,5 @@
 	default = current
 [rebase]
 	autostash = true
+ [core]
+   pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less

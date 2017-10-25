@@ -4,6 +4,8 @@
 # Ignore dirs
 --ignore-dir=log
 --ignore-dir=tmp
+--ignore-dir=vendor
+--ignore-dir=node_modules
 
 # Ignore files
 --ignore-file=is:.byebug_history

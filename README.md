@@ -3,14 +3,14 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 ````
 
 ```
-brew install vim git git-lfs tmux \
+brew install git git-lfs tmux \
              openssl libyaml libffi \
              htop \
              mysql postgres sqlite3 \
              redis \
              ack \
              ag \
-             rbenv ruby-build rbenv-gem-rehash \
+             rbenv \
              Caskroom/cask/google-chrome \
              Caskroom/cask/firefox \
              Caskroom/cask/skype \
@@ -30,16 +30,16 @@ brew install vim git git-lfs tmux \
              ansible \
              ssh-copy-id \
              Caskroom/cask/bittorrent \
-             Caskroom/cask/sourcetree \
              reattach-to-user-namespace \
-             Caskroom/cask/dockertoolbox \
              gdb \
              cgdb \
-             ctags
+             ctags \
+             wget
 
              brew install tmux-mem-cpu-load
 
 brew case install xquartz
+brew install vim --with-override-system-vi
 
 ```
 
@@ -93,6 +93,7 @@ brew install cmake
 npm install -g typescript
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer --gocode-completer --tern-completer
+git submodule update --init --recursive
 ```
 
 Vim spell check
@@ -101,6 +102,17 @@ mkdir -p ~/.vim/spell
 cd ~/.vim/spell
 wget http://ftp.vim.org/vim/runtime/spell/ru.koi8-r.sug
 wget http://ftp.vim.org/vim/runtime/spell/ru.koi8-r.spl
+wget http://ftp.vim.org/vim/runtime/spell/ru.utf-8.spl
+wget http://ftp.vim.org/vim/runtime/spell/ru.ascii.spl
 wget http://ftp.vim.org/vim/runtime/spell/en.ascii.sug
 wget http://ftp.vim.org/vim/runtime/spell/en.ascii.spl
+```
+
+# Tmux plugin manager
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+# iTerm2 and Vim shared clipboard
+```
+https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 ```

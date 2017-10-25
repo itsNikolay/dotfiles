@@ -32,26 +32,26 @@
   Plugin 'garbas/vim-snipmate'
   Plugin 'honza/vim-snippets'
 
-  Plugin 'tpope/vim-haml'
+  "Plugin 'tpope/vim-haml'
   Plugin 'Shougo/vimshell.vim'
-  Plugin 'slim-template/vim-slim'
+  "Plugin 'slim-template/vim-slim'
   "Plugin 'lucapette/vim-ruby-doc'
   Plugin 'merlinrebrovic/focus.vim'
   "Plugin 'AndrewRadev/vim-eco'
   Plugin 'jiangmiao/auto-pairs'
 
   Plugin 'sjl/vitality.vim'
-  Plugin 'digitaltoad/vim-jade'
-  "Plugin 'altercation/vim-colors-solarized'
+  "Plugin 'digitaltoad/vim-jade'
+  Plugin 'altercation/vim-colors-solarized'
   Plugin 'rizzatti/dash.vim'
-  Plugin 'mitsuhiko/vim-jinja'
+  "Plugin 'mitsuhiko/vim-jinja'
   Plugin 'mxw/vim-jsx'
   Plugin 'acarapetis/vim-colors-github'
   Plugin 'majutsushi/tagbar'
   "Plugin 'exu/pgsql.vim'
   Plugin 'godlygeek/tabular'
-  "Plugin 'plasticboy/vim-markdown'
-  Plugin 'tpope/vim-markdown'
+  Plugin 'plasticboy/vim-markdown'
+  "Plugin 'tpope/vim-markdown'
   "Plugin 'ekalinin/Dockerfile.vim'
   "Plugin 'ryanoasis/vim-devicons'
   "Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -59,8 +59,14 @@
   "Plugin 'vim-airline/vim-airline-themes'
   "Plugin 'airblade/vim-gitgutter'
   "Plugin 'yuttie/comfortable-motion.vim'
-  Plugin 'kchmck/vim-coffee-script'
+  "Plugin 'kchmck/vim-coffee-script'
   "Plugin 'easymotion/vim-easymotion'
+  "Plugin 'zcodes/vim-colors-basic'
+  Plugin 'tpope/vim-rhubarb'
+  Plugin 'vimwiki/vimwiki'
+  Plugin 'tpope/vim-dispatch'
+  "Plugin 'chrisbra/csv.vim'
+  "Plugin 'morhetz/gruvbox'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -116,8 +122,13 @@
     "
       syntax enable
       set background=light
-      colorscheme github
-      "colorscheme solarized
+      "colorscheme gruvbox
+      "colorscheme github
+      colorscheme solarized
+      let g:solarized_termcolors=256
+      syntax enable
+      set background=light
+      colorscheme solarized
       "colorscheme railscasts " Color scheme
       "colorscheme fokus " Color scheme
       "colorscheme mac_classic " Color scheme
@@ -125,8 +136,8 @@
       "colorscheme Tomorrow " Color scheme
       "colorscheme solarized
 
-      let g:airline_theme='sol'
-      "let g:airline_theme='solarized'
+      "let g:airline_theme='sol'
+      let g:airline_theme='solarized'
 
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
@@ -553,65 +564,65 @@
 " {{{
   "here is a more exotic version of my original Kwbd script
   "delete the buffer; keep windows; create a scratch buffer if no buffers left
-  function s:Kwbd(kwbdStage)
-    if(a:kwbdStage == 1)
-      if(!buflisted(winbufnr(0)))
-        bd!
-        return
-      endif
-      let s:kwbdBufNum = bufnr("%")
-      let s:kwbdWinNum = winnr()
-      windo call s:Kwbd(2)
-      execute s:kwbdWinNum . 'wincmd w'
-      let s:buflistedLeft = 0
-      let s:bufFinalJump = 0
-      let l:nBufs = bufnr("$")
-      let l:i = 1
-      while(l:i <= l:nBufs)
-        if(l:i != s:kwbdBufNum)
-          if(buflisted(l:i))
-            let s:buflistedLeft = s:buflistedLeft + 1
-          else
-            if(bufexists(l:i) && !strlen(bufname(l:i)) && !s:bufFinalJump)
-              let s:bufFinalJump = l:i
-            endif
-          endif
-        endif
-        let l:i = l:i + 1
-      endwhile
-      if(!s:buflistedLeft)
-        if(s:bufFinalJump)
-          windo if(buflisted(winbufnr(0))) | execute "b! " . s:bufFinalJump | endif
-        else
-          enew
-          let l:newBuf = bufnr("%")
-          windo if(buflisted(winbufnr(0))) | execute "b! " . l:newBuf | endif
-        endif
-        execute s:kwbdWinNum . 'wincmd w'
-      endif
-      if(buflisted(s:kwbdBufNum) || s:kwbdBufNum == bufnr("%"))
-        execute "bd! " . s:kwbdBufNum
-      endif
-      if(!s:buflistedLeft)
-        set buflisted
-        set bufhidden=delete
-        set buftype=
-        setlocal noswapfile
-      endif
-    else
-      if(bufnr("%") == s:kwbdBufNum)
-        let prevbufvar = bufnr("#")
-        if(prevbufvar > 0 && buflisted(prevbufvar) && prevbufvar != s:kwbdBufNum)
-          b #
-        else
-          bn
-        endif
-      endif
-    endif
-  endfunction
+  "function s:Kwbd(kwbdStage)
+    "if(a:kwbdStage == 1)
+      "if(!buflisted(winbufnr(0)))
+        "bd!
+        "return
+      "endif
+      "let s:kwbdBufNum = bufnr("%")
+      "let s:kwbdWinNum = winnr()
+      "windo call s:Kwbd(2)
+      "execute s:kwbdWinNum . 'wincmd w'
+      "let s:buflistedLeft = 0
+      "let s:bufFinalJump = 0
+      "let l:nBufs = bufnr("$")
+      "let l:i = 1
+      "while(l:i <= l:nBufs)
+        "if(l:i != s:kwbdBufNum)
+          "if(buflisted(l:i))
+            "let s:buflistedLeft = s:buflistedLeft + 1
+          "else
+            "if(bufexists(l:i) && !strlen(bufname(l:i)) && !s:bufFinalJump)
+              "let s:bufFinalJump = l:i
+            "endif
+          "endif
+        "endif
+        "let l:i = l:i + 1
+      "endwhile
+      "if(!s:buflistedLeft)
+        "if(s:bufFinalJump)
+          "windo if(buflisted(winbufnr(0))) | execute "b! " . s:bufFinalJump | endif
+        "else
+          "enew
+          "let l:newBuf = bufnr("%")
+          "windo if(buflisted(winbufnr(0))) | execute "b! " . l:newBuf | endif
+        "endif
+        "execute s:kwbdWinNum . 'wincmd w'
+      "endif
+      "if(buflisted(s:kwbdBufNum) || s:kwbdBufNum == bufnr("%"))
+        "execute "bd! " . s:kwbdBufNum
+      "endif
+      "if(!s:buflistedLeft)
+        "set buflisted
+        "set bufhidden=delete
+        "set buftype=
+        "setlocal noswapfile
+      "endif
+    "else
+      "if(bufnr("%") == s:kwbdBufNum)
+        "let prevbufvar = bufnr("#")
+        "if(prevbufvar > 0 && buflisted(prevbufvar) && prevbufvar != s:kwbdBufNum)
+          "b #
+        "else
+          "bn
+        "endif
+      "endif
+    "endif
+  "endfunction
 
-  command! Kwbd call s:Kwbd(1)
-  nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
+  "command! Kwbd call s:Kwbd(1)
+  "nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
 
 " }}}
 au BufRead,BufNewFile *.hamlc set ft=haml
@@ -739,7 +750,31 @@ set spell spelllang=ru,en
 
 " Slim
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+" Markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+" Path
+set path=**
+
+" Exclude dirs from search
+:set wildignore+=*/node_modules/*
 
 set secure " to the end of the file
+
+" vimwiki/vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" Keyjumps
+nnoremap * *``
+nnoremap * :keepjumps normal *``<cr>
+:let @/="variable"
+
+" Bookmark related to project
+if isdirectory(expand(".git"))
+  let g:NERDTreeBookmarksFile = '.git/.nerdtree-bookmarks'
+endif
+
+" YouCompleteme auto close preview menu
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_server_use_vim_stdout = 1
+let g:ycm_server_log_level = 'debug'
