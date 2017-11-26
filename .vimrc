@@ -14,7 +14,7 @@
   Plugin 'othree/html5.vim'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/nerdcommenter'
-  Plugin 'scrooloose/syntastic'
+  "Plugin 'scrooloose/syntastic'
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-endwise'
   Plugin 'tpope/vim-fugitive'
@@ -29,7 +29,8 @@
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
   Plugin 'Valloric/YouCompleteMe'
-  Plugin 'garbas/vim-snipmate'
+  "Plugin 'garbas/vim-snipmate'
+  Plugin 'sirver/ultisnips'
   Plugin 'honza/vim-snippets'
 
   "Plugin 'tpope/vim-haml'
@@ -55,8 +56,8 @@
   "Plugin 'ekalinin/Dockerfile.vim'
   "Plugin 'ryanoasis/vim-devicons'
   "Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-  "Plugin 'vim-airline/vim-airline'
-  "Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
   "Plugin 'airblade/vim-gitgutter'
   "Plugin 'yuttie/comfortable-motion.vim'
   "Plugin 'kchmck/vim-coffee-script'
@@ -67,6 +68,10 @@
   Plugin 'tpope/vim-dispatch'
   "Plugin 'chrisbra/csv.vim'
   "Plugin 'morhetz/gruvbox'
+  Plugin 'junegunn/fzf.vim' " during the bug https://github.com/junegunn/fzf.vim/issues/519
+  Plugin 'w0rp/ale'
+  Plugin 'tpope/vim-unimpaired'
+  Plugin 'gcmt/taboo.vim'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -99,7 +104,7 @@
       set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " there files will be ignored when completing in wild menu
       set clipboard=unnamed " copy to the system clipboard
       set history=1000
-      set tags=.tags;/ " save tags generated for files in current working directory
+      set tags=.tags,tags,~/vimwiki/tags;/ " save tags generated for files in current working directory
       set ttyfast " i got a fast terminal!
       set ttimeoutlen=50  " Make Esc work faster
       set path=**
@@ -359,6 +364,7 @@
       let g:snipMate = {}
       let g:snipMate.scope_aliases = {}
       let g:snipMate.scope_aliases['ruby'] = 'ruby,rails'
+      let g:snipMate.scope_aliases['vimwiki'] = 'markdown'
 
       " Coffescript
       " {{{
@@ -724,24 +730,53 @@ let g:ycm_key_list_previous_completion = ['<C-k>']
 set re=1
 set regexpengine=1
 
-"Youcompleteme fix
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-
-"Tagbar
-nnoremap <leader>t :Tagbar<cr>
-
 " Allow JSX in normal JS files
 let g:jsx_ext_required = 0
 
+" Tagbar
+nnoremap <leader>t :Tagbar<cr>
+let g:tagbar_compact = 1
+let g:tagbar_sort = 0
 " Ctags
-let g:tagbar_type_ruby = {
+if executable('ripper-tags')
+  let g:tagbar_type_ruby = {
+      \ 'kinds'      : ['m:modules',
+                      \ 'c:classes',
+                      \ 'C:constants',
+                      \ 'F:singleton methods',
+                      \ 'f:methods',
+                      \ 'a:aliases'],
+      \ 'kind2scope' : { 'c' : 'class',
+                       \ 'm' : 'class' },
+      \ 'scope2kind' : { 'class' : 'c' },
+      \ 'ctagsbin'   : 'ripper-tags',
+      \ 'ctagsargs'  : ['-f', '-']
+      \ }
+endif
+" for markdown
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
     \ 'kinds' : [
-        \ 'm:modules',
-        \ 'c:classes',
-        \ 'd:describes',
-        \ 'C:contexts',
-        \ 'f:methods',
-        \ 'F:singleton methods'
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
+\ }
+" for vimwiki
+"let g:tagbar_type_vimwiki = {
+            "\ 'ctagstype':'vimwiki'
+            "\ , 'kinds':['h:header']
+            "\ , 'sro':'&&&'
+            "\ , 'kind2scope':{'h':'header'}
+            "\ , 'scope2kind':{'header':'h'}
+            "\ , 'sort':0
+            "\ }
+let g:tagbar_type_vimwiki = {
+    \ 'ctagstype' : 'vimwiki',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
     \ ]
 \ }
 
@@ -753,15 +788,12 @@ autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 " Markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-" Path
-set path=**
-
 " Exclude dirs from search
 :set wildignore+=*/node_modules/*
 
 set secure " to the end of the file
 
-" vimwiki/vimwiki
+" Vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " Keyjumps
@@ -769,12 +801,49 @@ nnoremap * *``
 nnoremap * :keepjumps normal *``<cr>
 :let @/="variable"
 
+" NERDTree
 " Bookmark related to project
 if isdirectory(expand(".git"))
   let g:NERDTreeBookmarksFile = '.git/.nerdtree-bookmarks'
 endif
 
-" YouCompleteme auto close preview menu
+
+" YouCompleteme
+" auto close preview menu
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_server_log_level = 'debug'
+"fix
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" enable vimwiki and markdown
+let g:ycm_filetype_blacklist = {}
+
+
+" FZF
+set rtp+=/usr/local/opt/fzf
+set rtp+=~/.fzf
+nmap ; :Buffers<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>; :Tags<CR>
+command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--reverse --nth 1..5'}, <bang>0)
+command! -bar -bang -nargs=? -complete=buffer Buffers  call fzf#vim#buffers(<q-args>, {'options': '--reverse'}, <bang>0)
+command!      -bang -nargs=? -complete=dir Files       call fzf#vim#files(<q-args>, {'options': '--reverse'}, <bang>0)
+
+" ALE
+let g:ale_completion_enabled = 1
+let g:ale_ruby_rubocop_executable = '/usr/local/opt/rbenv/shims/bundle'
+
+" plasticboy/vim-markdown
+let g:vim_markdown_folding_disabled = 1
+
+" Fugitive
+" exclude fugitive files from buffer
+if has("autocmd")
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+endif
+
+" Additional path
+"set path+=~/vimwiki/**
+"
+" Taboo
+let g:taboo_tab_format = " %N %f%m "

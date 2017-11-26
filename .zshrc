@@ -53,7 +53,7 @@ ZSH_THEME="nicoulaj"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv colorize nvm brew brew-cask rsync vundle golang vi-mode npm docker history postgres rake-fast)
+plugins=(git ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv colorize nvm brew brew-cask rsync vundle golang vi-mode npm docker history postgres rake-fast fzf-zsh)
 
 source $ZSH/oh-my-zsh.sh
 #source $HOME/.gvm/scripts/gvm
@@ -97,8 +97,11 @@ PERL_MM_OPT="INSTALL_BASE=/Users/nikolayponomarev/perl5"; export PERL_MM_OPT;
 
 # Rabbitmq
 PATH=$PATH:/usr/local/sbin
+PATH=$PATH:/$HOME/bin
 
 # GO
 #export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$(go env GOPATH)/bin
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

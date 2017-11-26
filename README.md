@@ -73,6 +73,7 @@ bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/bins
 ```
 mkdir -p ~/.vim/tmp/swap
 mkdir -p ~/.vim/tmp/backup
+mkdir -p ~/bin
 ```
 
 ```
@@ -115,4 +116,11 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # iTerm2 and Vim shared clipboard
 ```
 https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
+```
+
+# Linters
+```sh
+gem install mdl
+gem install sqlint
+npm install write-good
 ```
