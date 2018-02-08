@@ -6,6 +6,8 @@
 --ignore-dir=tmp
 --ignore-dir=vendor
 --ignore-dir=node_modules
+--ignore-dir=doc
+--ignore-dir=docs
 
 # Ignore files
 --ignore-file=is:.byebug_history

@@ -124,3 +124,9 @@ gem install mdl
 gem install sqlint
 npm install write-good
 ```
+
+# Universal-ctags
+```sh
+brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+ln -s $PWD/.ctags.d $HOME/.ctags.d
+```

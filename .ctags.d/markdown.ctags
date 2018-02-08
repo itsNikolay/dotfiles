@@ -3,6 +3,8 @@
 --exclude=log
 --exclude=tmp
 --exclude=bin
+--exclude=doc
+--exclude=docs
 
 --langdef=markdown
 --langmap=markdown:.markdown

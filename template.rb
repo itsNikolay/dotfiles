@@ -11,7 +11,7 @@ if rspec = yes?('Add Rspec?')
   end
   gem_group :development, :test do
     gem 'rspec-rails'
-    gem 'factory_girl_rails'
+    gem 'factory_bot_rails'
     # TODO: Add support file
   end
   gem_group :development do

@@ -51,13 +51,13 @@
   Plugin 'majutsushi/tagbar'
   "Plugin 'exu/pgsql.vim'
   Plugin 'godlygeek/tabular'
-  Plugin 'plasticboy/vim-markdown'
+  Plugin 'plasticboy/vim-markdown' " follows after tabular
   "Plugin 'tpope/vim-markdown'
   "Plugin 'ekalinin/Dockerfile.vim'
   "Plugin 'ryanoasis/vim-devicons'
   "Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-  Plugin 'vim-airline/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
+  "Plugin 'vim-airline/vim-airline'
+  "Plugin 'vim-airline/vim-airline-themes'
   "Plugin 'airblade/vim-gitgutter'
   "Plugin 'yuttie/comfortable-motion.vim'
   "Plugin 'kchmck/vim-coffee-script'
@@ -109,6 +109,11 @@
       set ttimeoutlen=50  " Make Esc work faster
       set path=**
       set exrc " enable per project configuration files
+
+      set shm+=s           " Suppress 'search hit BOTTOM, continuing at TOP' message
+      set noerrorbells     " Shut up!
+      set novisualbell     " Don't flicker!
+      set t_vb=            " Holy ..., be quite!
 
     " }}}
 
@@ -269,7 +274,7 @@
       nnoremap <leader>h :split<CR>
 
       " tabs - moving around, (CTRL+n to new tab)
-      map <C-t> :tabnew<CR>
+      "map <C-t> :tabnew<CR>
       map <C-M-n> :tabedit %<CR>
       map <M-Right> :tabnext<cr>
       map <M-Left> :tabprevious<cr>
@@ -284,7 +289,7 @@
       nnoremap <C-M-w> :wq<CR>
 
       " run ctags silently
-      map <leader>t :silent! !ctags -R . &<CR>
+      "map <leader>t :silent! !ctags -R . &<CR>
 
       " copy from clipboard with ease (<leader>p => paste what you copied by CTRL+c in clipboard)
       nnoremap <leader>p "+p
@@ -440,7 +445,7 @@
       " }}}
 
       " syntastic {{{
-      nnoremap <C-E> :SyntasticCheck<CR>
+      "nnoremap <C-E> :SyntasticCheck<CR>
       let g:syntastic_auto_loc_list=1
       let g:syntastic_enable_signs=1
       let g:synastic_quiet_warnings=1
@@ -723,9 +728,6 @@ let g:go_highlight_functions = 1
 "let g:go_highlight_generate_tags = 1
 let g:go_fmt_command = "goimports"
 
-let g:ycm_key_list_select_completion = ['<C-j>']
-let g:ycm_key_list_previous_completion = ['<C-k>']
-
 " Improve regexp
 set re=1
 set regexpengine=1
@@ -736,8 +738,25 @@ let g:jsx_ext_required = 0
 " Tagbar
 nnoremap <leader>t :Tagbar<cr>
 let g:tagbar_compact = 1
-let g:tagbar_sort = 0
+"let g:tagbar_sort = 0
 " Ctags
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Headers',
+        \ 'l:Links',
+        \ 'i:Images'
+    \ ]
+\ }
+let g:tagbar_type_vimwiki = {
+    \ 'ctagstype' : 'markdown',
+    \ 'sort' : 0,
+    \ 'kinds' : [
+        \ 'h:Headers',
+        \ 'l:Links',
+        \ 'i:Images'
+    \ ]
+\ }
 if executable('ripper-tags')
   let g:tagbar_type_ruby = {
       \ 'kinds'      : ['m:modules',
@@ -745,6 +764,7 @@ if executable('ripper-tags')
                       \ 'C:constants',
                       \ 'F:singleton methods',
                       \ 'f:methods',
+                      \ 'd:describes',
                       \ 'a:aliases'],
       \ 'kind2scope' : { 'c' : 'class',
                        \ 'm' : 'class' },
@@ -753,32 +773,6 @@ if executable('ripper-tags')
       \ 'ctagsargs'  : ['-f', '-']
       \ }
 endif
-" for markdown
-let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:Heading_L1',
-        \ 'i:Heading_L2',
-        \ 'k:Heading_L3'
-    \ ]
-\ }
-" for vimwiki
-"let g:tagbar_type_vimwiki = {
-            "\ 'ctagstype':'vimwiki'
-            "\ , 'kinds':['h:header']
-            "\ , 'sro':'&&&'
-            "\ , 'kind2scope':{'h':'header'}
-            "\ , 'scope2kind':{'header':'h'}
-            "\ , 'sort':0
-            "\ }
-let g:tagbar_type_vimwiki = {
-    \ 'ctagstype' : 'vimwiki',
-    \ 'kinds' : [
-        \ 'h:Heading_L1',
-        \ 'i:Heading_L2',
-        \ 'k:Heading_L3'
-    \ ]
-\ }
 
 " Spell check
 set spell spelllang=ru,en
@@ -812,20 +806,24 @@ endif
 " auto close preview menu
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_server_use_vim_stdout = 1
-let g:ycm_server_log_level = 'debug'
+"let g:ycm_server_log_level = 'debug'
 "fix
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " enable vimwiki and markdown
 let g:ycm_filetype_blacklist = {}
 
+let g:ycm_key_list_select_completion = ['<C-j>']
+let g:ycm_key_list_previous_completion = ['<C-k>']
+
 
 " FZF
 set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
-nmap ; :Buffers<CR>
+"nmap ; :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>; :Tags<CR>
-command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--reverse --nth 1..5'}, <bang>0)
+"command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--reverse --nth 1..5'}, <bang>0)
+command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--reverse --nth ..'}, <bang>0)
 command! -bar -bang -nargs=? -complete=buffer Buffers  call fzf#vim#buffers(<q-args>, {'options': '--reverse'}, <bang>0)
 command!      -bang -nargs=? -complete=dir Files       call fzf#vim#files(<q-args>, {'options': '--reverse'}, <bang>0)
 
