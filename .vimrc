@@ -431,11 +431,11 @@
             \ 'file': '\v\.(exe|so|dll)$'
             \ }
 
-      map <leader>f :CtrlP<cr>
-      map <leader>b :CtrlPMRU<cr>
-      map <leader>cv :CtrlP app/views<cr>
-      map <leader>cc :CtrlP app/controllers<cr>
-      map <leader>cm :CtrlP app/models<cr>
+      "map <leader>f :CtrlP<cr>
+      "map <leader>b :CtrlPMRU<cr>
+      "map <leader>cv :CtrlP app/views<cr>
+      "map <leader>cc :CtrlP app/controllers<cr>
+      "map <leader>cm :CtrlP app/models<cr>
       " }}}
 
       " Gist
@@ -536,7 +536,8 @@
       "set guifont=Dejavu\ Sans\ Mono\ 10
       " https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
       "set guifont=Knack\ Regular\ Nerd\ Font\ Complete:h12
-      set guifont=DejaVu\ Sans\ Mono\ Nerd\ Font\ Complete:h12
+      "set guifont=DejaVu\ Sans\ Mono\ Nerd\ Font\ Complete:h12
+      set guifont=Inconsolata\ for\ Powerline\ Nerd\ Font\ Complete:h14
       set guioptions-=m  "remove menu bar
       set guioptions-=T  "remove toolbar
       set guioptions-=r  "remove right-hand scroll bar
@@ -593,54 +594,54 @@ au BufRead,BufNewFile *.hamlc set ft=haml
 :ino <C-C> <Esc>
 
  " Run the current file with rspec
- map <Leader>vrb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+ "map <Leader>vrb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
 
  " Prompt for a command to run
- map <Leader>vp :VimuxPromptCommand<CR>
+ "map <Leader>vp :VimuxPromptCommand<CR>
 
  " Run last command executed by VimuxRunCommand
- map <Leader>vl :VimuxRunLastCommand<CR>
+ "map <Leader>vl :VimuxRunLastCommand<CR>
 
  " Inspect runner pane
- map <Leader>vi :VimuxInspectRunner<CR>
+ "map <Leader>vi :VimuxInspectRunner<CR>
 
  " Close vim tmux runner opened by VimuxRunCommand
- map <Leader>vq :VimuxCloseRunner<CR>
+ "map <Leader>vq :VimuxCloseRunner<CR>
 
  " Interrupt any command running in the runner pane
- map <Leader>vx :VimuxInterruptRunner<CR>
+ "map <Leader>vx :VimuxInterruptRunner<CR>
 
  " Zoom the runner pane (use <bind-key> z to restore runner pane)
- map <Leader>vz :call VimuxZoomRunner()<CR>
+ "map <Leader>vz :call VimuxZoomRunner()<CR>
 
-let g:VimuxHeight = "26"
-let g:VimuxOrientation = "h"
+"let g:VimuxHeight = "26"
+"let g:VimuxOrientation = "h"
 
 
-if exists('$TMUX')
-  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
-    let previous_winnr = winnr()
-    silent! execute "wincmd " . a:wincmd
-    if previous_winnr == winnr()
-      call system("tmux select-pane -" . a:tmuxdir)
-      redraw!
-    endif
-  endfunction
+"if exists('$TMUX')
+  "function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+    "let previous_winnr = winnr()
+    "silent! execute "wincmd " . a:wincmd
+    "if previous_winnr == winnr()
+      "call system("tmux select-pane -" . a:tmuxdir)
+      "redraw!
+    "endif
+  "endfunction
 
-  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
-  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
-  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+  "let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
+  "let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+  "let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
 
-  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
-  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
-  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
-  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
-else
-  map <C-h> <C-w>h
-  map <C-j> <C-w>j
-  map <C-k> <C-w>k
-  map <C-l> <C-w>l
-endif
+  "nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+  "nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+  "nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+  "nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+"else
+  "map <C-h> <C-w>h
+  "map <C-j> <C-w>j
+  "map <C-k> <C-w>k
+  "map <C-l> <C-w>l
+"endif
 
 
 "Rocket hash
