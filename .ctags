@@ -17,3 +17,8 @@
 --regex-vimwiki=/^(#+)[ \t]+([^a-z'=]+.*)/\1 \2/h,header,Markdown Headers/
 --regex-vimwiki=/\[([^\[]+)\]\(([^\)]+)\)/\1/l,link,Markdown Links/
 --regex-vimwiki=/!\[\]\(.*[\/ ](.*\.[a-z]{3})\)/\1/i,image,Markdown Image/
+
+
+--regex-ruby=/^[ \t]*describe ['"](.*)['"] do/\1/d,rspec describe/
+--regex-ruby=/^[ \t]*context ['"](.*)['"] do/\1/C,rspec context/
+--regex-ruby=/^[ \t]*it ['"](.*)['"] do/\1/i,rspec tests/

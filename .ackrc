@@ -12,3 +12,4 @@
 # Ignore files
 --ignore-file=is:.byebug_history
 --ignore-file=is:tags
+--ignore-file=is:.rubocop_todo.yml

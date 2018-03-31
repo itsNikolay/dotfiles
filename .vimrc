@@ -28,9 +28,9 @@
 
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
-  Plugin 'Valloric/YouCompleteMe'
-  "Plugin 'garbas/vim-snipmate'
-  Plugin 'sirver/ultisnips'
+  "Plugin 'Valloric/YouCompleteMe'
+  Plugin 'garbas/vim-snipmate'
+  "Plugin 'sirver/ultisnips'
   Plugin 'honza/vim-snippets'
 
   "Plugin 'tpope/vim-haml'
@@ -72,6 +72,10 @@
   Plugin 'w0rp/ale'
   Plugin 'tpope/vim-unimpaired'
   Plugin 'gcmt/taboo.vim'
+  Plugin 'tpope/vim-db'
+  Plugin 'maralla/completor.vim'
+  Plugin 'tpope/vim-abolish'
+  Plugin 'file:///Users/nikolayponomarev/.vim/bundle/my-snippets/'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -202,8 +206,9 @@
       " Cursor highlight
       ":hi CursorLine   cterm=NONE ctermbg=8
       ":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white
-      :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+      :nnoremap <Leader>cc :set cursorline! cursorcolumn!<CR>
       set cursorline
+      "set cursorcolumn
 
       "improve autocomplete menu color
       "highlight Pmenu ctermbg=238
@@ -228,8 +233,8 @@
       autocmd BufWritePre * :call TrimWhiteSpace()
 
       " Use relative numbering in insert mode
-      autocmd InsertEnter * :set relativenumber
-      autocmd InsertLeave * :set number
+      "autocmd InsertEnter * :set relativenumber
+      "autocmd InsertLeave * :set number
 
     "}}}
 
@@ -369,7 +374,7 @@
       let g:snipMate = {}
       let g:snipMate.scope_aliases = {}
       let g:snipMate.scope_aliases['ruby'] = 'ruby,rails'
-      let g:snipMate.scope_aliases['vimwiki'] = 'markdown'
+      let g:snipMate.scope_aliases['vimwiki'] = 'markdown,vimwiki'
 
       " Coffescript
       " {{{
@@ -573,69 +578,9 @@
 
 " Misc
 " {{{
-  "here is a more exotic version of my original Kwbd script
-  "delete the buffer; keep windows; create a scratch buffer if no buffers left
-  "function s:Kwbd(kwbdStage)
-    "if(a:kwbdStage == 1)
-      "if(!buflisted(winbufnr(0)))
-        "bd!
-        "return
-      "endif
-      "let s:kwbdBufNum = bufnr("%")
-      "let s:kwbdWinNum = winnr()
-      "windo call s:Kwbd(2)
-      "execute s:kwbdWinNum . 'wincmd w'
-      "let s:buflistedLeft = 0
-      "let s:bufFinalJump = 0
-      "let l:nBufs = bufnr("$")
-      "let l:i = 1
-      "while(l:i <= l:nBufs)
-        "if(l:i != s:kwbdBufNum)
-          "if(buflisted(l:i))
-            "let s:buflistedLeft = s:buflistedLeft + 1
-          "else
-            "if(bufexists(l:i) && !strlen(bufname(l:i)) && !s:bufFinalJump)
-              "let s:bufFinalJump = l:i
-            "endif
-          "endif
-        "endif
-        "let l:i = l:i + 1
-      "endwhile
-      "if(!s:buflistedLeft)
-        "if(s:bufFinalJump)
-          "windo if(buflisted(winbufnr(0))) | execute "b! " . s:bufFinalJump | endif
-        "else
-          "enew
-          "let l:newBuf = bufnr("%")
-          "windo if(buflisted(winbufnr(0))) | execute "b! " . l:newBuf | endif
-        "endif
-        "execute s:kwbdWinNum . 'wincmd w'
-      "endif
-      "if(buflisted(s:kwbdBufNum) || s:kwbdBufNum == bufnr("%"))
-        "execute "bd! " . s:kwbdBufNum
-      "endif
-      "if(!s:buflistedLeft)
-        "set buflisted
-        "set bufhidden=delete
-        "set buftype=
-        "setlocal noswapfile
-      "endif
-    "else
-      "if(bufnr("%") == s:kwbdBufNum)
-        "let prevbufvar = bufnr("#")
-        "if(prevbufvar > 0 && buflisted(prevbufvar) && prevbufvar != s:kwbdBufNum)
-          "b #
-        "else
-          "bn
-        "endif
-      "endif
-    "endif
-  "endfunction
-
-  "command! Kwbd call s:Kwbd(1)
-  "nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
-
 " }}}
+
+" Haml
 au BufRead,BufNewFile *.hamlc set ft=haml
 
 :ino <C-C> <Esc>
@@ -779,6 +724,7 @@ set spell spelllang=ru,en
 
 " Slim
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+
 " Markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
@@ -812,8 +758,8 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/
 " enable vimwiki and markdown
 let g:ycm_filetype_blacklist = {}
 
-let g:ycm_key_list_select_completion = ['<C-j>']
-let g:ycm_key_list_previous_completion = ['<C-k>']
+"let g:ycm_key_list_select_completion = ['<C-j>']
+"let g:ycm_key_list_previous_completion = ['<C-k>']
 
 
 " FZF
@@ -833,6 +779,7 @@ let g:ale_ruby_rubocop_executable = '/usr/local/opt/rbenv/shims/bundle'
 
 " plasticboy/vim-markdown
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_toc_autofit = 1
 
 " Fugitive
 " exclude fugitive files from buffer

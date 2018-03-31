@@ -34,7 +34,9 @@ brew install git git-lfs tmux \
              gdb \
              cgdb \
              ctags \
-             wget
+             wget \
+             cyberduck \
+             caskroom/cask/expandrive
 
              brew install tmux-mem-cpu-load
 
