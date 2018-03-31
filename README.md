@@ -132,3 +132,11 @@ npm install write-good
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 ln -s $PWD/.ctags.d $HOME/.ctags.d
 ```
+
+
+## Fonts
+
+```sh
+brew tap caskroom/fonts                  # you only have to do this once!
+brew cask install font-inconsolata
+```

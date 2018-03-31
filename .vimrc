@@ -29,8 +29,8 @@
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
   "Plugin 'Valloric/YouCompleteMe'
-  Plugin 'garbas/vim-snipmate'
-  "Plugin 'sirver/ultisnips'
+  "Plugin 'garbas/vim-snipmate'
+  Plugin 'sirver/ultisnips'
   Plugin 'honza/vim-snippets'
 
   "Plugin 'tpope/vim-haml'
@@ -56,8 +56,8 @@
   "Plugin 'ekalinin/Dockerfile.vim'
   "Plugin 'ryanoasis/vim-devicons'
   "Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-  "Plugin 'vim-airline/vim-airline'
-  "Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
   "Plugin 'airblade/vim-gitgutter'
   "Plugin 'yuttie/comfortable-motion.vim'
   "Plugin 'kchmck/vim-coffee-script'
@@ -68,14 +68,20 @@
   Plugin 'tpope/vim-dispatch'
   "Plugin 'chrisbra/csv.vim'
   "Plugin 'morhetz/gruvbox'
-  Plugin 'junegunn/fzf.vim' " during the bug https://github.com/junegunn/fzf.vim/issues/519
+  "Plugin 'junegunn/fzf.vim' " during the bug https://github.com/junegunn/fzf.vim/issues/519
+  Plugin 'junegunn/fzf'
+  Plugin 'junegunn/fzf.vim'
   Plugin 'w0rp/ale'
   Plugin 'tpope/vim-unimpaired'
   Plugin 'gcmt/taboo.vim'
   Plugin 'tpope/vim-db'
   Plugin 'maralla/completor.vim'
   Plugin 'tpope/vim-abolish'
-  Plugin 'file:///Users/nikolayponomarev/.vim/bundle/my-snippets/'
+  Plugin 'file:///Users/nikolayponomarev/.vim/bundle/potion/'
+  Plugin 'ryanoasis/vim-devicons'
+  Plugin 'romainl/flattened'
+  Plugin 'nathanaelkane/vim-indent-guides'
+  Plugin 'junegunn/vim-easy-align'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -85,13 +91,6 @@
 " Settings
 " {{{
 "   Basic {{{
-    " Ack=grep
-      "if executable('ag')
-        "let g:ackprg = 'ag --vimgrep --smart-case --hidden'
-      "else
-        "let g:ackprg = "ack -H --nocolor --nogroup --column"
-      "endif
-
       set backspace=indent,eol,start " make backspace a more flexible
       let loaded_matchparen=1 " match paranthesis
       set backup " create backup
@@ -138,11 +137,14 @@
       set background=light
       "colorscheme gruvbox
       "colorscheme github
-      colorscheme solarized
+      "colorscheme solarized
       let g:solarized_termcolors=256
       syntax enable
       set background=light
-      colorscheme solarized
+      "colorscheme solarized
+
+      colorscheme flattened_light
+
       "colorscheme railscasts " Color scheme
       "colorscheme fokus " Color scheme
       "colorscheme mac_classic " Color scheme
@@ -169,6 +171,7 @@
       set list " show trailing characters
       set listchars=tab:·\ ,trail:¬,extends:❯,precedes:❮ " it show ¬ character when as you type, fill free to comment out set list tab:▸\ ,
 
+      set relativenumber " set line numbering
       set number " set line numbering
       set novisualbell " do not blink
       set lazyredraw " get faster, redraw only when it's needed
@@ -420,9 +423,9 @@
             \ -g ""'
       let g:ctrlp_clear_cache_on_exit = 1
       set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-      nnoremap <F3> :CtrlP<CR>
-      nnoremap <F4> :CtrlPBuffer<CR>
-      nnoremap <F2> :CtrlPDir<CR>
+      "nnoremap <F3> :CtrlP<CR>
+      "nnoremap <F4> :CtrlPBuffer<CR>
+      "nnoremap <F2> :CtrlPDir<CR>
       let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/]\.(git|hg|svn)$',
             \ 'file': '\v\.(exe|so|dll)$'
@@ -492,34 +495,34 @@
       " Rails
       " {{{
       nnoremap <C-p> :completefunc()<CR>
-      nnoremap <F6> :Rails 
-      nnoremap <F7> :Rgenerate 
-      nnoremap <F8> :Rake 
-      nnoremap <F9> :Rinitializer 
-      nnoremap <F10> :Rmodel 
-      nnoremap <F11> :Rview 
-      nnoremap <F12> :Rcontroller 
+      "nnoremap <F6> :Rails 
+      "nnoremap <F7> :Rgenerate 
+      "nnoremap <F8> :Rake 
+      "nnoremap <F9> :Rinitializer 
+      "nnoremap <F10> :Rmodel 
+      "nnoremap <F11> :Rview 
+      "nnoremap <F12> :Rcontroller 
 
-      nnoremap <leader>ra :Rails 
-      nnoremap <leader>rg :Rgenerate 
-      nnoremap <leader>rr :Rake 
-      nnoremap <leader>ri :Rinitializer 
+      "nnoremap <leader>ra :Rails 
+      "nnoremap <leader>rg :Rgenerate 
+      "nnoremap <leader>rr :Rake 
+      "nnoremap <leader>ri :Rinitializer 
       " routes leads to empty initializer path
-      nnoremap <leader>ro :Tinitializer<CR>
-      nnoremap <leader>rv :Tview 
-      nnoremap <leader>rc :Tcontroller 
-      nnoremap <leader>rm :Tmodel 
-      nnoremap <leader>rh :Thelper 
-      nnoremap <leader>rl :Tlib 
-      nnoremap <leader>rj :Tjavascript 
-      nnoremap <leader>rst :Tstylesheet 
-      nnoremap <leader>rs :Tspec 
-      nnoremap <leader>rlo :Tlocale 
-      nnoremap <leader>rma :Tmailer 
-      nnoremap <leader>rmi :Tmigration 
-      nnoremap <leader>rsc :Tschema 
+      "nnoremap <leader>ro :Tinitializer<CR>
+      "nnoremap <leader>rv :Tview 
+      "nnoremap <leader>rc :Tcontroller 
+      "nnoremap <leader>rm :Tmodel 
+      "nnoremap <leader>rh :Thelper 
+      "nnoremap <leader>rl :Tlib 
+      "nnoremap <leader>rj :Tjavascript 
+      "nnoremap <leader>rst :Tstylesheet 
+      "nnoremap <leader>rs :Tspec 
+      "nnoremap <leader>rlo :Tlocale 
+      "nnoremap <leader>rma :Tmailer 
+      "nnoremap <leader>rmi :Tmigration 
+      "nnoremap <leader>rsc :Tschema 
 
-      nnoremap <leader>rt :AV<CR>
+      "nnoremap <leader>rt :AV<CR>
 
       " set rails status line
       let g:rails_statusline = 1
@@ -529,7 +532,11 @@
 
     " GUI setting
     " {{{
-      set guifont=Dejavu\ Sans\ Mono\ 9
+      " Copy font `:redir @* | set guifont | redir END`
+      "set guifont=Dejavu\ Sans\ Mono\ 10
+      " https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
+      "set guifont=Knack\ Regular\ Nerd\ Font\ Complete:h12
+      set guifont=DejaVu\ Sans\ Mono\ Nerd\ Font\ Complete:h12
       set guioptions-=m  "remove menu bar
       set guioptions-=T  "remove toolbar
       set guioptions-=r  "remove right-hand scroll bar
@@ -763,8 +770,8 @@ let g:ycm_filetype_blacklist = {}
 
 
 " FZF
-set rtp+=/usr/local/opt/fzf
-set rtp+=~/.fzf
+"set rtp+=/usr/local/opt/fzf
+"set rtp+=~/.fzf
 "nmap ; :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>; :Tags<CR>
@@ -772,6 +779,23 @@ nmap <Leader>; :Tags<CR>
 command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--reverse --nth ..'}, <bang>0)
 command! -bar -bang -nargs=? -complete=buffer Buffers  call fzf#vim#buffers(<q-args>, {'options': '--reverse'}, <bang>0)
 command!      -bang -nargs=? -complete=dir Files       call fzf#vim#files(<q-args>, {'options': '--reverse'}, <bang>0)
+
+set termguicolors
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 " ALE
 let g:ale_completion_enabled = 1
@@ -792,3 +816,19 @@ endif
 "
 " Taboo
 let g:taboo_tab_format = " %N %f%m "
+
+" Ack=grep
+if executable('ag')
+  "let g:ackprg = 'ag --vimgrep --smart-case --hidden'
+  let g:ackprg = 'ag --vimgrep'
+else
+  let g:ackprg = "ack -H --nocolor --nogroup --column"
+endif
+
+" Airline
+let g:airline_powerline_fonts = 1
+
+" Set ultisnips triggers
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
