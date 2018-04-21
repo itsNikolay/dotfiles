@@ -10,11 +10,9 @@
   Plugin 'gmarik/Vundle.vim'
 
   Plugin 'mileszs/ack.vim'
-  "Plugin 'kien/ctrlp.vim'
   Plugin 'othree/html5.vim'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/nerdcommenter'
-  "Plugin 'scrooloose/syntastic'
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-endwise'
   Plugin 'tpope/vim-fugitive'
@@ -28,47 +26,24 @@
 
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
-  "Plugin 'Valloric/YouCompleteMe'
-  "Plugin 'garbas/vim-snipmate'
+  Plugin 'vimwiki/vimwiki'
   Plugin 'sirver/ultisnips'
   Plugin 'honza/vim-snippets'
 
-  "Plugin 'tpope/vim-haml'
   Plugin 'Shougo/vimshell.vim'
-  "Plugin 'slim-template/vim-slim'
-  "Plugin 'lucapette/vim-ruby-doc'
   Plugin 'merlinrebrovic/focus.vim'
-  "Plugin 'AndrewRadev/vim-eco'
   Plugin 'jiangmiao/auto-pairs'
 
   Plugin 'sjl/vitality.vim'
-  "Plugin 'digitaltoad/vim-jade'
-  Plugin 'altercation/vim-colors-solarized'
   Plugin 'rizzatti/dash.vim'
-  "Plugin 'mitsuhiko/vim-jinja'
   Plugin 'mxw/vim-jsx'
   Plugin 'acarapetis/vim-colors-github'
-  Plugin 'majutsushi/tagbar'
-  "Plugin 'exu/pgsql.vim'
   Plugin 'godlygeek/tabular'
   Plugin 'plasticboy/vim-markdown' " follows after tabular
-  "Plugin 'tpope/vim-markdown'
-  "Plugin 'ekalinin/Dockerfile.vim'
-  "Plugin 'ryanoasis/vim-devicons'
-  "Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plugin 'vim-airline/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
-  "Plugin 'airblade/vim-gitgutter'
-  "Plugin 'yuttie/comfortable-motion.vim'
-  "Plugin 'kchmck/vim-coffee-script'
-  "Plugin 'easymotion/vim-easymotion'
-  "Plugin 'zcodes/vim-colors-basic'
   Plugin 'tpope/vim-rhubarb'
-  Plugin 'vimwiki/vimwiki'
   Plugin 'tpope/vim-dispatch'
-  "Plugin 'chrisbra/csv.vim'
-  "Plugin 'morhetz/gruvbox'
-  "Plugin 'junegunn/fzf.vim' " during the bug https://github.com/junegunn/fzf.vim/issues/519
   Plugin 'junegunn/fzf'
   Plugin 'junegunn/fzf.vim'
   Plugin 'w0rp/ale'
@@ -77,11 +52,13 @@
   Plugin 'tpope/vim-db'
   Plugin 'maralla/completor.vim'
   Plugin 'tpope/vim-abolish'
-  Plugin 'file:///Users/nikolayponomarev/.vim/bundle/potion/'
   Plugin 'ryanoasis/vim-devicons'
   Plugin 'romainl/flattened'
-  Plugin 'nathanaelkane/vim-indent-guides'
   Plugin 'junegunn/vim-easy-align'
+  Plugin 'lifepillar/vim-solarized8'
+  Plugin 'ayu-theme/ayu-vim'
+
+  Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-vim/'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -135,25 +112,27 @@
     "
       syntax enable
       set background=light
-      "colorscheme gruvbox
-      "colorscheme github
-      "colorscheme solarized
       let g:solarized_termcolors=256
       syntax enable
-      set background=light
-      "colorscheme solarized
+      set t_Co=256
 
-      colorscheme flattened_light
 
       "colorscheme railscasts " Color scheme
       "colorscheme fokus " Color scheme
       "colorscheme mac_classic " Color scheme
       "colorscheme github " Color scheme
       "colorscheme Tomorrow " Color scheme
+      "colorscheme flattened_light
       "colorscheme solarized
+      "colorscheme solarized8
+set termguicolors     " enable true colors support
+let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
 
-      "let g:airline_theme='sol'
-      let g:airline_theme='solarized'
+      let g:airline_theme='base16'
+      "let g:airline_theme='solarized'
 
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
@@ -209,7 +188,7 @@
       " Cursor highlight
       ":hi CursorLine   cterm=NONE ctermbg=8
       ":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white
-      :nnoremap <Leader>cc :set cursorline! cursorcolumn!<CR>
+      ":nnoremap <Leader>cc :set cursorline! cursorcolumn!<CR>
       set cursorline
       "set cursorcolumn
 
@@ -323,13 +302,13 @@
       nmap <leader>wl mQgewvu`Q
 
       " cd to the directory containing the file in the buffer
-      nmap <silent> <leader>cd :lcd %:h<CR>
+      "nmap <silent> <leader>cd :lcd %:h<CR>
 
       " Create the directory containing the file in the buffer
-      nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
+      "nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
 
       " Swap two words
-      nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
+      "nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
 
       " Map the arrow keys to be based on display lines, not physical lines
       map <Down> gj
@@ -469,7 +448,7 @@
       " }}}
 
       " Gundo {{{
-      nnoremap <leader>gu :GundoToggle<CR>
+      "nnoremap <leader>gu :GundoToggle<CR>
       " }}}
 
       " Fugitive {{{
@@ -537,7 +516,7 @@
       " https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
       "set guifont=Knack\ Regular\ Nerd\ Font\ Complete:h12
       "set guifont=DejaVu\ Sans\ Mono\ Nerd\ Font\ Complete:h12
-      set guifont=Inconsolata\ for\ Powerline\ Nerd\ Font\ Complete:h14
+      "set guifont=Inconsolata\ for\ Powerline\ Nerd\ Font\ Complete:h14
       set guioptions-=m  "remove menu bar
       set guioptions-=T  "remove toolbar
       set guioptions-=r  "remove right-hand scroll bar
@@ -552,8 +531,8 @@
       " Bindings
       " {{{
       "nnoremap <c-o> :browse tabnew :pwd<CR>
-      nnoremap <C-M-s> :browse saveas :pwd<CR>
-      nnoremap <C-M-f> :set guifont=*<CR>
+      "nnoremap <C-M-s> :browse saveas :pwd<CR>
+      "nnoremap <C-M-f> :set guifont=*<CR>
 
       " Map Alt-# to switch tabs
       map  <M-0> 0gt
@@ -777,7 +756,7 @@ let g:ycm_filetype_blacklist = {}
 nmap <Leader>f :Files<CR>
 nmap <Leader>; :Tags<CR>
 "command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--reverse --nth 1..5'}, <bang>0)
-command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--reverse --nth ..'}, <bang>0)
+command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--reverse --nth .. --tiebreak=length'}, <bang>0)
 command! -bar -bang -nargs=? -complete=buffer Buffers  call fzf#vim#buffers(<q-args>, {'options': '--reverse'}, <bang>0)
 command!      -bang -nargs=? -complete=dir Files       call fzf#vim#files(<q-args>, {'options': '--reverse'}, <bang>0)
 
@@ -811,9 +790,6 @@ let g:vim_markdown_toc_autofit = 1
 if has("autocmd")
   autocmd BufReadPost fugitive://* set bufhidden=delete
 endif
-
-" Additional path
-"set path+=~/vimwiki/**
 "
 " Taboo
 let g:taboo_tab_format = " %N %f%m "
@@ -829,7 +805,15 @@ endif
 " Airline
 let g:airline_powerline_fonts = 1
 
-" Set ultisnips triggers
+" Set Ultisnips triggers
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Fn mappings
+nnoremap <F2> :EasyAlign<CR>
+vnoremap <F2> :EasyAlign<CR>
+
+" Abbrs
+:ab platfrom platform
+:ab platfrom_id platform_id
