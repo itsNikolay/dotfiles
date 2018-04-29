@@ -40,8 +40,8 @@
   Plugin 'acarapetis/vim-colors-github'
   Plugin 'godlygeek/tabular'
   Plugin 'plasticboy/vim-markdown' " follows after tabular
-  Plugin 'vim-airline/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
+  "Plugin 'vim-airline/vim-airline'
+  "Plugin 'vim-airline/vim-airline-themes'
   Plugin 'tpope/vim-rhubarb'
   Plugin 'tpope/vim-dispatch'
   Plugin 'junegunn/fzf'
@@ -52,11 +52,12 @@
   Plugin 'tpope/vim-db'
   Plugin 'maralla/completor.vim'
   Plugin 'tpope/vim-abolish'
-  Plugin 'ryanoasis/vim-devicons'
+  "Plugin 'ryanoasis/vim-devicons'
   Plugin 'romainl/flattened'
   Plugin 'junegunn/vim-easy-align'
   Plugin 'lifepillar/vim-solarized8'
   Plugin 'ayu-theme/ayu-vim'
+  Plugin 'stulzer/heroku-colorscheme'
 
   Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-vim/'
 
@@ -111,28 +112,16 @@
     " UI {{{
     "
       syntax enable
-      set background=light
-      let g:solarized_termcolors=256
-      syntax enable
+      set background=dark
       set t_Co=256
 
+      set termguicolors     " enable true colors support
+      "let ayucolor="light"  " for light version of theme
+      "let ayucolor="mirage" " for mirage version of theme
+      "let ayucolor="dark"   " for dark version of theme
+      "colorscheme ayu
+      colorscheme heroku-terminal
 
-      "colorscheme railscasts " Color scheme
-      "colorscheme fokus " Color scheme
-      "colorscheme mac_classic " Color scheme
-      "colorscheme github " Color scheme
-      "colorscheme Tomorrow " Color scheme
-      "colorscheme flattened_light
-      "colorscheme solarized
-      "colorscheme solarized8
-set termguicolors     " enable true colors support
-let ayucolor="light"  " for light version of theme
-"let ayucolor="mirage" " for mirage version of theme
-"let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
-
-      let g:airline_theme='base16'
-      "let g:airline_theme='solarized'
 
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
@@ -185,9 +174,6 @@ colorscheme ayu
     " Advanced macros
     " {{{
 
-      " Cursor highlight
-      ":hi CursorLine   cterm=NONE ctermbg=8
-      ":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white
       ":nnoremap <Leader>cc :set cursorline! cursorcolumn!<CR>
       set cursorline
       "set cursorcolumn
@@ -631,10 +617,21 @@ nmap <leader>18 :%s/\(\w\+\):\s/:\1 => /gc<cr>
 let g:AutoPairsFlyMode = 1
 
 "Hightlight diff
-"highlight DiffAdd    term=reverse ctermbg=148
-"highlight DiffChange term=reverse ctermbg=081
-"highlight DiffText   term=reverse ctermbg=084
-"highlight DiffDelete term=reverse ctermbg=160
+highlight DiffAdd    term=reverse ctermbg=148
+highlight DiffChange term=reverse ctermbg=081
+highlight DiffText   term=reverse ctermbg=084
+highlight DiffDelete term=reverse ctermbg=160
+" Hide tildas
+hi NonText guifg=bg
+" Column
+highlight SignColumn guibg=bg
+" Cursor highlight
+":hi CursorLine   cterm=NONE ctermbg=8
+":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white
+"white bg for tab
+":hi TabLineFill term=bold cterm=bold ctermbg=255
+":hi SpecialKey  term=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
+":hi NonText  term=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 
 "Open NerdTree on start
 "autocmd VimEnter * NERDTree
@@ -644,11 +641,6 @@ let g:AutoPairsFlyMode = 1
 
 " Concealing Characters
 let b:javascript_fold = 0
-
-"white bg for tab
-:hi TabLineFill term=bold cterm=bold ctermbg=255
-:hi SpecialKey  term=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
-:hi NonText  term=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 
 " vim-go enabling
 "let g:go_highlight_operators = 1
@@ -779,7 +771,6 @@ let g:fzf_colors =
 
 " ALE
 let g:ale_completion_enabled = 1
-let g:ale_ruby_rubocop_executable = '/usr/local/opt/rbenv/shims/bundle'
 
 " plasticboy/vim-markdown
 let g:vim_markdown_folding_disabled = 1
@@ -817,3 +808,4 @@ vnoremap <F2> :EasyAlign<CR>
 " Abbrs
 :ab platfrom platform
 :ab platfrom_id platform_id
+:ab ir_platfrom ir_platform

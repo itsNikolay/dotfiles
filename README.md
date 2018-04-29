@@ -1,3 +1,5 @@
+# Installation
+
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ````
@@ -15,13 +17,9 @@ brew install git git-lfs tmux \
              Caskroom/cask/firefox \
              Caskroom/cask/skype \
              Caskroom/cask/dash \
-             Caskroom/cask/seil \
              Caskroom/cask/keepassx \
              Caskroom/cask/dropbox \
              Caskroom/cask/iterm2 \
-             Caskroom/cask/java \
-             Caskroom/cask/mysqlworkbench \
-             Caskroom/cask/gimp \
              heroku-toolbelt \
              Caskroom/cask/libreoffice \
              cmake \
@@ -35,12 +33,11 @@ brew install git git-lfs tmux \
              cgdb \
              ctags \
              wget \
-             cyberduck \
-             caskroom/cask/expandrive
+             tmux-mem-cpu-load \
+             caskroom/cask/slack \
+             openvpn \
+             fzf
 
-             brew install tmux-mem-cpu-load
-
-brew case install xquartz
 brew install vim --with-override-system-vi
 
 ```
@@ -91,6 +88,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 YouCompleteMe
+
 ```
 brew install cmake
 npm install -g typescript
@@ -99,7 +97,8 @@ cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
 ```
 
-Vim spell check
+## Vim spell check
+
 ```
 mkdir -p ~/.vim/spell
 cd ~/.vim/spell
@@ -111,32 +110,49 @@ wget http://ftp.vim.org/vim/runtime/spell/en.ascii.sug
 wget http://ftp.vim.org/vim/runtime/spell/en.ascii.spl
 ```
 
-# Tmux plugin manager
+## Tmux plugin manager
+
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
-# iTerm2 and Vim shared clipboard
+
+## iTerm2 and Vim shared clipboard
+
 ```
 https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 ```
 
-# Linters
+Enable Clipboard in iTerm2: Go to iTerm2 > Preferences > “General” tab,
+and in the “Selection” section, check the box which says “Applications
+in terminal may access clipboard”
+
+## Linters
+
 ```sh
 gem install mdl
 gem install sqlint
 npm install write-good
 ```
 
-# Universal-ctags
+## Universal-ctags
+
 ```sh
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 ln -s $PWD/.ctags.d $HOME/.ctags.d
 ```
 
-
 ## Fonts
 
 ```sh
 brew tap caskroom/fonts                  # you only have to do this once!
-brew cask install font-inconsolata
+brew cask install font-inconsolata-nerd-font-mono
+brew cask install font-menlo-for-powerline
+```
+
+## FZF
+
+```
+git clone https://github.com/junegunn/fzf.git ${ZSH}/custom/plugins/fzf
+${ZSH}/custom/plugins/fzf/install --bin
+git clone https://github.com/Treri/fzf-zsh.git ${ZSH}/custom/plugins/fzf-zsh
 ```
