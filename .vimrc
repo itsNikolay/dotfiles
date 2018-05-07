@@ -31,7 +31,7 @@
   Plugin 'honza/vim-snippets'
 
   Plugin 'Shougo/vimshell.vim'
-  Plugin 'merlinrebrovic/focus.vim'
+  "Plugin 'merlinrebrovic/focus.vim'
   Plugin 'jiangmiao/auto-pairs'
 
   Plugin 'sjl/vitality.vim'
@@ -175,7 +175,7 @@
     " {{{
 
       ":nnoremap <Leader>cc :set cursorline! cursorcolumn!<CR>
-      set cursorline
+      "set cursorline
       "set cursorcolumn
 
       "improve autocomplete menu color
@@ -632,6 +632,14 @@ highlight SignColumn guibg=bg
 ":hi TabLineFill term=bold cterm=bold ctermbg=255
 ":hi SpecialKey  term=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 ":hi NonText  term=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
+" Visual block color
+highlight Visual cterm=NONE ctermbg=0 ctermfg=NONE guibg=Grey40
+" Drop Down
+highlight Pmenu ctermfg=103 ctermbg=231 guifg=#8584ae guibg=Grey40
+" Constant
+hi Constant       term=underline ctermfg=214 guifg=#6dba09
+hi rubyConstant ctermfg=220 guifg=#6dba09
+hi Title        ctermfg=220 guifg=#6dba09
 
 "Open NerdTree on start
 "autocmd VimEnter * NERDTree

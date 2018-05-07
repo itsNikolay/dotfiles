@@ -74,4 +74,6 @@ git :init
 git add: '.'
 git commit: '-m "gems"'
 
-run 'rails webpacker:install'
+if yes?('Add Webpacker?')
+  run 'rails webpacker:install'
+end
