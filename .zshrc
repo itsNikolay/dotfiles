@@ -53,7 +53,7 @@ ZSH_THEME="nicoulaj"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv colorize nvm brew brew-cask rsync vundle golang vi-mode npm docker history postgres rake-fast fzf-zsh)
+plugins=(git ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv colorize nvm brew brew-cask rsync vundle golang vi-mode npm docker history postgres rake-fast fzf-zsh heroku iterm2)
 
 source $ZSH/oh-my-zsh.sh
 #source $HOME/.gvm/scripts/gvm
@@ -106,3 +106,6 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+## Shell Integration
+source ~/.iterm2_shell_integration.zsh

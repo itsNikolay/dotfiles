@@ -58,6 +58,7 @@
   Plugin 'lifepillar/vim-solarized8'
   Plugin 'ayu-theme/ayu-vim'
   Plugin 'stulzer/heroku-colorscheme'
+  Plugin 'pbrisbin/vim-mkdir'
 
   Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-vim/'
 
@@ -235,6 +236,7 @@
       nnoremap <C-M-q> :Kwbd<CR>
       nnoremap <leader>q :q<CR>
       nnoremap <leader>x :wq<cr>
+      nnoremap <leader>z :bd<cr>
 
       " this key combination gets rid of the search highlights.
       "nmap <leader><space> :noh<cr>
@@ -720,9 +722,6 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 set secure " to the end of the file
 
-" Vimwiki
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-
 " Keyjumps
 nnoremap * *``
 nnoremap * :keepjumps normal *``<cr>
@@ -755,6 +754,7 @@ let g:ycm_filetype_blacklist = {}
 "nmap ; :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>; :Tags<CR>
+nmap <Leader>' :Buffers<CR>
 "command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--reverse --nth 1..5'}, <bang>0)
 command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--reverse --nth .. --tiebreak=length'}, <bang>0)
 command! -bar -bang -nargs=? -complete=buffer Buffers  call fzf#vim#buffers(<q-args>, {'options': '--reverse'}, <bang>0)
@@ -776,6 +776,9 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" respect .gitignore
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " ALE
 let g:ale_completion_enabled = 1
@@ -817,3 +820,9 @@ vnoremap <F2> :EasyAlign<CR>
 :ab platfrom platform
 :ab platfrom_id platform_id
 :ab ir_platfrom ir_platform
+
+" Persistent Undo
+if has('persistent_undo')      "check if your vim version supports it
+  set undofile                 "turn on the feature
+  set undodir=$HOME/.vim/undo  "directory where the undo files will be stored
+endif

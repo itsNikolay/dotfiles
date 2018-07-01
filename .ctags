@@ -7,17 +7,7 @@
 --langdef=markdown
 --langmap=markdown:.markdown
 --langmap=markdown:.md
---regex-markdown=/^(#+)[ \t]+([^#]*)/\1 \2/h,header,Markdown Headers/
---regex-markdown=/\[([^\[]+)\]\(([^\)]+)\)/\1/l,link,Markdown Links/
---regex-markdown=/!\[\]\(.*[\/ ](.*\.[a-z]{3})\)/\1/i,image,Markdown Image/
-
---langdef=vimwiki
---langmap=vimwiki:.markdown
---langmap=vimwiki:.md
---regex-vimwiki=/^(#+)[ \t]+([^a-z'=]+.*)/\1 \2/h,header,Markdown Headers/
---regex-vimwiki=/\[([^\[]+)\]\(([^\)]+)\)/\1/l,link,Markdown Links/
---regex-vimwiki=/!\[\]\(.*[\/ ](.*\.[a-z]{3})\)/\1/i,image,Markdown Image/
-
+--regex-markdown=/^(#)[ \t]([A-Zа-яА-ЯёЁ]+.*)/\1 \2/h,header,Markdown Headers/
 
 --regex-ruby=/^[ \t]*describe ['"](.*)['"] do/\1/d,rspec describe/
 --regex-ruby=/^[ \t]*context ['"](.*)['"] do/\1/C,rspec context/

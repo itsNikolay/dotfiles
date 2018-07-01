@@ -36,7 +36,8 @@ brew install git git-lfs tmux \
              tmux-mem-cpu-load \
              caskroom/cask/slack \
              openvpn \
-             fzf
+             fzf \
+             shellcheck
 
 brew install vim --with-override-system-vi
 
@@ -78,8 +79,9 @@ mkdir -p ~/bin
 ```
 rbenv install 2.2.2 &&
 gvm install go1.4.2 &&
-nvm install v0.12.7 &&
-nvm alias default 0.12.7 &&
+NVM_VERSION=v8.11.1
+nvm install $NVM_VERSION &&
+nvm alias default $NVM_VERSION &&
 npm install -g bower eslint babel-eslint eslint-plugin-react
 ```
 
