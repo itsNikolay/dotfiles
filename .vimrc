@@ -14,7 +14,6 @@
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'tpope/vim-commentary'
-  Plugin 'tpope/vim-endwise'
   Plugin 'tpope/vim-fugitive'
   Plugin 'fatih/vim-go'
   Plugin 'pangloss/vim-javascript'
@@ -22,17 +21,11 @@
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'benmills/vimux'
   Plugin 'christoomey/vim-tmux-navigator'
-  Plugin 'tpope/vim-surround'
 
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
-  Plugin 'vimwiki/vimwiki'
   Plugin 'sirver/ultisnips'
   Plugin 'honza/vim-snippets'
-
-  Plugin 'Shougo/vimshell.vim'
-  "Plugin 'merlinrebrovic/focus.vim'
-  Plugin 'jiangmiao/auto-pairs'
 
   Plugin 'sjl/vitality.vim'
   Plugin 'rizzatti/dash.vim'
@@ -40,8 +33,6 @@
   Plugin 'acarapetis/vim-colors-github'
   Plugin 'godlygeek/tabular'
   Plugin 'plasticboy/vim-markdown' " follows after tabular
-  "Plugin 'vim-airline/vim-airline'
-  "Plugin 'vim-airline/vim-airline-themes'
   Plugin 'tpope/vim-rhubarb'
   Plugin 'tpope/vim-dispatch'
   Plugin 'junegunn/fzf'
@@ -49,18 +40,18 @@
   Plugin 'w0rp/ale'
   Plugin 'tpope/vim-unimpaired'
   Plugin 'gcmt/taboo.vim'
-  Plugin 'tpope/vim-db'
   Plugin 'maralla/completor.vim'
-  Plugin 'tpope/vim-abolish'
-  "Plugin 'ryanoasis/vim-devicons'
   Plugin 'romainl/flattened'
   Plugin 'junegunn/vim-easy-align'
-  Plugin 'lifepillar/vim-solarized8'
   Plugin 'ayu-theme/ayu-vim'
   Plugin 'stulzer/heroku-colorscheme'
   Plugin 'pbrisbin/vim-mkdir'
 
   Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-vim/'
+  Plugin 'kchmck/vim-coffee-script'
+  Plugin 'powerman/vim-plugin-ruscmd'
+  Plugin 'xolox/vim-misc'
+  Plugin 'xolox/vim-session'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -718,7 +709,7 @@ autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " Exclude dirs from search
-:set wildignore+=*/node_modules/*
+set wildignore+=*/node_modules/*
 
 set secure " to the end of the file
 
@@ -786,6 +777,7 @@ let g:ale_completion_enabled = 1
 " plasticboy/vim-markdown
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_autowrite = 1
 
 " Fugitive
 " exclude fugitive files from buffer
@@ -826,3 +818,24 @@ if has('persistent_undo')      "check if your vim version supports it
   set undofile                 "turn on the feature
   set undodir=$HOME/.vim/undo  "directory where the undo files will be stored
 endif
+
+" Select jump
+function! GotoJump()
+  jumps
+  let j = input("Please select your jump: ")
+  if j != ''
+    let pattern = '\v\c^\+'
+    if j =~ pattern
+      let j = substitute(j, pattern, '', 'g')
+      execute "normal " . j . "\<c-i>"
+    else
+      execute "normal " . j . "\<c-o>"
+    endif
+  endif
+endfunction
+
+nmap <Leader>j :call GotoJump()<CR>
+
+" session
+:let g:session_autoload = 'prompt'
+:let g:session_autosave = 'no'
