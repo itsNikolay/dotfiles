@@ -30,7 +30,6 @@
   Plugin 'sjl/vitality.vim'
   Plugin 'rizzatti/dash.vim'
   Plugin 'mxw/vim-jsx'
-  Plugin 'acarapetis/vim-colors-github'
   Plugin 'godlygeek/tabular'
   Plugin 'plasticboy/vim-markdown' " follows after tabular
   Plugin 'tpope/vim-rhubarb'
@@ -52,6 +51,13 @@
   Plugin 'powerman/vim-plugin-ruscmd'
   Plugin 'xolox/vim-misc'
   Plugin 'xolox/vim-session'
+  Plugin 'majutsushi/tagbar'
+  Plugin 'rlue/vim-fold-rspec'
+  Plugin 'elzr/vim-json'
+  Plugin 'posva/vim-vue'
+  Plugin 'vim-scripts/BufOnly.vim'
+  Plugin 'wannesm/wmgraphviz.vim'
+  Plugin 'Konfekt/FastFold'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -63,8 +69,8 @@
 "   Basic {{{
       set backspace=indent,eol,start " make backspace a more flexible
       let loaded_matchparen=1 " match paranthesis
-      set backup " create backup
-      set backupdir=~/.vim/tmp/backup " where to put backup files
+      "set backup " create backup
+      "set backupdir=~/.vim/tmp/backup " where to put backup files
       set directory=~/.vim/tmp/swap " directory to place swap files in
       "set undodir=~/.vim/tmp/undo " directory to place undo files in
       "set undofile " create undo file
@@ -80,7 +86,7 @@
       set tags=.tags,tags,~/vimwiki/tags;/ " save tags generated for files in current working directory
       set ttyfast " i got a fast terminal!
       set ttimeoutlen=50  " Make Esc work faster
-      set path=**
+      set path=**,~/vimwiki/**
       set exrc " enable per project configuration files
 
       set shm+=s           " Suppress 'search hit BOTTOM, continuing at TOP' message
@@ -222,6 +228,7 @@
       " Save like a pro (CTRL+s) test4
       nnoremap <c-s> :w<cr>
       nnoremap <leader>w :w<cr>
+      nnoremap <leader>ц :w<cr>
 
       " Quit like a pro
       nnoremap <C-M-q> :Kwbd<CR>
@@ -242,10 +249,10 @@
       " tabs - moving around, (CTRL+n to new tab)
       "map <C-t> :tabnew<CR>
       map <C-M-n> :tabedit %<CR>
-      map <M-Right> :tabnext<cr>
-      map <M-Left> :tabprevious<cr>
-      map <Left> :tabprevious<cr>
-      map <Right> :tabnext<cr>
+      "map <M-Right> :tabnext<cr>
+      "map <M-Left> :tabprevious<cr>
+      "map <Left> :tabprevious<cr>
+      "map <Right> :tabnext<cr>
 
       " buffers - moving around
       map <A-x-Left> :bprevious<CR>
@@ -290,8 +297,8 @@
       "nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
 
       " Map the arrow keys to be based on display lines, not physical lines
-      map <Down> gj
-      map <Up> gk
+      "map <Down> gj
+      "map <Up> gk
 
       " Toggle hlsearch with <leader>hs
       nmap <leader>sh :set hlsearch! hlsearch?<CR>
@@ -437,7 +444,7 @@
       " }}}
 
       " NERDTree {{{
-      "nnoremap <F1> :NERDTreeToggle<CR>
+      nnoremap <F1> :NERDTreeToggle<CR>
       nnoremap <leader>n :NERDTreeToggle<CR>
       let g:NERDTreeMinimalUI=1
       "let g:NERDTreeDirArrows=1
@@ -447,12 +454,12 @@
       "}}}
       "
       " NerdTree Tabs {{{
-      nnoremap <c-F1> :NERDTreeTabsToggle<CR>
+      "nnoremap <c-F1> :NERDTreeTabsToggle<CR>
       " }}}
 
       " Rails
       " {{{
-      nnoremap <C-p> :completefunc()<CR>
+      "nnoremap <C-p> :completefunc()<CR>
       "nnoremap <F6> :Rails 
       "nnoremap <F7> :Rgenerate 
       "nnoremap <F8> :Rake 
@@ -615,16 +622,9 @@ highlight DiffChange term=reverse ctermbg=081
 highlight DiffText   term=reverse ctermbg=084
 highlight DiffDelete term=reverse ctermbg=160
 " Hide tildas
-hi NonText guifg=bg
+"hi NonText guifg=bg
 " Column
 highlight SignColumn guibg=bg
-" Cursor highlight
-":hi CursorLine   cterm=NONE ctermbg=8
-":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white
-"white bg for tab
-":hi TabLineFill term=bold cterm=bold ctermbg=255
-":hi SpecialKey  term=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
-":hi NonText  term=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 " Visual block color
 highlight Visual cterm=NONE ctermbg=0 ctermfg=NONE guibg=Grey40
 " Drop Down
@@ -641,7 +641,7 @@ hi Title        ctermfg=220 guifg=#6dba09
 :nmap <silent> <leader>d <Plug>DashSearch
 
 " Concealing Characters
-let b:javascript_fold = 0
+let b:javascript_fold = 1
 
 " vim-go enabling
 "let g:go_highlight_operators = 1
@@ -701,12 +701,10 @@ endif
 
 " Spell check
 set spell spelllang=ru,en
+inoremap <C-s> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Slim
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
-
-" Markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " Exclude dirs from search
 set wildignore+=*/node_modules/*
@@ -714,30 +712,15 @@ set wildignore+=*/node_modules/*
 set secure " to the end of the file
 
 " Keyjumps
-nnoremap * *``
-nnoremap * :keepjumps normal *``<cr>
-:let @/="variable"
+"nnoremap * *``
+"nnoremap * :keepjumps normal *``<cr>
+":let @/="variable"
 
 " NERDTree
 " Bookmark related to project
 if isdirectory(expand(".git"))
   let g:NERDTreeBookmarksFile = '.git/.nerdtree-bookmarks'
 endif
-
-
-" YouCompleteme
-" auto close preview menu
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_server_use_vim_stdout = 1
-"let g:ycm_server_log_level = 'debug'
-"fix
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-" enable vimwiki and markdown
-let g:ycm_filetype_blacklist = {}
-
-"let g:ycm_key_list_select_completion = ['<C-j>']
-"let g:ycm_key_list_previous_completion = ['<C-k>']
-
 
 " FZF
 "set rtp+=/usr/local/opt/fzf
@@ -751,11 +734,13 @@ command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args
 command! -bar -bang -nargs=? -complete=buffer Buffers  call fzf#vim#buffers(<q-args>, {'options': '--reverse'}, <bang>0)
 command!      -bang -nargs=? -complete=dir Files       call fzf#vim#files(<q-args>, {'options': '--reverse'}, <bang>0)
 
+let g:fzf_layout = { 'window': '20split' }
+
 set termguicolors
 
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
+\ { 'fg':      ['fg', 'Keyword'],
+  \ 'bg':      ['bg', 'Keyword'],
   \ 'hl':      ['fg', 'Comment'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
@@ -771,13 +756,19 @@ let g:fzf_colors =
 " respect .gitignore
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
+" term background
+hi Terminal ctermbg=lightgrey ctermfg=blue guibg=#1b1b24 guifg=blue
+
 " ALE
 let g:ale_completion_enabled = 1
 
 " plasticboy/vim-markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_autowrite = 1
+let g:vim_markdown_new_list_item_indent = 2 " 2 spaces offset for lists
 
 " Fugitive
 " exclude fugitive files from buffer
@@ -790,7 +781,6 @@ let g:taboo_tab_format = " %N %f%m "
 
 " Ack=grep
 if executable('ag')
-  "let g:ackprg = 'ag --vimgrep --smart-case --hidden'
   let g:ackprg = 'ag --vimgrep'
 else
   let g:ackprg = "ack -H --nocolor --nogroup --column"
@@ -839,3 +829,54 @@ nmap <Leader>j :call GotoJump()<CR>
 " session
 :let g:session_autoload = 'prompt'
 :let g:session_autosave = 'no'
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'i:it',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+\ }
+
+" vim-ruby
+let ruby_fold = 1
+let ruby_spellcheck_strings = 1
+let ruby_foldable_groups = 'if def do begin case for { [ % / string : # << _END_'
+
+" elzr/vim-json
+setlocal foldmethod=syntax
+let g:vim_json_syntax_conceal = 0
+
+" vue
+set suffixesadd+=.vue
+
+" vitality
+let g:vitality_shell_cursor = 1
+
+" jumps
+"nnoremap <leader>n :cn<CR>zv
+"nnoremap <leader>p :cp<CR>zv
+
+" mappings
+map <Up> :Copen!<CR>
+map <Down> :Copen<CR>
+map <Right> :cn<CR>zv
+map <Left> :cp<CR>zv
+
+" Language support
+set keymap=russian-jcukenwin
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
+" Konfekt/FastFold
+" folds are only updated manually but not when saving the buffer
+let g:fastfold_savehook = 0
+autocmd BufWritePost *.go normal! zv
+
+" run as login shell (not command mode)
+" set shellcmdflag=-ic

@@ -53,7 +53,7 @@ ZSH_THEME="nicoulaj"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git gitfast ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv colorize nvm brew brew-cask rsync vundle golang vi-mode npm docker history postgres rake-fast fzf-zsh heroku)
+plugins=(git gitfast git-extras ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv colorize nvm brew rsync vundle golang vi-mode npm docker history postgres rake-fast fzf-zsh heroku kubectl)
 
 source $ZSH/oh-my-zsh.sh
 #source $HOME/.gvm/scripts/gvm
@@ -82,8 +82,10 @@ export TERM="xterm-256color"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export NVM_DIR="/Users/nikolayponomarev/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#export NVM_DIR="/Users/nikolayponomarev/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 PATH="/Users/nikolayponomarev/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/Users/nikolayponomarev/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
@@ -101,7 +103,13 @@ export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$(go env GOPATH)/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 ## Shell Integration
 source ~/.iterm2_shell_integration.zsh
+
+# Git contrib PATH
+# export PATH="/usr/local/Cellar/git/2.17.0/bin:$PATH"
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
+
+source ~/env_vars.sh

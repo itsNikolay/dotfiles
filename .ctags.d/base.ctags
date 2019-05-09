@@ -1,0 +1,20 @@
+--exclude=.git
+--exclude=.hg
+--exclude=log
+--exclude=tmp
+--exclude=bin
+--exclude=node_modules
+--exclude=gulp
+--exclude=package.json
+--exclude=package-lock.json
+
+--languages=-markdown
+--langdef=md
+--langmap=md:.markdown
+--langmap=md:.md
+--regex-md=/^# ([A-Zа-яА-ЯёЁ]+.*)/\1 \2/h,header,Markdown Headers/
+
+--regex-ruby=/^[ \t]*describe ['"](.*)['"] do/\1/d,rspec describe/
+--regex-ruby=/^[ \t]*context ['"](.*)['"] do/\1/C,rspec context/
+--regex-ruby=/^[ \t]*it ['"](.*)['"] do/\1/i,rspec tests/
+
