@@ -58,6 +58,7 @@
   Plugin 'vim-scripts/BufOnly.vim'
   Plugin 'wannesm/wmgraphviz.vim'
   Plugin 'Konfekt/FastFold'
+  Plugin 'aklt/plantuml-syntax'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
