@@ -82,10 +82,10 @@ export TERM="xterm-256color"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-#export NVM_DIR="/Users/nikolayponomarev/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# NVM
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 PATH="/Users/nikolayponomarev/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/Users/nikolayponomarev/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
