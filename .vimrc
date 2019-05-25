@@ -59,6 +59,7 @@
   Plugin 'wannesm/wmgraphviz.vim'
   Plugin 'Konfekt/FastFold'
   Plugin 'aklt/plantuml-syntax'
+  Plugin 'scrooloose/vim-slumlord'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -881,3 +882,6 @@ autocmd BufWritePost *.go normal! zv
 
 " run as login shell (not command mode)
 " set shellcmdflag=-ic
+
+" Formatting
+set tw=80
