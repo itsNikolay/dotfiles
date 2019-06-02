@@ -60,6 +60,8 @@
   Plugin 'Konfekt/FastFold'
   Plugin 'aklt/plantuml-syntax'
   Plugin 'scrooloose/vim-slumlord'
+  Plugin 'chrisbra/csv.vim'
+  Plugin 'lervag/vimtex'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -257,8 +259,10 @@
       "map <Right> :tabnext<cr>
 
       " buffers - moving around
-      map <A-x-Left> :bprevious<CR>
-      map <A-x-Right> :bNext<CR>
+      "map <A-x-Left> :bprevious<CR>
+      "map <A-x-Right> :bNext<CR>
+      nnoremap <Tab> :bnext<CR>
+      nnoremap <S-Tab> :bprevious<CR>
 
       " Write and quit current buffer
       nnoremap <C-M-w> :wq<CR>
@@ -885,3 +889,16 @@ autocmd BufWritePost *.go normal! zv
 
 " Formatting
 set tw=80
+
+" PlantUML
+let g:slumlord_plantuml_jar_path = "/usr/local/Cellar/plantuml/1.2019.5/libexec/plantuml.jar"
+
+" Buffers
+set hidden
+
+" Vimtex
+"let g:tex_flavor='latex'
+"let g:vimtex_view_method='zathura'
+"let g:vimtex_quickfix_mode=0
+"set conceallevel=1
+"let g:tex_conceal='abdmg'
