@@ -62,6 +62,7 @@
   Plugin 'scrooloose/vim-slumlord'
   Plugin 'chrisbra/csv.vim'
   Plugin 'lervag/vimtex'
+  Plugin 'vim-pandoc/vim-pandoc'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -197,10 +198,10 @@
       endfunction
 
       " Filter and trim whitespaces
-      autocmd FileWritePre * :call TrimWhiteSpace()
-      autocmd FileAppendPre * :call TrimWhiteSpace()
-      autocmd FilterWritePre * :call TrimWhiteSpace()
-      autocmd BufWritePre * :call TrimWhiteSpace()
+      "autocmd FileWritePre * :call TrimWhiteSpace()
+      "autocmd FileAppendPre * :call TrimWhiteSpace()
+      "autocmd FilterWritePre * :call TrimWhiteSpace()
+      "autocmd BufWritePre * :call TrimWhiteSpace()
 
       " Use relative numbering in insert mode
       "autocmd InsertEnter * :set relativenumber
@@ -463,62 +464,7 @@
       "nnoremap <c-F1> :NERDTreeTabsToggle<CR>
       " }}}
 
-      " Rails
-      " {{{
-      "nnoremap <C-p> :completefunc()<CR>
-      "nnoremap <F6> :Rails 
-      "nnoremap <F7> :Rgenerate 
-      "nnoremap <F8> :Rake 
-      "nnoremap <F9> :Rinitializer 
-      "nnoremap <F10> :Rmodel 
-      "nnoremap <F11> :Rview 
-      "nnoremap <F12> :Rcontroller 
-
-      "nnoremap <leader>ra :Rails 
-      "nnoremap <leader>rg :Rgenerate 
-      "nnoremap <leader>rr :Rake 
-      "nnoremap <leader>ri :Rinitializer 
-      " routes leads to empty initializer path
-      "nnoremap <leader>ro :Tinitializer<CR>
-      "nnoremap <leader>rv :Tview 
-      "nnoremap <leader>rc :Tcontroller 
-      "nnoremap <leader>rm :Tmodel 
-      "nnoremap <leader>rh :Thelper 
-      "nnoremap <leader>rl :Tlib 
-      "nnoremap <leader>rj :Tjavascript 
-      "nnoremap <leader>rst :Tstylesheet 
-      "nnoremap <leader>rs :Tspec 
-      "nnoremap <leader>rlo :Tlocale 
-      "nnoremap <leader>rma :Tmailer 
-      "nnoremap <leader>rmi :Tmigration 
-      "nnoremap <leader>rsc :Tschema 
-
-      "nnoremap <leader>rt :AV<CR>
-
-      " set rails status line
-      let g:rails_statusline = 1
-      " }}}
-
     " }}}
-
-    " GUI setting
-    " {{{
-      " Copy font `:redir @* | set guifont | redir END`
-      "set guifont=Dejavu\ Sans\ Mono\ 10
-      " https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
-      "set guifont=Knack\ Regular\ Nerd\ Font\ Complete:h12
-      "set guifont=DejaVu\ Sans\ Mono\ Nerd\ Font\ Complete:h12
-      "set guifont=Inconsolata\ for\ Powerline\ Nerd\ Font\ Complete:h14
-      set guioptions-=m  "remove menu bar
-      set guioptions-=T  "remove toolbar
-      set guioptions-=r  "remove right-hand scroll bar
-      set guioptions-=l
-      set guioptions-=h
-      set guioptions-=b
-      set guioptions-=R
-      set guioptions-=L
-      set showtabline=2   " show tabs in gvim, not vim
-      set guitablabel=%t  " show simple filname as tabname
 
       " Bindings
       " {{{
@@ -769,12 +715,21 @@ hi Terminal ctermbg=lightgrey ctermfg=blue guibg=#1b1b24 guifg=blue
 let g:ale_completion_enabled = 1
 
 " plasticboy/vim-markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_autowrite = 1
 let g:vim_markdown_new_list_item_indent = 2 " 2 spaces offset for lists
+
+let g:pandoc#filetypes#pandoc_markdown = 0
+
+augroup FTMarkdown
+  au!
+  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+  autocmd BufReadPost,FileReadPost *.md comp pandoc
+  "autocmd BufReadPost,FileReadPost *.md set makeprg=pandoc\ %\ --pdf-engine=xelatex\ -V\ mainfont=\"Times\"\ $*
+  autocmd BufReadPost,FileReadPost *.md set makeprg=pandoc\ %\ --pdf-engine=xelatex\ -V\ mainfont=\"Times\"\ --from\ markdown\ --template\ eisvogel\ --listings\ $*
+  autocmd BufReadPost,FileReadPost *.md map <F4> :Make! -o /tmp/test.pdf \&\& open /tmp/test.pdf<CR>
+augroup END
 
 " Fugitive
 " exclude fugitive files from buffer
@@ -892,9 +847,11 @@ set tw=80
 
 " PlantUML
 let g:slumlord_plantuml_jar_path = "/usr/local/Cellar/plantuml/1.2019.5/libexec/plantuml.jar"
+autocmd Filetype,BufEnter plantuml set makeprg=plantuml\ %
 
 " Buffers
 set hidden
+set autowrite
 
 " Vimtex
 "let g:tex_flavor='latex'
@@ -902,3 +859,4 @@ set hidden
 "let g:vimtex_quickfix_mode=0
 "set conceallevel=1
 "let g:tex_conceal='abdmg'
+
