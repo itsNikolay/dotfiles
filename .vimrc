@@ -17,7 +17,7 @@
   Plugin 'tpope/vim-fugitive'
   Plugin 'fatih/vim-go'
   Plugin 'pangloss/vim-javascript'
-  Plugin 'tpope/vim-rails'
+  "Plugin 'tpope/vim-rails'
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'benmills/vimux'
   Plugin 'christoomey/vim-tmux-navigator'
@@ -46,7 +46,6 @@
   Plugin 'stulzer/heroku-colorscheme'
   Plugin 'pbrisbin/vim-mkdir'
 
-  Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-vim/'
   Plugin 'kchmck/vim-coffee-script'
   Plugin 'powerman/vim-plugin-ruscmd'
   Plugin 'xolox/vim-misc'
@@ -62,7 +61,9 @@
   "Plugin 'scrooloose/vim-slumlord'
   Plugin 'chrisbra/csv.vim'
   Plugin 'lervag/vimtex'
-  Plugin 'vim-pandoc/vim-pandoc'
+  "Plugin 'vim-pandoc/vim-pandoc'
+
+  Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-vim/'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -102,15 +103,15 @@
     " }}}
 
     " Folding
-      set foldtext=MyFoldFunction()
-      set fillchars=fold:\ 
+      "set foldtext=MyFoldFunction()
+      "set fillchars=fold:\ 
 
-      function! MyFoldFunction()
-        let line = getline(v:foldstart)
-        let lastline = getline(v:foldend)
-        let numfolded = v:foldend - v:foldstart + 1
-        return line . '  folded ' . numfolded . ' lines'
-      endfunction
+      "function! MyFoldFunction()
+        "let line = getline(v:foldstart)
+        "let lastline = getline(v:foldend)
+        "let numfolded = v:foldend - v:foldstart + 1
+        "return line . '  folded ' . numfolded . ' lines'
+      "endfunction
 
     " UI {{{
     "
@@ -123,7 +124,7 @@
       "let ayucolor="mirage" " for mirage version of theme
       "let ayucolor="dark"   " for dark version of theme
       "colorscheme ayu
-      colorscheme heroku-terminal
+      colorscheme my-heroku-terminal
 
 
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
@@ -216,7 +217,7 @@
       let mapleader = "\<Space>"
 
       " Open all folds
-      nnoremap <space> :%foldopen<CR>
+      "nnoremap <space> :%foldopen<CR>
 
       " convenient window switching
       "map <C-h> <C-w>h
@@ -225,10 +226,10 @@
       "map <C-l> <C-w>l
 
       " Emacs-like keybindings
-      cnoremap <C-a> <Home>
-      cnoremap <C-e> <End>
-      inoremap <C-a> <Esc>^i
-      inoremap <C-e> <Esc>A
+      "cnoremap <C-a> <Home>
+      "cnoremap <C-e> <End>
+      "inoremap <C-a> <Esc>^i
+      "inoremap <C-e> <Esc>A
 
       " Save like a pro (CTRL+s) test4
       nnoremap <c-s> :w<cr>
@@ -262,8 +263,8 @@
       " buffers - moving around
       "map <A-x-Left> :bprevious<CR>
       "map <A-x-Right> :bNext<CR>
-      nnoremap <Tab> :bnext<CR>
-      nnoremap <S-Tab> :bprevious<CR>
+      "nnoremap <Tab> :bnext<CR>
+      "nnoremap <S-Tab> :bprevious<CR>
 
       " Write and quit current buffer
       nnoremap <C-M-w> :wq<CR>
@@ -272,8 +273,8 @@
       "map <leader>t :silent! !ctags -R . &<CR>
 
       " copy from clipboard with ease (<leader>p => paste what you copied by CTRL+c in clipboard)
-      nnoremap <leader>p "+p
-      nnoremap <leader>y "+y
+      "nnoremap <leader>p "+p
+      "nnoremap <leader>y "+y
 
       " start ack search, (using ACK tool, like grep but for source code)
       nnoremap <leader>a :Ack! 
@@ -316,34 +317,35 @@
     " {{{
 
       " HTML, XML {{{
-      augroup FTHtml
-        au!
-        autocmd FileType html,xhtml,wml,cf      setlocal ai et sta sw=2 sts=2 " set indent size and stuff
-        autocmd FileType xml,xsd,xslt           setlocal ai et sta sw=2 sts=2 ts=2
-        autocmd FileType html setlocal iskeyword+=~
+      "augroup FTHtml
+        "au!
+        "autocmd FileType html,xhtml,wml,cf      setlocal ai et sta sw=2 sts=2 " set indent size and stuff
+        "autocmd FileType xml,xsd,xslt           setlocal ai et sta sw=2 sts=2 ts=2
+        "autocmd FileType html setlocal iskeyword+=~
 
-      augroup END
+      "augroup END
 
       " CSS, SCSS {{{
-      augroup FTCss
-        au!
+      "augroup FTCss
+        "au!
         au BufRead,BufNewFile *.scss.erb set ft=scss  " when erb-ing sccs, use scss code highlighting
-        autocmd FileType css,scss  silent! setlocal omnifunc=csscomplete#CompleteCSS " autocomplete function
-        autocmd FileType css,scss  setlocal iskeyword+=-
-        autocmd FileType css,scss   setlocal ai et sta sw=2 sts=2
-      augroup END
+        au BufRead,BufNewFile *_spec.rb set ft+=.rspec  " when erb-ing sccs, use scss code highlighting
+        "autocmd FileType css,scss  silent! setlocal omnifunc=csscomplete#CompleteCSS " autocomplete function
+        "autocmd FileType css,scss  setlocal iskeyword+=-
+        "autocmd FileType css,scss   setlocal ai et sta sw=2 sts=2
+      "augroup END
       " }}}
 
       " }}}
       " Ruby {{{
-      augroup FTRuby
-        au!
-        autocmd FileType eruby,yaml,ruby        setlocal ai et sta sw=2 sts=2
-        autocmd BufNewFile,BufRead *.html.erb   set filetype=eruby.html  " load html snippets along with erb
-        autocmd FileType ruby,eruby             let g:rubycomplete_rails = 1
-        autocmd FileType ruby,eruby             let g:rubycomplete_classes_in_global=1
-        autocmd FileType ruby,eruby             let g:rubycomplete_buffer_loading = 1
-      augroup END
+      "augroup FTRuby
+        "au!
+        "autocmd FileType eruby,yaml,ruby        setlocal ai et sta sw=2 sts=2
+        "autocmd BufNewFile,BufRead *.html.erb   set filetype=eruby.html  " load html snippets along with erb
+        "autocmd FileType ruby,eruby             let g:rubycomplete_rails = 1
+        "autocmd FileType ruby,eruby             let g:rubycomplete_classes_in_global=1
+        "autocmd FileType ruby,eruby             let g:rubycomplete_buffer_loading = 1
+      "augroup END
       " }}}
       " Custom form SnipMate
       let g:snipMate = {}
@@ -353,20 +355,20 @@
 
       " Coffescript
       " {{{
-      au BufNewFile,BufReadPost *.coffee setl sw=2 expandtab
+      "au BufNewFile,BufReadPost *.coffee setl sw=2 expandtab
       "}}}
 
-      augroup C
-        au!
+      "augroup C
+        "au!
         ""autocmd FileType c,cpp,h,hpp     colorscheme molokai
-      augroup END
+      "augroup END
 
       " Git {{{
-      augroup FTGit
-        au!
-        autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
-        autocmd FileType gitcommit setlocal spell
-      augroup END
+      "augroup FTGit
+        "au!
+        "autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
+        "autocmd FileType gitcommit setlocal spell
+      "augroup END
       " }}}
 
 
@@ -377,31 +379,31 @@
 
       " Html5 plugin
       " {{{
-      let g:html5_event_handler_attributes_complete = 0
-      let g:html5_rdfa_attributes_complete = 0
-      let g:html5_microdata_attributes_complete = 0
-      let g:html5_aria_attributes_complete = 0
+      "let g:html5_event_handler_attributes_complete = 0
+      "let g:html5_rdfa_attributes_complete = 0
+      "let g:html5_microdata_attributes_complete = 0
+      "let g:html5_aria_attributes_complete = 0
       " }}}
 
       " CtrlP
       " {{{
       " Ag search
-      let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-            \ --ignore .git
-            \ --ignore .svn
-            \ --ignore .hg
-            \ --ignore .DS_Store
-            \ --ignore "**/*.pyc"
-            \ -g ""'
-      let g:ctrlp_clear_cache_on_exit = 1
-      set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+      "let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+            "\ --ignore .git
+            "\ --ignore .svn
+            "\ --ignore .hg
+            "\ --ignore .DS_Store
+            "\ --ignore "**/*.pyc"
+            "\ -g ""'
+      "let g:ctrlp_clear_cache_on_exit = 1
+      "set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
       "nnoremap <F3> :CtrlP<CR>
       "nnoremap <F4> :CtrlPBuffer<CR>
       "nnoremap <F2> :CtrlPDir<CR>
-      let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-            \ 'file': '\v\.(exe|so|dll)$'
-            \ }
+      "let g:ctrlp_custom_ignore = {
+            "\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+            "\ 'file': '\v\.(exe|so|dll)$'
+            "\ }
 
       "map <leader>f :CtrlP<cr>
       "map <leader>b :CtrlPMRU<cr>
@@ -412,11 +414,11 @@
 
       " Gist
       " {{{
-      let g:gist_clip_command = 'xclip -selection clipboard'
-      let g:gist_detect_filetype = 1
-      let g:gist_open_browser_after_post = 1
-      let g:gist_browser_command = 'google-chrome %URL% &' " NOTE: use your browser!
-      let g:gist_show_privates = 1
+      "let g:gist_clip_command = 'xclip -selection clipboard'
+      "let g:gist_detect_filetype = 1
+      "let g:gist_open_browser_after_post = 1
+      "let g:gist_browser_command = 'google-chrome %URL% &' " NOTE: use your browser!
+      "let g:gist_show_privates = 1
       " }}}
 
       " supertab {{{
@@ -426,18 +428,18 @@
 
       " syntastic {{{
       "nnoremap <C-E> :SyntasticCheck<CR>
-      let g:syntastic_auto_loc_list=1
-      let g:syntastic_enable_signs=1
-      let g:synastic_quiet_warnings=1
+      "let g:syntastic_auto_loc_list=1
+      "let g:syntastic_enable_signs=1
+      "let g:synastic_quiet_warnings=1
 
       " }}}
 
       " Rubycomplete {{{
-      let g:rubycomplete_rails=1
-      let g:rubycomplete_classes_in_global=1
-      let g:rubycomplete_buffer_loading=1
-      let g:rubycomplete_include_object=1
-      let g:rubycomplete_include_objectspace=1
+      "let g:rubycomplete_rails=1
+      "let g:rubycomplete_classes_in_global=1
+      "let g:rubycomplete_buffer_loading=1
+      "let g:rubycomplete_include_object=1
+      "let g:rubycomplete_include_objectspace=1
       " }}}
 
       " Gundo {{{
@@ -451,7 +453,7 @@
       " }}}
 
       " NERDTree {{{
-      nnoremap <F1> :NERDTreeToggle<CR>
+      "nnoremap <F1> :NERDTreeToggle<CR>
       nnoremap <leader>n :NERDTreeToggle<CR>
       let g:NERDTreeMinimalUI=1
       "let g:NERDTreeDirArrows=1
@@ -473,26 +475,26 @@
       "nnoremap <C-M-f> :set guifont=*<CR>
 
       " Map Alt-# to switch tabs
-      map  <M-0> 0gt
-      imap <M-0> <Esc>0gt
-      map  <M-1> 1gt
-      imap <M-1> <Esc>1gt
-      map  <M-2> 2gt
-      imap <M-2> <Esc>2gt
-      map  <M-3> 3gt
-      imap <M-3> <Esc>3gt
-      map  <M-4> 4gt
-      imap <M-4> <Esc>4gt
-      map  <M-5> 5gt
-      imap <M-5> <Esc>5gt
-      map  <M-6> 6gt
-      imap <M-6> <Esc>6gt
-      map  <M-7> 7gt
-      imap <M-7> <Esc>7gt
-      map  <M-8> 8gt
-      imap <M-8> <Esc>8gt
-      map  <M-9> 9gt
-      imap <M-9> <Esc>9gt
+      "map  <M-0> 0gt
+      "imap <M-0> <Esc>0gt
+      "map  <M-1> 1gt
+      "imap <M-1> <Esc>1gt
+      "map  <M-2> 2gt
+      "imap <M-2> <Esc>2gt
+      "map  <M-3> 3gt
+      "imap <M-3> <Esc>3gt
+      "map  <M-4> 4gt
+      "imap <M-4> <Esc>4gt
+      "map  <M-5> 5gt
+      "imap <M-5> <Esc>5gt
+      "map  <M-6> 6gt
+      "imap <M-6> <Esc>6gt
+      "map  <M-7> 7gt
+      "imap <M-7> <Esc>7gt
+      "map  <M-8> 8gt
+      "imap <M-8> <Esc>8gt
+      "map  <M-9> 9gt
+      "imap <M-9> <Esc>9gt
     " }}}
 
 
@@ -566,25 +568,25 @@ nmap <leader>19 :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<cr>
 nmap <leader>18 :%s/\(\w\+\):\s/:\1 => /gc<cr>
 
 " auto-pairs plugin on
-let g:AutoPairsFlyMode = 1
+"let g:AutoPairsFlyMode = 1
 
 "Hightlight diff
-highlight DiffAdd    term=reverse ctermbg=148
-highlight DiffChange term=reverse ctermbg=081
-highlight DiffText   term=reverse ctermbg=084
-highlight DiffDelete term=reverse ctermbg=160
+"highlight DiffAdd    term=reverse ctermbg=148
+"highlight DiffChange term=reverse ctermbg=081
+"highlight DiffText   term=reverse ctermbg=084
+"highlight DiffDelete term=reverse ctermbg=160
 " Hide tildas
 "hi NonText guifg=bg
 " Column
-highlight SignColumn guibg=bg
+"highlight SignColumn guibg=bg
 " Visual block color
-highlight Visual cterm=NONE ctermbg=0 ctermfg=NONE guibg=Grey40
+"highlight Visual cterm=NONE ctermbg=0 ctermfg=NONE guibg=Grey40
 " Drop Down
-highlight Pmenu ctermfg=103 ctermbg=231 guifg=#8584ae guibg=Grey40
+"highlight Pmenu ctermfg=103 ctermbg=231 guifg=#8584ae guibg=Grey40
 " Constant
-hi Constant       term=underline ctermfg=214 guifg=#6dba09
-hi rubyConstant ctermfg=220 guifg=#6dba09
-hi Title        ctermfg=220 guifg=#6dba09
+"hi Constant       term=underline ctermfg=214 guifg=#6dba09
+"hi rubyConstant ctermfg=220 guifg=#6dba09
+"hi Title        ctermfg=220 guifg=#6dba09
 
 "Open NerdTree on start
 "autocmd VimEnter * NERDTree
@@ -593,75 +595,73 @@ hi Title        ctermfg=220 guifg=#6dba09
 :nmap <silent> <leader>d <Plug>DashSearch
 
 " Concealing Characters
-let b:javascript_fold = 1
+"let b:javascript_fold = 1
 
 " vim-go enabling
 "let g:go_highlight_operators = 1
-let g:go_highlight_functions = 1
+"let g:go_highlight_functions = 1
 "let g:go_highlight_methods = 1
 "let g:go_highlight_structs = 1
 "let g:go_highlight_interfaces = 1
 "let g:go_highlight_build_constraints = 1
 "let g:go_highlight_generate_tags = 1
-let g:go_fmt_command = "goimports"
+"let g:go_fmt_command = "goimports"
 
 " Improve regexp
 set re=1
 set regexpengine=1
 
 " Allow JSX in normal JS files
-let g:jsx_ext_required = 0
+"let g:jsx_ext_required = 0
 
 " Tagbar
-nnoremap <leader>t :Tagbar<cr>
-let g:tagbar_compact = 1
+"nnoremap <leader>t :Tagbar<cr>
+"let g:tagbar_compact = 1
 "let g:tagbar_sort = 0
 " Ctags
-let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:Headers',
-        \ 'l:Links',
-        \ 'i:Images'
-    \ ]
-\ }
-let g:tagbar_type_vimwiki = {
-    \ 'ctagstype' : 'markdown',
-    \ 'sort' : 0,
-    \ 'kinds' : [
-        \ 'h:Headers',
-        \ 'l:Links',
-        \ 'i:Images'
-    \ ]
-\ }
-if executable('ripper-tags')
-  let g:tagbar_type_ruby = {
-      \ 'kinds'      : ['m:modules',
-                      \ 'c:classes',
-                      \ 'C:constants',
-                      \ 'F:singleton methods',
-                      \ 'f:methods',
-                      \ 'd:describes',
-                      \ 'a:aliases'],
-      \ 'kind2scope' : { 'c' : 'class',
-                       \ 'm' : 'class' },
-      \ 'scope2kind' : { 'class' : 'c' },
-      \ 'ctagsbin'   : 'ripper-tags',
-      \ 'ctagsargs'  : ['-f', '-']
-      \ }
-endif
+"let g:tagbar_type_markdown = {
+    "\ 'ctagstype' : 'markdown',
+    "\ 'kinds' : [
+        "\ 'h:Headers',
+        "\ 'l:Links',
+        "\ 'i:Images'
+    "\ ]
+"\ }
+"let g:tagbar_type_vimwiki = {
+    "\ 'ctagstype' : 'markdown',
+    "\ 'sort' : 0,
+    "\ 'kinds' : [
+        "\ 'h:Headers',
+        "\ 'l:Links',
+        "\ 'i:Images'
+    "\ ]
+"\ }
+"if executable('ripper-tags')
+  "let g:tagbar_type_ruby = {
+      "\ 'kinds'      : ['m:modules',
+                      "\ 'c:classes',
+                      "\ 'C:constants',
+                      "\ 'F:singleton methods',
+                      "\ 'f:methods',
+                      "\ 'd:describes',
+                      "\ 'a:aliases'],
+      "\ 'kind2scope' : { 'c' : 'class',
+                       "\ 'm' : 'class' },
+      "\ 'scope2kind' : { 'class' : 'c' },
+      "\ 'ctagsbin'   : 'ripper-tags',
+      "\ 'ctagsargs'  : ['-f', '-']
+      "\ }
+"endif
 
 " Spell check
 set spell spelllang=ru,en
 inoremap <C-s> <c-g>u<Esc>[s1z=`]a<c-g>u
-
+"
 " Slim
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 
 " Exclude dirs from search
 set wildignore+=*/node_modules/*
-
-set secure " to the end of the file
 
 " Keyjumps
 "nnoremap * *``
@@ -709,27 +709,18 @@ let g:fzf_colors =
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " term background
-hi Terminal ctermbg=lightgrey ctermfg=blue guibg=#1b1b24 guifg=blue
+"hi Terminal ctermbg=lightgrey ctermfg=blue guibg=#1b1b24 guifg=blue
 
 " ALE
 let g:ale_completion_enabled = 1
 
 " plasticboy/vim-markdown
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_toc_autofit = 1
-let g:vim_markdown_autowrite = 1
-let g:vim_markdown_new_list_item_indent = 2 " 2 spaces offset for lists
+"let g:vim_markdown_folding_disabled = 1
+"let g:vim_markdown_toc_autofit = 1
+"let g:vim_markdown_autowrite = 1
+"let g:vim_markdown_new_list_item_indent = 2 " 2 spaces offset for lists
 
 let g:pandoc#filetypes#pandoc_markdown = 0
-
-augroup FTMarkdown
-  au!
-  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-  autocmd BufReadPost,FileReadPost *.md comp pandoc
-  "autocmd BufReadPost,FileReadPost *.md set makeprg=pandoc\ %\ --pdf-engine=xelatex\ -V\ mainfont=\"Times\"\ $*
-  autocmd BufReadPost,FileReadPost *.md set makeprg=pandoc\ %\ --pdf-engine=xelatex\ -V\ mainfont=\"Times\"\ --from\ markdown\ --template\ eisvogel\ --listings\ $*
-  autocmd BufReadPost,FileReadPost *.md map <F4> :Make! -o /tmp/test.pdf \&\& open /tmp/test.pdf<CR>
-augroup END
 
 " Fugitive
 " exclude fugitive files from buffer
@@ -748,7 +739,7 @@ else
 endif
 
 " Airline
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 
 " Set Ultisnips triggers
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -760,9 +751,9 @@ nnoremap <F2> :EasyAlign<CR>
 vnoremap <F2> :EasyAlign<CR>
 
 " Abbrs
-:ab platfrom platform
-:ab platfrom_id platform_id
-:ab ir_platfrom ir_platform
+":ab platfrom platform
+":ab platfrom_id platform_id
+":ab ir_platfrom ir_platform
 
 " Persistent Undo
 if has('persistent_undo')      "check if your vim version supports it
@@ -792,33 +783,33 @@ nmap <Leader>j :call GotoJump()<CR>
 :let g:session_autosave = 'no'
 
 " tagbar
-nmap <F8> :TagbarToggle<CR>
-let g:tagbar_type_ruby = {
-    \ 'kinds' : [
-        \ 'm:modules',
-        \ 'c:classes',
-        \ 'd:describes',
-        \ 'C:contexts',
-        \ 'i:it',
-        \ 'f:methods',
-        \ 'F:singleton methods'
-    \ ]
-\ }
+"nmap <F8> :TagbarToggle<CR>
+"let g:tagbar_type_ruby = {
+    "\ 'kinds' : [
+        "\ 'm:modules',
+        "\ 'c:classes',
+        "\ 'd:describes',
+        "\ 'C:contexts',
+        "\ 'i:it',
+        "\ 'f:methods',
+        "\ 'F:singleton methods'
+    "\ ]
+"\ }
 
 " vim-ruby
-let ruby_fold = 1
-let ruby_spellcheck_strings = 1
-let ruby_foldable_groups = 'if def do begin case for { [ % / string : # << _END_'
+"let ruby_fold = 1
+"let ruby_spellcheck_strings = 1
+"let ruby_foldable_groups = 'if def do begin case for { [ % / string : # << _END_'
 
 " elzr/vim-json
-setlocal foldmethod=syntax
-let g:vim_json_syntax_conceal = 0
+"setlocal foldmethod=syntax
+"let g:vim_json_syntax_conceal = 0
 
 " vue
-set suffixesadd+=.vue
+"set suffixesadd+=.vue
 
 " vitality
-let g:vitality_shell_cursor = 1
+"let g:vitality_shell_cursor = 1
 
 " jumps
 "nnoremap <leader>n :cn<CR>zv
@@ -838,7 +829,7 @@ set imi=0
 " Konfekt/FastFold
 " folds are only updated manually but not when saving the buffer
 let g:fastfold_savehook = 0
-autocmd BufWritePost *.go normal! zv
+"autocmd BufWritePost *.go normal! zv
 
 " run as login shell (not command mode)
 " set shellcmdflag=-ic
@@ -847,8 +838,8 @@ autocmd BufWritePost *.go normal! zv
 set tw=80
 
 " PlantUML
-let g:slumlord_plantuml_jar_path = "/usr/local/Cellar/plantuml/1.2019.5/libexec/plantuml.jar"
-autocmd Filetype,BufEnter plantuml set makeprg=plantuml\ %
+"let g:slumlord_plantuml_jar_path = "/usr/local/Cellar/plantuml/1.2019.5/libexec/plantuml.jar"
+"autocmd Filetype,BufEnter plantuml set makeprg=plantuml\ %
 
 " Buffers
 set hidden
@@ -861,3 +852,5 @@ set autowrite
 "set conceallevel=1
 "let g:tex_conceal='abdmg'
 
+
+set secure " to the end of the file
