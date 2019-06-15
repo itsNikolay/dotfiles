@@ -59,7 +59,7 @@
   Plugin 'wannesm/wmgraphviz.vim'
   Plugin 'Konfekt/FastFold'
   Plugin 'aklt/plantuml-syntax'
-  Plugin 'scrooloose/vim-slumlord'
+  "Plugin 'scrooloose/vim-slumlord'
   Plugin 'chrisbra/csv.vim'
   Plugin 'lervag/vimtex'
   Plugin 'vim-pandoc/vim-pandoc'
@@ -833,6 +833,7 @@ map <Left> :cp<CR>zv
 " Language support
 set keymap=russian-jcukenwin
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+set imi=0
 
 " Konfekt/FastFold
 " folds are only updated manually but not when saving the buffer
