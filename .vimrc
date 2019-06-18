@@ -103,15 +103,15 @@
     " }}}
 
     " Folding
-      "set foldtext=MyFoldFunction()
-      "set fillchars=fold:\ 
+      set foldtext=MyFoldFunction()
+      set fillchars=fold:\ 
 
-      "function! MyFoldFunction()
-        "let line = getline(v:foldstart)
-        "let lastline = getline(v:foldend)
-        "let numfolded = v:foldend - v:foldstart + 1
-        "return line . '  folded ' . numfolded . ' lines'
-      "endfunction
+      function! MyFoldFunction()
+        let line = getline(v:foldstart)
+        let lastline = getline(v:foldend)
+        let numfolded = v:foldend - v:foldstart + 1
+        return line . '  (' . numfolded . ')'
+      endfunction
 
     " UI {{{
     "
@@ -328,8 +328,8 @@
       " CSS, SCSS {{{
       "augroup FTCss
         "au!
-        au BufRead,BufNewFile *.scss.erb set ft=scss  " when erb-ing sccs, use scss code highlighting
-        au BufRead,BufNewFile *_spec.rb set ft+=.rspec  " when erb-ing sccs, use scss code highlighting
+        "au BufRead,BufNewFile *.scss.erb set ft=scss  " when erb-ing sccs, use scss code highlighting
+        "au BufRead,BufNewFile *_spec.rb set ft+=.rspec  " when erb-ing sccs, use scss code highlighting
         "autocmd FileType css,scss  silent! setlocal omnifunc=csscomplete#CompleteCSS " autocomplete function
         "autocmd FileType css,scss  setlocal iskeyword+=-
         "autocmd FileType css,scss   setlocal ai et sta sw=2 sts=2
@@ -508,7 +508,7 @@
 " }}}
 
 " Haml
-au BufRead,BufNewFile *.hamlc set ft=haml
+"au BufRead,BufNewFile *.hamlc set ft=haml
 
 :ino <C-C> <Esc>
 
@@ -658,7 +658,7 @@ set spell spelllang=ru,en
 inoremap <C-s> <c-g>u<Esc>[s1z=`]a<c-g>u
 "
 " Slim
-autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+"autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 
 " Exclude dirs from search
 set wildignore+=*/node_modules/*
