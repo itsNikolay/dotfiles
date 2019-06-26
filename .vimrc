@@ -39,7 +39,7 @@
   Plugin 'w0rp/ale'
   Plugin 'tpope/vim-unimpaired'
   Plugin 'gcmt/taboo.vim'
-  Plugin 'maralla/completor.vim'
+  "Plugin 'maralla/completor.vim'
   Plugin 'romainl/flattened'
   Plugin 'junegunn/vim-easy-align'
   Plugin 'ayu-theme/ayu-vim'
@@ -62,6 +62,10 @@
   Plugin 'chrisbra/csv.vim'
   Plugin 'lervag/vimtex'
   "Plugin 'vim-pandoc/vim-pandoc'
+  " deoplete.nvim
+  Plugin 'Shougo/deoplete.nvim'
+  Plugin 'roxma/nvim-yarp'
+  Plugin 'roxma/vim-hug-neovim-rpc'
 
   Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-vim/'
 
@@ -110,7 +114,7 @@
         let line = getline(v:foldstart)
         let lastline = getline(v:foldend)
         let numfolded = v:foldend - v:foldstart + 1
-        return line . '  (' . numfolded . ')'
+        return line . '  [' . numfolded . ']'
       endfunction
 
     " UI {{{
@@ -713,6 +717,7 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " ALE
 let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
 
 " plasticboy/vim-markdown
 "let g:vim_markdown_folding_disabled = 1
@@ -854,3 +859,7 @@ set autowrite
 
 
 set secure " to the end of the file
+
+" Deopete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option({ 'auto_complete_delay': 1000 })
