@@ -13,9 +13,9 @@
 --langmap=markdown:.md
 --regex-markdown=/^# ([A-Zа-яА-ЯёЁ]+.*)/m[0]\1 \2/h,header,Markdown Headers/
 
---regex-ruby=/^[ \t]*describe ['"](.*)['"] do/\1/d,rspec describe/
---regex-ruby=/^[ \t]*context ['"](.*)['"] do/\1/C,rspec context/
---regex-ruby=/^[ \t]*it ['"](.*)['"] do/\1/i,rspec tests/
+--regex-ruby=/^.*describe ['"](.*)['"] do/\1/d,rspec describe/
+--regex-ruby=/^.*context ['"](.*)['"] do/\1/C,rspec context/
+--regex-ruby=/^.*it ['"](.*)['"] do/\1/i,rspec tests/
 
 --languages=-javascript
 --langdef=js

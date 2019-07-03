@@ -237,8 +237,7 @@
 
       " Save like a pro (CTRL+s) test4
       nnoremap <c-s> :w<cr>
-      nnoremap <leader>w :w<cr>
-      nnoremap <leader>ц :w<cr>
+      nnoremap <leader>w :up<cr>
 
       " Quit like a pro
       nnoremap <C-M-q> :Kwbd<CR>
@@ -619,43 +618,10 @@ set regexpengine=1
 "let g:jsx_ext_required = 0
 
 " Tagbar
-"nnoremap <leader>t :Tagbar<cr>
-"let g:tagbar_compact = 1
+nnoremap <leader>t :TagbarToggle<CR>
+let g:tagbar_compact = 1
 "let g:tagbar_sort = 0
 " Ctags
-"let g:tagbar_type_markdown = {
-    "\ 'ctagstype' : 'markdown',
-    "\ 'kinds' : [
-        "\ 'h:Headers',
-        "\ 'l:Links',
-        "\ 'i:Images'
-    "\ ]
-"\ }
-"let g:tagbar_type_vimwiki = {
-    "\ 'ctagstype' : 'markdown',
-    "\ 'sort' : 0,
-    "\ 'kinds' : [
-        "\ 'h:Headers',
-        "\ 'l:Links',
-        "\ 'i:Images'
-    "\ ]
-"\ }
-"if executable('ripper-tags')
-  "let g:tagbar_type_ruby = {
-      "\ 'kinds'      : ['m:modules',
-                      "\ 'c:classes',
-                      "\ 'C:constants',
-                      "\ 'F:singleton methods',
-                      "\ 'f:methods',
-                      "\ 'd:describes',
-                      "\ 'a:aliases'],
-      "\ 'kind2scope' : { 'c' : 'class',
-                       "\ 'm' : 'class' },
-      "\ 'scope2kind' : { 'class' : 'c' },
-      "\ 'ctagsbin'   : 'ripper-tags',
-      "\ 'ctagsargs'  : ['-f', '-']
-      "\ }
-"endif
 
 " Spell check
 set spell spelllang=ru,en
@@ -718,6 +684,11 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 " ALE
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
+"call deoplete#custom#option('sources', {
+"\ '_': ['ale'],
+"\})
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#source('ale', 'rank', 999)
 
 " plasticboy/vim-markdown
 "let g:vim_markdown_folding_disabled = 1
@@ -847,7 +818,7 @@ set tw=80
 "autocmd Filetype,BufEnter plantuml set makeprg=plantuml\ %
 
 " Buffers
-set hidden
+" set hidden
 set autowrite
 
 " Vimtex
@@ -862,4 +833,8 @@ set secure " to the end of the file
 
 " Deopete
 let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option({ 'auto_complete_delay': 1000 })
+"call deoplete#custom#option({ 'auto_complete_delay': 1000 })
+"
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
