@@ -50,7 +50,7 @@
   Plugin 'powerman/vim-plugin-ruscmd'
   Plugin 'xolox/vim-misc'
   Plugin 'xolox/vim-session'
-  Plugin 'majutsushi/tagbar'
+  "Plugin 'majutsushi/tagbar'
   Plugin 'rlue/vim-fold-rspec'
   Plugin 'elzr/vim-json'
   Plugin 'posva/vim-vue'
@@ -257,7 +257,7 @@
 
       " tabs - moving around, (CTRL+n to new tab)
       "map <C-t> :tabnew<CR>
-      map <C-M-n> :tabedit %<CR>
+      "map <C-M-n> :tabedit %<CR>
       "map <M-Right> :tabnext<cr>
       "map <M-Left> :tabprevious<cr>
       "map <Left> :tabprevious<cr>
@@ -266,8 +266,8 @@
       " buffers - moving around
       "map <A-x-Left> :bprevious<CR>
       "map <A-x-Right> :bNext<CR>
-      "nnoremap <Tab> :bnext<CR>
-      "nnoremap <S-Tab> :bprevious<CR>
+      nnoremap <leader>n :bnext<CR>
+      nnoremap <leader>p :bprevious<CR>
 
       " Write and quit current buffer
       nnoremap <C-M-w> :wq<CR>
@@ -457,7 +457,7 @@
 
       " NERDTree {{{
       "nnoremap <F1> :NERDTreeToggle<CR>
-      nnoremap <leader>n :NERDTreeToggle<CR>
+      nnoremap <leader>t :NERDTreeToggle<CR>
       let g:NERDTreeMinimalUI=1
       "let g:NERDTreeDirArrows=1
       let g:NERTreeHighlightCursorLine=1
@@ -618,8 +618,8 @@ set regexpengine=1
 "let g:jsx_ext_required = 0
 
 " Tagbar
-nnoremap <leader>t :TagbarToggle<CR>
-let g:tagbar_compact = 1
+"nnoremap <leader>t :TagbarToggle<CR>
+"let g:tagbar_compact = 1
 "let g:tagbar_sort = 0
 " Ctags
 
@@ -687,8 +687,7 @@ let g:ale_sign_column_always = 1
 "call deoplete#custom#option('sources', {
 "\ '_': ['ale'],
 "\})
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#source('ale', 'rank', 999)
+ call deoplete#custom#source('ale', 'rank', 999)
 
 " plasticboy/vim-markdown
 "let g:vim_markdown_folding_disabled = 1
@@ -718,9 +717,9 @@ endif
 "let g:airline_powerline_fonts = 1
 
 " Set Ultisnips triggers
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Fn mappings
 nnoremap <F2> :EasyAlign<CR>
@@ -818,8 +817,8 @@ set tw=80
 "autocmd Filetype,BufEnter plantuml set makeprg=plantuml\ %
 
 " Buffers
-" set hidden
-set autowrite
+"set hidden
+"set autowrite
 
 " Vimtex
 "let g:tex_flavor='latex'
