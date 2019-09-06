@@ -53,28 +53,17 @@ ZSH_THEME="nicoulaj"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git gitfast git-extras ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode capistrano rbenv colorize nvm brew rsync vundle golang vi-mode npm docker history postgres rake-fast fzf-zsh heroku kubectl)
+plugins=(git gitfast git-extras ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode rbenv colorize nvm brew rsync vundle golang npm docker history postgres rake-fast fzf heroku kubectl)
 
 source $ZSH/oh-my-zsh.sh
-#source $HOME/.gvm/scripts/gvm
 
 # User configuration
-
-#export PATH=$HOME/bin:/usr/local/bin:$PATH:/home/itsnikolay/android/android-sdk-linux/tools:/usr/X11/bin
-#export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386/jre
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 bindkey -v
 export TERM="xterm-256color"
@@ -93,17 +82,19 @@ PERL_LOCAL_LIB_ROOT="/Users/nikolayponomarev/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL
 PERL_MB_OPT="--install_base \"/Users/nikolayponomarev/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/nikolayponomarev/perl5"; export PERL_MM_OPT;
 
-# Rabbitmq
-PATH=$PATH:/usr/local/sbin
-PATH=$PATH:/$HOME/bin
-
 # GO
 #export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export GOPATH=$(go env GOPATH)
-export PATH=$PATH:$(go env GOPATH)/bin
+# export GOPATH=$(go env GOPATH)
+# export PATH=$PATH:$(go env GOPATH)/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# fzf
+# https://github.com/junegunn/fzf/wiki/Configuring-fuzzy-completion
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
 
 ## Shell Integration
 source ~/.iterm2_shell_integration.zsh

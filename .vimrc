@@ -16,7 +16,7 @@
   Plugin 'tpope/vim-fugitive'
   Plugin 'fatih/vim-go'
   Plugin 'pangloss/vim-javascript'
-  Plugin 'tpope/vim-rails'
+  " Plugin 'tpope/vim-rails'
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'benmills/vimux'
   Plugin 'christoomey/vim-tmux-navigator'
@@ -121,7 +121,6 @@
       set termguicolors     " enable true colors support
       colorscheme my-heroku-terminal
 
-
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
       set shiftround " round the indent to shiftwidth (when at 3 spaces, and I hit > go to 4, not 5)
@@ -136,7 +135,9 @@
       set smartcase " use smartcase, when search query starts with Uppercase, turn off case insensitive search
 
       set list " show trailing characters
-      set listchars=tab:·\ ,trail:¬,extends:❯,precedes:❮ " it show ¬ character when as you type, fill free to comment out set list tab:▸\ ,
+      " it show ¬ character when as you type, fill free to comment out set list
+      " tab:▸\ ,
+      set listchars=tab:·\ ,trail:¬,extends:❯,precedes:❮
 
       set relativenumber " set line numbering
       set number " set line numbering
@@ -157,8 +158,7 @@
       set showbreak=↪ " character show when wrapping line
 
       set foldenable " folding text into clusters (+) according to  {{{ }}} or comments for example.
-      set foldmethod=manual " default options, we create fold manually.
-      "set foldmethod=syntax " default options, we create fold manually.
+      " set foldmethod=manual " default options, we create fold manually.
       set showmatch " when use insert bracket, briefly jump to matching one (i like it, but i might be annoying)
 
       set infercase " case inferred by default
@@ -167,7 +167,7 @@
       set softtabstop=2 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
       set tabstop=4 " real tabs should be 4, and they will show with set list on
 
-      set completeopt=longest,menu,preview
+      " set completeopt=menu,preview
       " }}}
 
     " Advanced macros
@@ -272,6 +272,12 @@ inoremap <C-s> <c-g>u<Esc>[s1z=`]a<c-g>u
 " Exclude dirs from search
 set wildignore+=*/node_modules/*
 
+" Persistent Undo
+if has('persistent_undo')      "check if your vim version supports it
+  set undofile                 "turn on the feature
+  set undodir=$HOME/.vim/undo  "directory where the undo files will be stored
+endif
+
 " FZF
 nmap <Leader>f :Files<CR>
 nmap <Leader>; :Tags<CR>
@@ -314,15 +320,9 @@ else
   let g:ackprg = "ack -H --nocolor --nogroup --column"
 endif
 
-" Fn mappings
-nnoremap <F2> :EasyAlign<CR>
-vnoremap <F2> :EasyAlign<CR>
-
-" Persistent Undo
-if has('persistent_undo')      "check if your vim version supports it
-  set undofile                 "turn on the feature
-  set undodir=$HOME/.vim/undo  "directory where the undo files will be stored
-endif
+" EasyAlign
+nnoremap <leader>e :EasyAlign<CR>
+vnoremap <leader>e :EasyAlign<CR>
 
 " Dispatch
 map <Up> :Copen!<CR>
