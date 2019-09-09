@@ -104,3 +104,6 @@ source ~/.iterm2_shell_integration.zsh
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 
 source ~/env_vars.sh
+
+# Plantuml
+export PLANTUML_LIMIT_SIZE=8192
