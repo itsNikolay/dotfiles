@@ -18,7 +18,7 @@
   Plugin 'pangloss/vim-javascript'
   " Plugin 'tpope/vim-rails'
   Plugin 'vim-ruby/vim-ruby'
-  Plugin 'benmills/vimux'
+  " Plugin 'benmills/vimux'
   Plugin 'christoomey/vim-tmux-navigator'
 
   Plugin 'MarcWeber/vim-addon-mw-utils'
