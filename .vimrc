@@ -31,6 +31,7 @@
   Plugin 'mxw/vim-jsx'
   " Plugin 'godlygeek/tabular'
   Plugin 'plasticboy/vim-markdown' " follows after tabular
+  Plugin 'Chandlercjy/vim-markdown-edit-code-block'
   Plugin 'tpope/vim-rhubarb'
   Plugin 'tpope/vim-dispatch'
   Plugin 'junegunn/fzf'
@@ -369,5 +370,8 @@ endif
 " let g:deoplete#enable_at_startup = 1
 " call deoplete#custom#source('ale', 'rank', 999)
 "
+
+"NetRW
+let g:netrw_localrmdir="rm -r"
 
 set secure " to the end of the file
