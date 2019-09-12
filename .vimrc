@@ -58,9 +58,9 @@
   Plugin 'chrisbra/csv.vim'
   Plugin 'lervag/vimtex'
 
-  Plugin 'Shougo/deoplete.nvim'
-  Plugin 'roxma/nvim-yarp'
-  Plugin 'roxma/vim-hug-neovim-rpc'
+  " Plugin 'Shougo/deoplete.nvim'
+  " Plugin 'roxma/nvim-yarp'
+  " Plugin 'roxma/vim-hug-neovim-rpc'
 
   Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-vim/'
 
@@ -126,7 +126,6 @@
       set shiftround " round the indent to shiftwidth (when at 3 spaces, and I hit > go to 4, not 5)
       set autoindent
       set infercase " case inferred by default, used for autocompletition in insert mode and so on..
-      set t_Co=256
 
       set ignorecase " ignore case when searching
       set hlsearch   " highlight search matches
@@ -144,12 +143,12 @@
       set novisualbell " do not blink
       set lazyredraw " get faster, redraw only when it's needed
       set nostartofline
-      set linespace=0
+      set linespace=1
       let c_no_trail_space_error = 1 " see c errors
       let java_space_errors = 1 " see java errors
       set showcmd " show the command being typed
       set ruler " always show current position
-      set scrolloff=5 " Keep 5 lines (top/bottom) for scop
+      set scrolloff=6 " Keep 6 lines (top/bottom) for scop
       set sidescrolloff=10 " Keep 10 lines at the size
       set showmode " show the current mode (Insert, Visual..)
 
@@ -367,9 +366,8 @@ if isdirectory(expand(".git"))
 endif
 
 " deoplete
-let g:deoplete#enable_at_startup = 1
-"call deoplete#custom#option({ 'auto_complete_delay': 1000 })
-call deoplete#custom#source('ale', 'rank', 999)
+" let g:deoplete#enable_at_startup = 1
+" call deoplete#custom#source('ale', 'rank', 999)
 "
 
 set secure " to the end of the file

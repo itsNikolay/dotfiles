@@ -64,6 +64,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
+set -o vi
 
 bindkey -v
 export TERM="xterm-256color"
