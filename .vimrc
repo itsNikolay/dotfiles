@@ -24,7 +24,7 @@
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
   Plugin 'sirver/ultisnips'
-  Plugin 'honza/vim-snippets'
+  " Plugin 'honza/vim-snippets'
 
   Plugin 'sjl/vitality.vim'
   Plugin 'rizzatti/dash.vim'
@@ -38,7 +38,6 @@
   Plugin 'junegunn/fzf.vim'
   Plugin 'w0rp/ale'
   Plugin 'tpope/vim-unimpaired'
-  Plugin 'gcmt/taboo.vim'
   Plugin 'romainl/flattened'
   Plugin 'junegunn/vim-easy-align'
   Plugin 'ayu-theme/ayu-vim'
@@ -309,9 +308,6 @@ let g:ale_sign_column_always = 1
 
 " Pandoc
 let g:pandoc#filetypes#pandoc_markdown = 0
-"
-" Taboo
-let g:taboo_tab_format = " %N %f%m "
 
 " Ack=grep
 if executable('ag')
@@ -373,5 +369,11 @@ endif
 
 "NetRW
 let g:netrw_localrmdir="rm -r"
+
+" Ultisnips
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 set secure " to the end of the file
