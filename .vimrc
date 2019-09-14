@@ -11,7 +11,7 @@
 
   Plugin 'mileszs/ack.vim'
   Plugin 'othree/html5.vim'
-  Plugin 'scrooloose/nerdtree'
+  " Plugin 'scrooloose/nerdtree'
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-fugitive'
   Plugin 'fatih/vim-go'
@@ -19,7 +19,7 @@
   " Plugin 'tpope/vim-rails'
   Plugin 'vim-ruby/vim-ruby'
   " Plugin 'benmills/vimux'
-  Plugin 'christoomey/vim-tmux-navigator'
+  " Plugin 'christoomey/vim-tmux-navigator'
 
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
@@ -57,6 +57,9 @@
   Plugin 'aklt/plantuml-syntax'
   Plugin 'chrisbra/csv.vim'
   Plugin 'lervag/vimtex'
+
+  Plugin 'tpope/vim-vinegar'
+  Plugin 'tpope/vim-projectionist'
 
   " Plugin 'Shougo/deoplete.nvim'
   " Plugin 'roxma/nvim-yarp'
@@ -247,7 +250,7 @@
       "nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
 
       " Toggle hlsearch with <leader>hs
-      nmap <leader>sh :set hlsearch! hlsearch?<CR>
+      " nmap <leader>sh :set hlsearch! hlsearch?<CR>
 
    " }}}
 
@@ -317,8 +320,8 @@ else
 endif
 
 " EasyAlign
-nnoremap <leader>e :EasyAlign<CR>
-vnoremap <leader>e :EasyAlign<CR>
+nnoremap <leader>c :EasyAlign<CR>
+vnoremap <leader>c :EasyAlign<CR>
 
 " Dispatch
 map <Up> :Copen!<CR>
@@ -354,7 +357,7 @@ nnoremap <leader>gc :Gcommit
 nnoremap <leader>gd :Gdiff<cr>
 
 " NERDTree {{{
-nnoremap <leader>t :NERDTreeToggle<CR>
+" nnoremap <leader>t :NERDTreeToggle<CR>
 let g:NERDTreeMinimalUI=1
 let g:NERTreeHighlightCursorLine=1
 " Bookmark related to project
@@ -369,11 +372,21 @@ endif
 
 "NetRW
 let g:netrw_localrmdir="rm -r"
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_liststyle = 3
+autocmd FileType netrw setl bufhidden=delete
 
 " Ultisnips
 " let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+
+"Chandlercjy/vim-markdown-edit-code-block
+nmap <buffer> <silent> <leader>e :MarkdownEditBlock<CR>
+
+"tpope/vim-projectionist
+nmap <leader>s :A<CR>
 
 set secure " to the end of the file
