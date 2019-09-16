@@ -60,6 +60,7 @@
 
   Plugin 'tpope/vim-vinegar'
   Plugin 'tpope/vim-projectionist'
+  " Plugin 'majutsushi/tagbar'
 
   " Plugin 'Shougo/deoplete.nvim'
   " Plugin 'roxma/nvim-yarp'
@@ -88,7 +89,7 @@
       set autoread " supress warnings
       set wildmenu " wildmenu when autocomplting option
       set wildmode=full " complete the full match, this is default behaviour
-      set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " there files will be ignored when completing in wild menu
+      set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc " there files will be ignored when completing in wild menu
       set clipboard=unnamed " copy to the system clipboard
       set history=1000
       set tags=.tags,tags,~/vimwiki/tags;/ " save tags generated for files in current working directory
@@ -388,5 +389,16 @@ nmap <buffer> <silent> <leader>e :MarkdownEditBlock<CR>
 
 "tpope/vim-projectionist
 nmap <leader>s :A<CR>
+
+"Tagbar
+let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
+\ }
 
 set secure " to the end of the file
