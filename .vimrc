@@ -60,7 +60,7 @@
 
   Plugin 'tpope/vim-vinegar'
   Plugin 'tpope/vim-projectionist'
-  " Plugin 'majutsushi/tagbar'
+  Plugin 'majutsushi/tagbar'
 
   " Plugin 'Shougo/deoplete.nvim'
   " Plugin 'roxma/nvim-yarp'
@@ -331,7 +331,7 @@ map <Right> :cn<CR>zv
 map <Left> :cp<CR>zv
 
 " Language support
-set keymap=russian-jcukenwin
+set keymap=russian-jcukenmac " mac!
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 set imi=0
 
@@ -356,6 +356,8 @@ endif
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit 
 nnoremap <leader>gd :Gdiff<cr>
+set statusline=%#String#%{FugitiveStatusline()}%#CursorColumn#\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set laststatus=2
 
 " NERDTree {{{
 " nnoremap <leader>t :NERDTreeToggle<CR>
@@ -372,7 +374,7 @@ endif
 "
 
 "NetRW
-let g:netrw_localrmdir="rm -r"
+let g:netrw_localrmdir="rm -rf"
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_liststyle = 3
 autocmd FileType netrw setl bufhidden=delete
