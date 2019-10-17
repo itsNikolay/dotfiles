@@ -66,6 +66,9 @@
   " Plugin 'roxma/nvim-yarp'
   " Plugin 'roxma/vim-hug-neovim-rpc'
 
+  Plugin 'tpope/vim-obsession'
+  Plugin 'tpope/vim-speeddating'
+
   Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-vim/'
 
   " All of your Plugins must be added before the following line
@@ -219,8 +222,8 @@
       nnoremap <leader>h :split<CR>
 
       " buffers - moving around
-      nnoremap <leader>n :bnext<CR>
-      nnoremap <leader>p :bprevious<CR>
+      " nnoremap <leader>n :bnext<CR>
+      " nnoremap <leader>p :bprevious<CR>
 
       " Write and quit current buffer
       nnoremap <C-M-w> :wq<CR>
