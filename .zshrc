@@ -10,7 +10,8 @@ export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="frisk"
 #ZSH_THEME="eastwood"
 #ZSH_THEME="wezm"
-ZSH_THEME="nicoulaj"
+# ZSH_THEME="nicoulaj"
+ZSH_THEME="avit"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -53,7 +54,7 @@ ZSH_THEME="nicoulaj"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git gitfast git-extras ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode rbenv colorize nvm brew rsync vundle golang npm docker history postgres rake-fast fzf heroku kubectl)
+plugins=(git gitfast git-extras ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode rbenv colorize nvm brew rsync vundle golang npm docker history postgres rake-fast fzf heroku kubectl asdf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,3 +109,5 @@ source ~/env_vars.sh
 
 # Plantuml
 export PLANTUML_LIMIT_SIZE=8192
+# hcl project
+export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"

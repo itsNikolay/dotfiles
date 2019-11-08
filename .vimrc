@@ -68,6 +68,9 @@
 
   Plugin 'tpope/vim-obsession'
   Plugin 'tpope/vim-speeddating'
+  Plugin 'tpope/vim-surround'
+
+  Plugin 'elixir-editors/vim-elixir'
 
   Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-vim/'
 
