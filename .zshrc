@@ -11,7 +11,7 @@ export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="eastwood"
 #ZSH_THEME="wezm"
 # ZSH_THEME="nicoulaj"
-ZSH_THEME="avit"
+# ZSH_THEME="avit"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -54,7 +54,7 @@ ZSH_THEME="avit"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git gitfast git-extras ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode rbenv colorize nvm brew rsync vundle golang npm docker history postgres rake-fast fzf heroku kubectl asdf)
+plugins=(git gitfast git-extras ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode colorize nvm brew rsync vundle golang npm docker history postgres rake-fast fzf heroku kubectl asdf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -111,3 +111,8 @@ source ~/env_vars.sh
 export PLANTUML_LIMIT_SIZE=8192
 # hcl project
 export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
+
+# prompt
+# export PROMPT='${fg[magenta]}$ %{$reset_color%}'
+export PROMPT=$'%{$fg[white]%} %{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_info)\
+${fg[magenta]}$ %{$reset_color%} '
