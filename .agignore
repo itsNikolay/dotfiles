@@ -9,8 +9,8 @@
 *.tsv
 *.tmp*
 *.old
-*.json
 *.xml
 *.plist
 *.pdf
 *.log
+*.lock

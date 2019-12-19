@@ -64,7 +64,7 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='vim'
+export EDITOR='nvim'
 set -o vi
 
 bindkey -v
@@ -115,4 +115,6 @@ export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
 # prompt
 # export PROMPT='${fg[magenta]}$ %{$reset_color%}'
 export PROMPT=$'%{$fg[white]%} %{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_info)\
-${fg[magenta]}$ %{$reset_color%} '
+${fg[magenta]}$ %{$reset_color%}'
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
