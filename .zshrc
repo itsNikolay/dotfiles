@@ -114,7 +114,7 @@ export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
 
 # prompt
 # export PROMPT='${fg[magenta]}$ %{$reset_color%}'
-export PROMPT=$'%{$fg[white]%} %{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_info)\
-${fg[magenta]}$ %{$reset_color%}'
+export PROMPT=$' %{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_info)\
+${fg[magenta]}\$ %{$reset_color%}'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
