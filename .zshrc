@@ -54,7 +54,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git gitfast git-extras ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode colorize nvm brew rsync vundle golang npm docker history postgres rake-fast fzf heroku kubectl asdf)
+plugins=(git gitfast git-extras ssh-agent bundler common-aliases rails tmux web-search zsh_reload vi-mode colorize nvm brew rsync vundle golang npm docker history postgres rake-fast fzf heroku kubectl asdf aws)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,3 +118,6 @@ export PROMPT=$' %{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_info)\
 ${fg[magenta]}\$ %{$reset_color%}'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Erlang/Elixir: Remember last commands in IEX
+export ERL_AFLAGS="-kernel shell_history enabled"
