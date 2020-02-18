@@ -16,3 +16,4 @@
 *.lock
 tags
 gem_tags
+/vcr/
