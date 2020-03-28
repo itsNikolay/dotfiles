@@ -121,3 +121,4 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Erlang/Elixir: Remember last commands in IEX
 export ERL_AFLAGS="-kernel shell_history enabled"
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
