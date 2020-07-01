@@ -7,9 +7,3 @@
 --exclude=gulp
 --exclude=package.json
 --exclude=package-lock.json
-
---languages=-markdown
---langdef=md
---langmap=md:.markdown
---langmap=md:.md
---regex-md=/^(# [A-Zа-яА-ЯёЁ]+.*)/\1 \2/h,header,Markdown Headers/
