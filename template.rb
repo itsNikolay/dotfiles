@@ -13,17 +13,9 @@ if yes?('Do initial commit?')
   git commit: '-m "initial"'
 end
 
-if yes?('Create database?')
-  rake 'db:create db:migrate'
-end
+rake 'db:create db:migrate' if yes?('Create database?')
 
-# if yes?('Add Webpacker?')
-#   run 'rails webpacker:install'
-#   run 'yarn upgrade'
-#   run 'yarn install'
-# end
-
-if rspec = yes?('Add Rspec?')
+if yes?('Add Rspec?')
   gem_group :test do
     gem 'webmock'
     gem 'vcr'
@@ -50,39 +42,12 @@ if yes?('Add Pry?')
   run 'bundle'
 end
 
-if yes?('Add Guard?')
-  gem_group :development do
-    gem 'guard'
-    gem 'guard-rspec' if rspec
-    gem 'guard-bundler'
-  end
-  run 'bundle'
-  run 'bundle exec guard init'
-  run 'bundle exec guard init rspec' if rspec
-  run 'bundle exec guard init bundler'
-end
-
 if yes?('Add Devise')
   gem 'devise'
   generate 'devise:install'
   model_name = ask('What would you like the user model to be called? [user]')
   model_name = 'user' if model_name.blank?
   generate 'devise', model_name
-end
-
-if yes?('Add Pundit?')
-  gem 'pundit'
-  run 'bundle'
-  generate 'pundit:install'
-end
-
-if yes?('Add Carrierwave?')
-  gem 'carrierwave'
-  run 'bundle'
-end
-
-if yes?('Add Slim?')
-  gem 'slim'
 end
 
 git :init
