@@ -1,7 +1,26 @@
+# frozen_string_literal: true
+
+ruby_version = ask('Ruby version', default: '2.4.3')
+node_version = ask('Nodejs version', default: '12.6.0')
+
+create_file '.tool-versions', force: true do
+  "ruby #{ruby_version}\nnodejs #{node_version}"
+end
+
 if yes?('Do initial commit?')
   git :init
   git add: '.'
   git commit: '-m "initial"'
+end
+
+if yes?('Create database?')
+  rake 'db:create db:migrate'
+end
+
+if yes?('Add Webpacker?')
+  run 'rails webpacker:install'
+  run 'yarn upgrade'
+  run 'yarn install'
 end
 
 if rspec = yes?('Add Rspec?')
@@ -62,10 +81,6 @@ if yes?('Add Carrierwave?')
   run 'bundle'
 end
 
-if yes?('Create database?')
-  rake 'db:create db:migrate'
-end
-
 if yes?('Add Slim?')
   gem 'slim'
 end
@@ -73,9 +88,3 @@ end
 git :init
 git add: '.'
 git commit: '-m "gems"'
-
-if yes?('Add Webpacker?')
-  run 'rails webpacker:install'
-  run 'yarn upgrade'
-  run 'yarn install'
-end

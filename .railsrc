@@ -1,6 +1,5 @@
---skip-javascript
---skip-sprockets
 --skip-test
+--skip-sprockets
 --skip-turbolinks
 --database=postgresql
 --webpacker
