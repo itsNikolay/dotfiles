@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-ruby_version = ask('Ruby version', default: '2.4.3')
-node_version = ask('Nodejs version', default: '12.6.0')
+ruby_version = ask('Ruby version', default: '2.7.1')
+node_version = ask('Nodejs version', default: '12.18.3')
 
 create_file '.tool-versions', force: true do
   "ruby #{ruby_version}\nnodejs #{node_version}"
