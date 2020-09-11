@@ -17,11 +17,11 @@ if yes?('Create database?')
   rake 'db:create db:migrate'
 end
 
-if yes?('Add Webpacker?')
-  run 'rails webpacker:install'
-  run 'yarn upgrade'
-  run 'yarn install'
-end
+# if yes?('Add Webpacker?')
+#   run 'rails webpacker:install'
+#   run 'yarn upgrade'
+#   run 'yarn install'
+# end
 
 if rspec = yes?('Add Rspec?')
   gem_group :test do
