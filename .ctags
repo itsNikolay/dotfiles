@@ -2,11 +2,6 @@
 --exclude=.hg
 --exclude=log
 --exclude=tmp
---exclude=bin
---exclude=node_modules
---exclude=gulp
---exclude=package.json
---exclude=package-lock.json
 
 --langdef=markdown
 --langmap=markdown:.markdown

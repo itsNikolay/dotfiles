@@ -1,4 +1,7 @@
+--skip-javascript
+--skip-sprockets
 --skip-test
+--skip-turbolinks
 --database=postgresql
 --webpack=react
 --template=https://raw.githubusercontent.com/itsNikolay/dotfiles/master/template.rb

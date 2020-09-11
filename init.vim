@@ -96,7 +96,7 @@
   Plugin 'sheerun/vim-polyglot'
 
   Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-vim/'
-  Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-trace-vim/'
+  " Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-trace-vim/'
   Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/vim-terminal-dispatch/'
 
   " All of your Plugins must be added before the following line
@@ -288,14 +288,14 @@
 
    " }}}
 
-:ino <C-C> <Esc>
+ino <C-C> <Esc>
 
 "Rocket hash
 nmap <leader>19 :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<cr>
 nmap <leader>18 :%s/\(\w\+\):\s/:\1 => /gc<cr>
 
 " Dash search word under cursor in Dash
-:nmap <silent> <leader>d <Plug>DashSearch
+nmap <silent> <leader>d <Plug>DashSearch
 
 " Improve regexp
 set re=1
@@ -380,6 +380,7 @@ nmap <leader><Down> :Copen<CR>
 set keymap=russian-jcukenmac " mac!
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 set imi=0
+lang en_US.UTF-8
 
 " Konfekt/FastFold
 " folds are only updated manually but not when saving the buffer
@@ -418,10 +419,20 @@ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 autocmd FileType netrw setl bufhidden=delete
 " numbering
 let g:netrw_bufsettings="noma nomod nonu nobl nowrap ro rnu"
+" http://www.drchip.org/astronaut/vim/index.html#NETRW
+let g:netrw_fastbrowse    = 0 " 2
+let g:netrw_keepdir       = 1
+let g:netrw_liststyle     = 3
+let g:netrw_retmap        = 1
+let g:netrw_silent        = 1
+let g:netrw_special_syntax= 1
 
 
 "Chandlercjy/vim-markdown-edit-code-block
 nmap <buffer> <silent> <leader>e :MarkdownEditBlock<CR>
+
+" plasticboy/vim-markdown
+let g:vim_markdown_follow_anchor = 1
 
 "tpope/vim-projectionist
 nmap <leader>s :A<CR>
@@ -435,13 +446,13 @@ endfunction
 "Tagbar
 hi link TagbarSignature NonText
 
-set secure " to the end of the file
-
 " Terminal
+cab tt tabe \| te
 cab tte tabe \| te
+cab tabete tabe \| te
+cab vt vs \| te
 cab vte vs \| te
 cab vste vs \| te
-cab tabete tabe \| te
 
 " sub
 set inccommand=nosplit
@@ -487,3 +498,6 @@ runtime macros/matit.vim
 cabbr RU Dispatch trans :ru -b
 cabbr EN Dispatch trans :en -b
 cabbr goo !open https://google.com/search\?q\=
+
+" to the end of the file
+set secure

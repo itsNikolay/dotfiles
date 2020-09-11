@@ -120,5 +120,6 @@ ${fg[magenta]}\$ %{$reset_color%}'
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Erlang/Elixir: Remember last commands in IEX
-export ERL_AFLAGS="-kernel shell_history enabled"
+# export ERL_AFLAGS="-kernel shell_history enabled"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac --with-ssl=$(brew --prefix openssl)"
