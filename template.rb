@@ -76,4 +76,6 @@ git commit: '-m "gems"'
 
 if yes?('Add Webpacker?')
   run 'rails webpacker:install'
+  run 'yarn upgrade'
+  run 'yarn install'
 end

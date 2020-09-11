@@ -3,5 +3,6 @@
 --skip-test
 --skip-turbolinks
 --database=postgresql
+--webpacker
 --webpack=react
 --template=https://raw.githubusercontent.com/itsNikolay/dotfiles/master/template.rb
