@@ -7,6 +7,8 @@ create_file '.tool-versions', force: true do
   "ruby #{ruby_version}\nnodejs #{node_version}"
 end
 
+run 'bundle'
+
 if yes?('Do initial commit?')
   git :init
   git add: '.'

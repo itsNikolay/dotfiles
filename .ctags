@@ -2,6 +2,7 @@
 --exclude=.hg
 --exclude=log
 --exclude=tmp
+--exclude=public
 
 --langdef=markdown
 --langmap=markdown:.markdown

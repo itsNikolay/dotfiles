@@ -65,6 +65,7 @@
   let g:deoplete#enable_at_startup = 1
   Plugin 'slashmili/alchemist.vim'
   Plugin 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+  " Plugin 'Shougo/neosnippet.vim'
 
   Plugin 'tpope/vim-obsession'
   Plugin 'tpope/vim-speeddating'
@@ -420,8 +421,8 @@ autocmd FileType netrw setl bufhidden=delete
 " numbering
 let g:netrw_bufsettings="noma nomod nonu nobl nowrap ro rnu"
 " http://www.drchip.org/astronaut/vim/index.html#NETRW
-let g:netrw_fastbrowse    = 0 " 2
-let g:netrw_keepdir       = 1
+" let g:netrw_fastbrowse    = 0 " 2
+" let g:netrw_keepdir       = 1
 let g:netrw_liststyle     = 3
 let g:netrw_retmap        = 1
 let g:netrw_silent        = 1
