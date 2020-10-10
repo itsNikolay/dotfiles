@@ -63,9 +63,9 @@
 
   Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
-  Plugin 'slashmili/alchemist.vim'
-  Plugin 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-  " Plugin 'Shougo/neosnippet.vim'
+  " Slow!
+  " Plugin 'slashmili/alchemist.vim'
+  " Plugin 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
   Plugin 'tpope/vim-obsession'
   Plugin 'tpope/vim-speeddating'
@@ -94,10 +94,9 @@
   Plugin 'neo4j-contrib/cypher-vim-syntax'
   Plugin 'scrooloose/vim-slumlord'
 
-  Plugin 'sheerun/vim-polyglot'
+  " Plugin 'sheerun/vim-polyglot'
 
   Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-vim/'
-  " Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-trace-vim/'
   Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/vim-terminal-dispatch/'
 
   " All of your Plugins must be added before the following line
@@ -235,7 +234,7 @@
 
       " Save like a pro (CTRL+s)
       nnoremap <c-s> :w<cr>
-      nnoremap <leader>w :up<cr>
+      nnoremap <leader>w :w<cr>
 
       " Quit like a pro
       nnoremap <C-M-q> :Kwbd<CR>
@@ -321,26 +320,26 @@ nmap <Leader>f :Files<CR>
 nmap <Leader>t :Tags<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>1 :Filetypes<CR>
-command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--reverse --nth .. --tiebreak=length'}, <bang>0)
-command! -bar -bang -nargs=? -complete=buffer Buffers  call fzf#vim#buffers(<q-args>, {'options': '--reverse'}, <bang>0)
-command!      -bang -nargs=? -complete=dir Files       call fzf#vim#files(<q-args>, {'options': '--reverse'}, <bang>0)
+" command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--reverse --nth .. --tiebreak=length'}, <bang>0)
+" command! -bar -bang -nargs=? -complete=buffer Buffers  call fzf#vim#buffers(<q-args>, {'options': '--reverse'}, <bang>0)
+" command!      -bang -nargs=? -complete=dir Files       call fzf#vim#files(<q-args>, {'options': '--reverse'}, <bang>0)
 " let g:fzf_layout = { 'window': '20split' }
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Keyword'],
-  \ 'bg':      ['bg', 'Keyword'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-" respect .gitignore
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+" let g:fzf_colors =
+" \ { 'fg':      ['fg', 'Keyword'],
+"   \ 'bg':      ['bg', 'Keyword'],
+"   \ 'hl':      ['fg', 'Comment'],
+"   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+"   \ 'hl+':     ['fg', 'Statement'],
+"   \ 'info':    ['fg', 'PreProc'],
+"   \ 'border':  ['fg', 'Ignore'],
+"   \ 'prompt':  ['fg', 'Conditional'],
+"   \ 'pointer': ['fg', 'Exception'],
+"   \ 'marker':  ['fg', 'Keyword'],
+"   \ 'spinner': ['fg', 'Label'],
+"   \ 'header':  ['fg', 'Comment'] }
+" " respect .gitignore
+" let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " ALE
 let g:ale_completion_enabled = 1
@@ -423,7 +422,7 @@ let g:netrw_bufsettings="noma nomod nonu nobl nowrap ro rnu"
 " http://www.drchip.org/astronaut/vim/index.html#NETRW
 " let g:netrw_fastbrowse    = 0 " 2
 " let g:netrw_keepdir       = 1
-let g:netrw_liststyle     = 3
+" let g:netrw_liststyle     = 3
 let g:netrw_retmap        = 1
 let g:netrw_silent        = 1
 let g:netrw_special_syntax= 1
