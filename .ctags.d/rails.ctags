@@ -1,2 +1,1 @@
---regex-ruby=/^[ \t]*scope[ \t]*:([a-zA-Z0-9_]+)/\1/s,scopes/
---regex-ruby=/^[ \t]*(has_many|has_one|belongs_to)[ \t]*:([a-zA-Z0-9_]+)/\2/associations,associations/
+/Users/nikolayponomarev/projects/itsNikolay/dotfiles/.ctags.d/rails.ctags

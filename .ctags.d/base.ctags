@@ -1,6 +1,1 @@
---exclude=.git
---exclude=.hg
---exclude=log
---exclude=tmp
---exclude=node_modules
---exclude=public
+/Users/nikolayponomarev/projects/itsNikolay/dotfiles/.ctags.d/base.ctags
