@@ -4,105 +4,111 @@
   filetype off                  " required
   set encoding=utf-8
 
-  set rtp+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
+  " set rtp+=~/.vim/bundle/Vundle.vim
+  " call vundle#begin()
+  call plug#begin('~/.vim/plugged')
 
-  Plugin 'gmarik/Vundle.vim'
+  Plug 'gmarik/Vundle.vim'
 
-  Plugin 'mileszs/ack.vim'
-  Plugin 'othree/html5.vim'
-  " Plugin 'scrooloose/nerdtree'
-  Plugin 'tpope/vim-commentary'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'fatih/vim-go'
-  Plugin 'pangloss/vim-javascript'
-  Plugin 'vim-ruby/vim-ruby'
-  " Plugin 'benmills/vimux'
-  " Plugin 'christoomey/vim-tmux-navigator'
+  Plug 'mileszs/ack.vim'
+  Plug 'othree/html5.vim'
+  " Plug 'scrooloose/nerdtree'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-fugitive'
+  Plug 'fatih/vim-go'
+  Plug 'pangloss/vim-javascript'
+  Plug 'vim-ruby/vim-ruby'
+  " Plug 'benmills/vimux'
+  " Plug 'christoomey/vim-tmux-navigator'
 
-  Plugin 'MarcWeber/vim-addon-mw-utils'
-  Plugin 'tomtom/tlib_vim'
-  Plugin 'sirver/ultisnips'
-  " Plugin 'honza/vim-snippets'
+  Plug 'MarcWeber/vim-addon-mw-utils'
+  Plug 'tomtom/tlib_vim'
+  Plug 'sirver/ultisnips'
+  " Plug 'honza/vim-snippets'
 
-  Plugin 'sjl/vitality.vim'
-  Plugin 'rizzatti/dash.vim'
-  Plugin 'mxw/vim-jsx'
-  " Plugin 'godlygeek/tabular'
-  Plugin 'plasticboy/vim-markdown' " follows after tabular
-  Plugin 'Chandlercjy/vim-markdown-edit-code-block'
-  Plugin 'tpope/vim-rhubarb'
-  Plugin 'tpope/vim-dispatch'
-  Plugin 'junegunn/fzf'
-  Plugin 'junegunn/fzf.vim'
-  Plugin 'w0rp/ale'
-  Plugin 'tpope/vim-unimpaired'
-  Plugin 'romainl/flattened'
-  Plugin 'junegunn/vim-easy-align'
-  Plugin 'ayu-theme/ayu-vim'
-  Plugin 'stulzer/heroku-colorscheme'
-  Plugin 'pbrisbin/vim-mkdir'
+  Plug 'sjl/vitality.vim'
+  Plug 'rizzatti/dash.vim'
+  Plug 'mxw/vim-jsx'
+  " Plug 'godlygeek/tabular'
+  Plug 'plasticboy/vim-markdown' " follows after tabular
+  Plug 'Chandlercjy/vim-markdown-edit-code-block'
+  Plug 'tpope/vim-rhubarb'
+  Plug 'tpope/vim-dispatch'
+  Plug 'junegunn/fzf'
+  Plug 'junegunn/fzf.vim'
+  " Plug 'w0rp/ale'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'romainl/flattened'
+  Plug 'junegunn/vim-easy-align'
+  Plug 'ayu-theme/ayu-vim'
+  Plug 'stulzer/heroku-colorscheme'
+  Plug 'pbrisbin/vim-mkdir'
 
-  Plugin 'kchmck/vim-coffee-script'
-  Plugin 'powerman/vim-plugin-ruscmd'
-  Plugin 'xolox/vim-misc'
-  Plugin 'rlue/vim-fold-rspec'
-  Plugin 'elzr/vim-json'
-  Plugin 'posva/vim-vue'
-  Plugin 'vim-scripts/BufOnly.vim'
-  Plugin 'wannesm/wmgraphviz.vim'
+  Plug 'kchmck/vim-coffee-script'
+  Plug 'powerman/vim-Plug-ruscmd'
+  Plug 'xolox/vim-misc'
+  Plug 'rlue/vim-fold-rspec'
+  Plug 'elzr/vim-json'
+  Plug 'posva/vim-vue'
+  Plug 'vim-scripts/BufOnly.vim'
+  Plug 'wannesm/wmgraphviz.vim'
 
-  Plugin 'Konfekt/FastFold'
-  Plugin 'aklt/plantuml-syntax'
-  Plugin 'chrisbra/csv.vim'
-  Plugin 'lervag/vimtex'
+  Plug 'Konfekt/FastFold'
+  Plug 'aklt/plantuml-syntax'
+  Plug 'chrisbra/csv.vim'
+  Plug 'lervag/vimtex'
 
-  Plugin 'tpope/vim-vinegar'
-  Plugin 'tpope/vim-projectionist'
-  Plugin 'majutsushi/tagbar'
+  Plug 'tpope/vim-vinegar'
+  Plug 'tpope/vim-projectionist'
+  Plug 'majutsushi/tagbar'
 
-  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  let g:deoplete#enable_at_startup = 1
-  Plugin 'slashmili/alchemist.vim'
-  Plugin 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-  " Plugin 'Shougo/neosnippet.vim'
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " let g:deoplete#enable_at_startup = 1
+  " Slow!
+  " Plug 'slashmili/alchemist.vim'
+  " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
-  Plugin 'tpope/vim-obsession'
-  Plugin 'tpope/vim-speeddating'
-  Plugin 'tpope/vim-surround'
-  Plugin 'tpope/vim-repeat'
-  Plugin 'tpope/vim-abolish'
+  Plug 'tpope/vim-obsession'
+  Plug 'tpope/vim-speeddating'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-abolish'
 
-  Plugin 'elixir-editors/vim-elixir'
+  Plug 'elixir-editors/vim-elixir'
 
-  Plugin 'jiangmiao/auto-pairs'
+  Plug 'jiangmiao/auto-pairs'
 
-  Plugin 'kana/vim-textobj-user'
-  Plugin 'andyl/vim-textobj-elixir'
-  Plugin 'jasonlong/vim-textobj-css'
-  Plugin 'coachshea/vim-textobj-markdown'
-  Plugin 'tek/vim-textobj-ruby'
-  Plugin 'whatyouhide/vim-textobj-erb'
-  Plugin 'sgur/vim-textobj-parameter'
+  " Plug 'kana/vim-textobj-user'
+  " Plug 'andyl/vim-textobj-elixir'
+  " Plug 'jasonlong/vim-textobj-css'
+  " Plug 'coachshea/vim-textobj-markdown'
+  " Plug 'tek/vim-textobj-ruby'
+  " Plug 'whatyouhide/vim-textobj-erb'
+  " Plug 'sgur/vim-textobj-parameter'
 
-  Plugin 'ekalinin/Dockerfile.vim'
-  Plugin 'tpope/vim-dadbod'
-  Plugin 'tpope/vim-rails'
-  Plugin 'tpope/vim-bundler'
-  Plugin 'tpope/vim-jdaddy'
-  Plugin 'vim-scripts/dbext.vim'
-  Plugin 'neo4j-contrib/cypher-vim-syntax'
-  Plugin 'scrooloose/vim-slumlord'
+  Plug 'ekalinin/Dockerfile.vim'
+  Plug 'tpope/vim-dadbod'
+  Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-bundler'
+  Plug 'tpope/vim-jdaddy'
+  Plug 'vim-scripts/dbext.vim'
+  Plug 'neo4j-contrib/cypher-vim-syntax'
+  Plug 'scrooloose/vim-slumlord'
 
-  Plugin 'sheerun/vim-polyglot'
+  " Plug 'sheerun/vim-polyglot'
 
-  Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-vim/'
-  " Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/my-trace-vim/'
-  Plugin 'file:///Users/nikolayponomarev/projects/itsNikolay/vim-terminal-dispatch/'
+  Plug '~/projects/itsNikolay/my-vim/'
+  Plug '~/projects/itsNikolay/vim-terminal-dispatch/'
+
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+  Plug 'skywind3000/asynctasks.vim'
+  Plug 'skywind3000/asyncrun.vim'
 
   " All of your Plugins must be added before the following line
-  call vundle#end()            " required
-  filetype plugin indent on    " required
+  " call vundle#end()            " required
+  call plug#end()
+  " filetype Plug indent on    " required
 " }}}
 
 " Settings
@@ -235,7 +241,7 @@
 
       " Save like a pro (CTRL+s)
       nnoremap <c-s> :w<cr>
-      nnoremap <leader>w :up<cr>
+      nnoremap <leader>w :w<cr>
 
       " Quit like a pro
       nnoremap <C-M-q> :Kwbd<CR>
@@ -423,7 +429,7 @@ let g:netrw_bufsettings="noma nomod nonu nobl nowrap ro rnu"
 " http://www.drchip.org/astronaut/vim/index.html#NETRW
 " let g:netrw_fastbrowse    = 0 " 2
 " let g:netrw_keepdir       = 1
-let g:netrw_liststyle     = 3
+" let g:netrw_liststyle     = 3
 let g:netrw_retmap        = 1
 let g:netrw_silent        = 1
 let g:netrw_special_syntax= 1
@@ -500,5 +506,21 @@ cabbr RU Dispatch trans :ru -b
 cabbr EN Dispatch trans :en -b
 cabbr goo !open https://google.com/search\?q\=
 
-" to the end of the file
+"LSP
+" packadd nvim-lspconfig
+"
+let g:tex_flavor = "latex"
+
+source ~/.config/nvim/coc_setup.vim
+" Fuzzy finder exist
+nmap <C-c> <esc>
+
+" AsyncRun
+let g:asyncrun_open = 6
+nmap `a :AsyncRun 
+nmap `A :AsyncRun! 
+nmap `t :AsyncTasw! 
+nmap `t :AsyncTask! 
+
+"" to the end of the file
 set secure
