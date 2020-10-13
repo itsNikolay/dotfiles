@@ -1,1 +1,0 @@
-/Users/nikolayponomarev/projects/dotfiles/.ctags.d

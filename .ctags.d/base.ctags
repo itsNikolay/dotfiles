@@ -1,1 +1,3 @@
-/Users/nikolayponomarev/projects/itsNikolay/dotfiles/.ctags.d/base.ctags
+--exclude=.svn
+--exclude=.git
+--exclude=node_modules

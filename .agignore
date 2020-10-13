@@ -18,3 +18,5 @@
 *.cache
 tags
 gem_tags
+public/static-assets
+.git

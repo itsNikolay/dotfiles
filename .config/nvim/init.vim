@@ -309,7 +309,7 @@ set re=1
 set regexpengine=1
 
 " Spell check
-set spell spelllang=ru,en
+set spell spelllang=ru,en,de
 inoremap <C-s> <c-g>u<Esc>[s1z=`]a<c-g>u
 hi SpellBad gui=undercurl
 
@@ -364,6 +364,8 @@ highlight ALEWarning                 ctermfg=NONE ctermbg=NONE guifg=#ED6237 gui
 highlight ALEInfo                    ctermfg=NONE ctermbg=NONE guifg=#ED6237 guibg=NONE
 " disable c type hightlight
 highlight cType NONE
+
+highlight CursorLine guibg=Grey11
 
 " Pandoc
 let g:pandoc#filetypes#pandoc_markdown = 0
@@ -478,7 +480,8 @@ inoremap <c-l> <c-o>$<c-j>
 inoremap <c-p> <c-r>*
 
 " Menu
-hi clear Pmenu
+" hi clear Pmenu
+hi Pmenu guibg=Grey3
 
 " auto write
 set autowriteall

@@ -153,8 +153,27 @@ brew cask install font-menlo-for-powerline
 
 ## FZF
 
-```
+```sh
 git clone https://github.com/junegunn/fzf.git ${ZSH}/custom/plugins/fzf
 ${ZSH}/custom/plugins/fzf/install --bin
 git clone https://github.com/Treri/fzf-zsh.git ${ZSH}/custom/plugins/fzf-zsh
 ```
+
+## Coc
+
+```ruby
+CocInstall coc-json coc-tsserver \
+coc-ultisnips \
+coc-tasks \
+coc-prettier \
+coc-highlight \
+coc-fzf-preview \
+coc-solargraph \
+coc-markdownlink \
+coc-marketplace \
+coc-translator \
+coc-bookmark \
+coc-bootstrap-classname
+```
+
+npm install -g markdownlint

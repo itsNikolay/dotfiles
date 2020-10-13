@@ -10,5 +10,13 @@
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
   "solargraph.hover": true,
-  "solargraph.rename": true
+  "solargraph.rename": true,
+  "translator.toLang": "ru",
+  "translator.engines":  [
+    "google"
+  ],
+  "git.changedSign.hlGroup": "NONE",
+  "git.addedSign.hlGroup": "NONE",
+  "git.changeRemovedSign.hlGroup": "NONE",
+  "git.topRemovedSign.hlGroup": "NONE"
 }
