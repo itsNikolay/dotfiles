@@ -105,6 +105,11 @@
   Plug 'skywind3000/asynctasks.vim'
   Plug 'skywind3000/asyncrun.vim'
 
+  Plug 'vim-airline/vim-airline'
+  Plug 'peitalin/vim-jsx-typescript'
+
+  Plug 'mhinz/vim-startify'
+
   " All of your Plugins must be added before the following line
   " call vundle#end()            " required
   call plug#end()
@@ -524,6 +529,10 @@ nmap `a :AsyncRun
 nmap `A :AsyncRun! 
 nmap `t :AsyncTasw! 
 nmap `t :AsyncTask! 
+
+let g:airline_theme='ayu'
+
+source ~/.config/nvim/startify.vim
 
 "" to the end of the file
 set secure
