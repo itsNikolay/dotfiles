@@ -163,3 +163,25 @@ vmap <S-T> <Plug>(coc-translator-pv)
 
 " warnings
 let g:coc_status_warning_sign="W"
+
+let g:coc_global_extensions = [
+      \ 'coc-ultisnips',
+      \ 'coc-translator',
+      \ 'coc-tasks',
+      \ 'coc-tailwindcss',
+      \ 'coc-snippets',
+      \ 'coc-scssmodules',
+      \ 'coc-prettier',
+      \ 'coc-marketplace',
+      \ 'coc-highlight',
+      \ 'coc-git',
+      \ 'coc-fzf-preview',
+      \ 'coc-bootstrap-classname',
+      \ 'coc-bookmark',
+      \ 'coc-tsserver',
+      \ 'coc-solargraph',
+      \ 'coc-markmap',
+      \ 'coc-markdownlint',
+      \ 'coc-json',
+      \ 'coc-css',
+      \ ]
