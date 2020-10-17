@@ -9,9 +9,6 @@ FILES := $(shell \
 		grep -v "install.sh" | \
 		sed "s/.\///")
 
-test:
-	echo $(FILES)
-
 all: commit
 	@echo "Done"
 

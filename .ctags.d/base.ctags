@@ -1,4 +1,1 @@
---exclude=.svn
---exclude=.git
---exclude=node_modules
---exclude=public
+/Users/nikolayponomarev/projects/itsNikolay/dotfiles/.ctags.d/base.ctags
