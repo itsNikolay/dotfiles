@@ -45,7 +45,7 @@
   Plug 'pbrisbin/vim-mkdir'
 
   Plug 'kchmck/vim-coffee-script'
-  Plug 'powerman/vim-Plug-ruscmd'
+  " Plug 'powerman/vim-Plug-ruscmd'
   Plug 'xolox/vim-misc'
   Plug 'rlue/vim-fold-rspec'
   Plug 'elzr/vim-json'
