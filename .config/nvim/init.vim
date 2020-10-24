@@ -111,6 +111,9 @@
   Plug 'mhinz/vim-startify'
   Plug 'junegunn/gv.vim'
 
+  Plug 'rbgrouleff/bclose.vim'
+  Plug 'francoiscabrol/ranger.vim'
+
   " All of your Plugins must be added before the following line
   " call vundle#end()            " required
   call plug#end()
