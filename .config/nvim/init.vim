@@ -45,7 +45,7 @@
   Plug 'pbrisbin/vim-mkdir'
 
   Plug 'kchmck/vim-coffee-script'
-  Plug 'powerman/vim-Plug-ruscmd'
+  " Plug 'powerman/vim-Plug-ruscmd'
   Plug 'xolox/vim-misc'
   Plug 'rlue/vim-fold-rspec'
   Plug 'elzr/vim-json'
@@ -111,6 +111,9 @@
   Plug 'mhinz/vim-startify'
   Plug 'junegunn/gv.vim'
   Plug 'leafgarland/typescript-vim'
+
+  Plug 'rbgrouleff/bclose.vim'
+  Plug 'francoiscabrol/ranger.vim'
 
   " All of your Plugins must be added before the following line
   " call vundle#end()            " required
