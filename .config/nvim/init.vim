@@ -110,6 +110,7 @@
 
   Plug 'mhinz/vim-startify'
   Plug 'junegunn/gv.vim'
+  Plug 'leafgarland/typescript-vim'
 
   Plug 'rbgrouleff/bclose.vim'
   Plug 'francoiscabrol/ranger.vim'

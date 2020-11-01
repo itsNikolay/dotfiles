@@ -13,4 +13,5 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
       \ {'c': '~/.config/nvim/init.vim'},
       \ {'d': '~/Downloads'},
+      \ {'t': '~/projects/tests'},
       \ ]
