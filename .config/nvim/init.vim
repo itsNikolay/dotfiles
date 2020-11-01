@@ -538,5 +538,10 @@ let g:airline_theme='ayu'
 
 source ~/.config/nvim/startify.vim
 
+" Ranger
+let g:ranger_map_keys = 0
+map <leader>r :RangerCurrentDirectory<CR>
+map <leader>- :Ranger<CR>
+
 "" to the end of the file
 set secure
