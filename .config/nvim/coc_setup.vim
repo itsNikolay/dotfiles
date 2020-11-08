@@ -70,8 +70,10 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
-  else
+  elseif (coc#rpc#ready())
     call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
 
@@ -99,9 +101,9 @@ augroup end
 " nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap ,ac  <Plug>(coc-codeaction)
+nmap gx  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap ,qf  <Plug>(coc-fix-current)
+nmap gz  <Plug>(coc-fix-current)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -184,4 +186,7 @@ let g:coc_global_extensions = [
       \ 'coc-markdownlint',
       \ 'coc-json',
       \ 'coc-css',
+      \ 'coc-tslint',
+      \ 'coc-stylelintplus',
+      \ 'coc-html',
       \ ]
