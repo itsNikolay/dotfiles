@@ -173,7 +173,6 @@ let g:coc_global_extensions = [
       \ 'coc-tailwindcss',
       \ 'coc-snippets',
       \ 'coc-scssmodules',
-      \ 'coc-prettier',
       \ 'coc-marketplace',
       \ 'coc-highlight',
       \ 'coc-git',
@@ -189,4 +188,10 @@ let g:coc_global_extensions = [
       \ 'coc-tslint',
       \ 'coc-stylelintplus',
       \ 'coc-html',
+      \ 'coc-emoji',
+      \ 'coc-dictionary',
+      \ 'coc-tag',
+      \ 'coc-word',
+      \ 'coc-omni',
+      \ 'coc-syntax',
       \ ]
