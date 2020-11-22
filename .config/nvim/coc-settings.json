@@ -15,9 +15,11 @@
   "translator.engines":  [
     "google"
   ],
-  "git.changedSign.hlGroup": "NONE",
-  "git.addedSign.hlGroup": "NONE",
-  "git.changeRemovedSign.hlGroup": "NONE",
-  "git.topRemovedSign.hlGroup": "NONE",
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
   "coc.preferences.extensionUpdateCheck": "never"
+
 }

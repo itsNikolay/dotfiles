@@ -110,9 +110,10 @@
 
   Plug 'mhinz/vim-startify'
   Plug 'junegunn/gv.vim'
-  " Plug 'leafgarland/typescript-vim'
+  Plug 'leafgarland/typescript-vim'
 
   Plug 'rbgrouleff/bclose.vim'
+  Plug 'airblade/vim-gitgutter'
   " Plug 'francoiscabrol/ranger.vim'
 
   " All of your Plugins must be added before the following line
@@ -337,6 +338,9 @@ nmap <Leader>f :Files<CR>
 nmap <Leader>t :Tags<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>1 :Filetypes<CR>
+" " respect .gitignore
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--nth ..'}, <bang>0)
 " command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--reverse --nth .. --tiebreak=length'}, <bang>0)
 " command! -bar -bang -nargs=? -complete=buffer Buffers  call fzf#vim#buffers(<q-args>, {'options': '--reverse'}, <bang>0)
 " command!      -bang -nargs=? -complete=dir Files       call fzf#vim#files(<q-args>, {'options': '--reverse'}, <bang>0)
@@ -355,8 +359,6 @@ nmap <Leader>1 :Filetypes<CR>
 "   \ 'marker':  ['fg', 'Keyword'],
 "   \ 'spinner': ['fg', 'Label'],
 "   \ 'header':  ['fg', 'Comment'] }
-" " respect .gitignore
-" let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " ALE
 let g:ale_completion_enabled = 1
