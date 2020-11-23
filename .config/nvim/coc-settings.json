@@ -19,5 +19,5 @@
   "git.addedSign.hlGroup": "NONE",
   "git.changeRemovedSign.hlGroup": "NONE",
   "git.topRemovedSign.hlGroup": "NONE",
-  "coc.preferences.extensionUpdateCheck": "never"
+  "coc.preferences.formatOnSaveFiletypes": []
 }

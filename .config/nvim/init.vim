@@ -12,80 +12,50 @@
 
   Plug 'mileszs/ack.vim'
   Plug 'othree/html5.vim'
-  " Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
   Plug 'fatih/vim-go'
   Plug 'pangloss/vim-javascript'
   Plug 'vim-ruby/vim-ruby'
-  " Plug 'benmills/vimux'
-  " Plug 'christoomey/vim-tmux-navigator'
-
   Plug 'MarcWeber/vim-addon-mw-utils'
   Plug 'tomtom/tlib_vim'
   Plug 'sirver/ultisnips'
-  " Plug 'honza/vim-snippets'
-
   Plug 'sjl/vitality.vim'
   Plug 'rizzatti/dash.vim'
   Plug 'mxw/vim-jsx'
-  " Plug 'godlygeek/tabular'
   Plug 'plasticboy/vim-markdown' " follows after tabular
   Plug 'Chandlercjy/vim-markdown-edit-code-block'
   Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-dispatch'
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
-  " Plug 'w0rp/ale'
   Plug 'tpope/vim-unimpaired'
   Plug 'romainl/flattened'
   Plug 'junegunn/vim-easy-align'
   Plug 'ayu-theme/ayu-vim'
   Plug 'stulzer/heroku-colorscheme'
   Plug 'pbrisbin/vim-mkdir'
-
   Plug 'kchmck/vim-coffee-script'
-  " Plug 'powerman/vim-Plug-ruscmd'
   Plug 'xolox/vim-misc'
   Plug 'rlue/vim-fold-rspec'
   Plug 'elzr/vim-json'
   Plug 'posva/vim-vue'
   Plug 'vim-scripts/BufOnly.vim'
   Plug 'wannesm/wmgraphviz.vim'
-
   Plug 'Konfekt/FastFold'
   Plug 'aklt/plantuml-syntax'
   Plug 'chrisbra/csv.vim'
   Plug 'lervag/vimtex'
-
   Plug 'tpope/vim-vinegar'
   Plug 'tpope/vim-projectionist'
   Plug 'majutsushi/tagbar'
-
-  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " let g:deoplete#enable_at_startup = 1
-  " Slow!
-  " Plug 'slashmili/alchemist.vim'
-  " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-
   Plug 'tpope/vim-obsession'
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-abolish'
-
   Plug 'elixir-editors/vim-elixir'
-
   Plug 'jiangmiao/auto-pairs'
-
-  " Plug 'kana/vim-textobj-user'
-  " Plug 'andyl/vim-textobj-elixir'
-  " Plug 'jasonlong/vim-textobj-css'
-  " Plug 'coachshea/vim-textobj-markdown'
-  " Plug 'tek/vim-textobj-ruby'
-  " Plug 'whatyouhide/vim-textobj-erb'
-  " Plug 'sgur/vim-textobj-parameter'
-
   Plug 'ekalinin/Dockerfile.vim'
   Plug 'tpope/vim-dadbod'
   Plug 'tpope/vim-rails'
@@ -94,26 +64,17 @@
   Plug 'vim-scripts/dbext.vim'
   Plug 'neo4j-contrib/cypher-vim-syntax'
   Plug 'scrooloose/vim-slumlord'
-
-  " Plug 'sheerun/vim-polyglot'
-
   Plug '~/projects/itsNikolay/my-vim/'
   Plug '~/projects/itsNikolay/vim-terminal-dispatch/'
-
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
   Plug 'skywind3000/asynctasks.vim'
   Plug 'skywind3000/asyncrun.vim'
-
   Plug 'vim-airline/vim-airline'
-  Plug 'peitalin/vim-jsx-typescript'
-
   Plug 'mhinz/vim-startify'
   Plug 'junegunn/gv.vim'
-  " Plug 'leafgarland/typescript-vim'
-
   Plug 'rbgrouleff/bclose.vim'
-  " Plug 'francoiscabrol/ranger.vim'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'peitalin/vim-jsx-typescript'
 
   " All of your Plugins must be added before the following line
   " call vundle#end()            " required
@@ -317,6 +278,8 @@ nmap <silent> <leader>d <Plug>DashSearch
 " Improve regexp
 set re=1
 set regexpengine=1
+" au WinLeave * set nocursorline nocursorcolumn
+" au WinEnter * set cursorline cursorcolumn
 
 " Spell check
 set spell spelllang=ru,en,de
