@@ -72,7 +72,6 @@
   Plug 'vim-airline/vim-airline'
   Plug 'mhinz/vim-startify'
   Plug 'junegunn/gv.vim'
-  Plug 'rbgrouleff/bclose.vim'
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
   Plug 'airblade/vim-gitgutter'
