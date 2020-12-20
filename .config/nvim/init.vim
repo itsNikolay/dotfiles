@@ -19,7 +19,7 @@
   Plug 'vim-ruby/vim-ruby'
   Plug 'MarcWeber/vim-addon-mw-utils'
   Plug 'tomtom/tlib_vim'
-  Plug 'sirver/ultisnips'
+  " Plug 'sirver/ultisnips'
   Plug 'sjl/vitality.vim'
   Plug 'rizzatti/dash.vim'
   Plug 'mxw/vim-jsx'
