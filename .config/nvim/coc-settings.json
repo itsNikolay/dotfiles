@@ -11,7 +11,7 @@
   "solargraph.formatting": true,
   "solargraph.hover": true,
   "solargraph.rename": true,
-  "translator.toLang": "ru",
+  "translator.toLang": "en",
   "translator.engines":  [
     "google"
   ],
