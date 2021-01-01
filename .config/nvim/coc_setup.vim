@@ -210,4 +210,5 @@ let g:coc_global_extensions = [
       \ 'coc-word',
       \ 'coc-omni',
       \ 'coc-syntax',
+      \ 'coc-yaml',
       \ ]
