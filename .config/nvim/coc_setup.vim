@@ -166,9 +166,9 @@ vmap <S-T> <Plug>(coc-translator-pv)
 " snippets
 
 " Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
+imap <Tab> <Plug>(coc-snippets-expand)
 " Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
+vmap <Tab> <Plug>(coc-snippets-select)
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
@@ -210,4 +210,5 @@ let g:coc_global_extensions = [
       \ 'coc-word',
       \ 'coc-omni',
       \ 'coc-syntax',
+      \ 'coc-yaml',
       \ ]
