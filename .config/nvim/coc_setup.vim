@@ -194,7 +194,6 @@ let g:coc_global_extensions = [
       \ 'coc-git',
       \ 'coc-fzf-preview',
       \ 'coc-bootstrap-classname',
-      \ 'coc-bookmark',
       \ 'coc-tsserver',
       \ 'coc-solargraph',
       \ 'coc-markmap',
@@ -211,5 +210,9 @@ let g:coc_global_extensions = [
       \ 'coc-omni',
       \ 'coc-syntax',
       \ 'coc-yaml',
+<<<<<<< HEAD
       \ 'coc-eslint',
+=======
+      \ 'coc-ccls',
+>>>>>>> 34a3df78c98415e5d9be5a59c8a5fac4fdc0307a
       \ ]
