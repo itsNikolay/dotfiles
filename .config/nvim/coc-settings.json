@@ -20,11 +20,7 @@
   "git.removedSign.hlGroup": "GitGutterDelete",
   "git.topRemovedSign.hlGroup": "GitGutterDelete",
   "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-<<<<<<< HEAD
-=======
   "coc.preferences.extensionUpdateCheck": "daily",
-
->>>>>>> 34a3df78c98415e5d9be5a59c8a5fac4fdc0307a
   "languageserver": {
     "ccls": {
       "command": "ccls",
