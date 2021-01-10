@@ -211,4 +211,5 @@ let g:coc_global_extensions = [
       \ 'coc-omni',
       \ 'coc-syntax',
       \ 'coc-yaml',
+      \ 'coc-eslint',
       \ ]
