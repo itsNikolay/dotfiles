@@ -194,7 +194,6 @@ let g:coc_global_extensions = [
       \ 'coc-git',
       \ 'coc-fzf-preview',
       \ 'coc-bootstrap-classname',
-      \ 'coc-bookmark',
       \ 'coc-tsserver',
       \ 'coc-solargraph',
       \ 'coc-markmap',
@@ -211,4 +210,5 @@ let g:coc_global_extensions = [
       \ 'coc-omni',
       \ 'coc-syntax',
       \ 'coc-yaml',
+      \ 'coc-ccls',
       \ ]
