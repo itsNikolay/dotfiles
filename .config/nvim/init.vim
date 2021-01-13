@@ -163,7 +163,7 @@
       let java_space_errors = 1 " see java errors
       set showcmd " show the command being typed
       set ruler " always show current position
-      set scrolloff=6 " Keep 6 lines (top/bottom) for scop
+      set scrolloff=15 " Keep 6 lines (top/bottom) for scop
       set sidescrolloff=10 " Keep 10 lines at the size
       set showmode " show the current mode (Insert, Visual..)
 
