@@ -359,6 +359,11 @@ vnoremap <leader>c :EasyAlign<CR>
 nmap <leader><Up> :Copen!<CR>
 nmap <leader><Down> :Copen<CR>
 
+" git-gutter
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+
 " Language support
 set keymap=russian-jcukenmac " mac!
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz

@@ -184,7 +184,6 @@ let g:coc_status_warning_sign="W"
 
 let g:coc_global_extensions = [
       \ 'coc-bootstrap-classname',
-      \ 'coc-ccls',
       \ 'coc-css',
       \ 'coc-dictionary',
       \ 'coc-emoji',
