@@ -75,6 +75,9 @@
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
   Plug 'airblade/vim-gitgutter'
+  Plug 'vim-test/vim-test'
+  Plug 'liuchengxu/vista.vim'
+  Plug 'AndrewRadev/splitjoin.vim'
 
   " All of your Plugins must be added before the following line
   " call vundle#end()            " required
@@ -512,6 +515,24 @@ source ~/.config/nvim/startify.vim
 let g:ranger_map_keys = 0
 map <leader>r :RangerCurrentDirectory<CR>
 map <leader>- :Ranger<CR>
+
+" navigating thourgh windows
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" fugitive
+hi DiffAdd gui=NONE guifg=green guibg=black
+hi DiffChange gui=NONE guifg=red guibg=black
+hi DiffText gui=NONE guifg=orange guibg=black
+hi DiffDelete gui=NONE guifg=red guibg=black
+
+" ETC? (Pragmatic Programmer Book p. 60)
+autocmd BufWritePost * :echo "ETC?"
+
+" vim-test
+let test#strategy = 'dispatch'
 
 "" to the end of the file
 set secure
