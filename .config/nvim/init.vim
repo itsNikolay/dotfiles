@@ -208,76 +208,6 @@
 
     "}}}
 
-    " Binding
-    " {{{
-    " Map leader
-      let mapleader = "\<Space>"
-
-      " Save like a pro (CTRL+s)
-      nnoremap <c-s> :w<cr>
-      nnoremap <leader>w :w<cr>
-
-      " Quit like a pro
-      nnoremap <C-M-q> :Kwbd<CR>
-      nnoremap <leader>q :q<CR>
-      nnoremap <leader>x :wq<cr>
-      nnoremap <leader>z :bd<cr>
-
-      " this key combination gets rid of the search highlights.
-      nmap <leader>, :noh<cr>
-
-      " open vertical split and switch to it
-      nnoremap <leader>v <C-w>v<C-w>l
-
-      " open horizontal  split and switch to it
-      nnoremap <leader>h :split<CR>
-
-      " buffers - moving around
-      " nnoremap <leader>n :bnext<CR>
-      " nnoremap <leader>p :bprevious<CR>
-
-      " Write and quit current buffer
-      nnoremap <C-M-w> :wq<CR>
-
-      " copy from clipboard with ease (<leader>p => paste what you copied by CTRL+c in clipboard)
-      "nnoremap <leader>p "+p
-      "nnoremap <leader>y "+y
-
-      " start ack search, (using ACK tool, like grep but for source code)
-      nnoremap <leader>a :Ack! 
-
-      " reformat whole file
-      nnoremap <leader>= ggVG=''
-
-      " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
-      " (it will prompt for sudo password when writing)
-      cmap w!! %!sudo tee > /dev/null %
-
-      " upper/lower word
-      nmap <leader>u mQviwU`Q
-      nmap <leader>l mQviwu`Q
-
-      " upper/lower first char of word
-      nmap <leader>wu mQgewvU`Q
-      nmap <leader>wl mQgewvu`Q
-
-      " Create the directory containing the file in the buffer
-      "nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
-
-      " Toggle hlsearch with <leader>hs
-      " nmap <leader>sh :set hlsearch! hlsearch?<CR>
-
-   " }}}
-
-ino <C-C> <Esc>
-
-"Rocket hash
-nmap <leader>19 :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<cr>
-nmap <leader>18 :%s/\(\w\+\):\s/:\1 => /gc<cr>
-
-" Dash search word under cursor in Dash
-nmap <silent> <leader>d <Plug>DashSearch
-
 " Improve regexp
 set re=1
 set regexpengine=1
@@ -286,7 +216,6 @@ set regexpengine=1
 
 " Spell check
 set spell spelllang=ru,en,de
-inoremap <C-s> <c-g>u<Esc>[s1z=`]a<c-g>u
 hi SpellBad gui=undercurl
 
 " Exclude dirs from search
@@ -298,11 +227,6 @@ if has('persistent_undo')      "check if your vim version supports it
   set undodir=$HOME/.vim/undo  "directory where the undo files will be stored
 endif
 
-" FZF
-nmap <Leader>f :Files<CR>
-nmap <Leader>t :Tags<CR>
-nmap <Leader>b :Buffers<CR>
-nmap <Leader>1 :Filetypes<CR>
 " " respect .gitignore
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, {'options': '--nth ..'}, <bang>0)
@@ -354,14 +278,6 @@ else
   let g:ackprg = "ack -H --nocolor --nogroup --column"
 endif
 
-" EasyAlign
-nnoremap <leader>c :EasyAlign<CR>
-vnoremap <leader>c :EasyAlign<CR>
-
-" Dispatch
-nmap <leader><Up> :Copen!<CR>
-nmap <leader><Down> :Copen<CR>
-
 " git-gutter
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
@@ -391,9 +307,6 @@ let g:snipMate.scope_aliases['vimwiki'] = 'markdown,vimwiki'
 if has("autocmd")
   autocmd BufReadPost fugitive://* set bufhidden=delete
 endif
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gc :Gcommit 
-nnoremap <leader>gd :Gdiff<cr>
 set statusline=%#String#%{FugitiveStatusline()}%#CursorColumn#\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ %L
 set laststatus=2
 
@@ -418,15 +331,10 @@ let g:netrw_retmap        = 1
 let g:netrw_silent        = 1
 let g:netrw_special_syntax= 1
 
-
-"Chandlercjy/vim-markdown-edit-code-block
-nmap <buffer> <silent> <leader>e :MarkdownEditBlock<CR>
-
 " plasticboy/vim-markdown
 let g:vim_markdown_follow_anchor = 1
 
 "tpope/vim-projectionist
-nmap <leader>s :A<CR>
 if !exists('g:projectionist_transformations')
   let g:projectionist_transformations = {}
 endif
@@ -456,11 +364,6 @@ set inccommand=nosplit
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
 
-" Mappings
-" break line
-inoremap <c-l> <c-o>$<c-j>
-inoremap <c-p> <c-r>*
-
 " Menu
 " hi clear Pmenu
 hi Pmenu guibg=Grey3
@@ -468,23 +371,11 @@ hi Pmenu guibg=Grey3
 " auto write
 set autowriteall
 
-" Sessions
-nmap <F2> :wa<Bar>exe "mksession! " . v:this_session<CR>:so 
-
 " mks
 set sessionoptions-=buffers
 
 "matit
 runtime macros/matit.vim
-
-" neosnippet
-" let g:neosnippet#snippets_directory="~/projects/itsNikolay/my-vim/neosnippets"
-" let g:neosnippet#enable_snipmate_compatibility = 1
-" let g:neosnippet#disable_runtime_snippets = 0
-" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k>     <Plug>(neosnippet_expand_target)
-" smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 "abbrs
 cabbr RU Dispatch trans :ru -b
@@ -497,30 +388,13 @@ cabbr goo !open https://google.com/search\?q\=
 let g:tex_flavor = "latex"
 
 source ~/.config/nvim/coc_setup.vim
-" Fuzzy finder exist
-nmap <C-c> <esc>
 
 " AsyncRun
 let g:asyncrun_open = 6
-nmap `a :AsyncRun 
-nmap `A :AsyncRun! 
-nmap `t :AsyncTasw! 
-nmap `t :AsyncTask! 
 
 let g:airline_theme='ayu'
 
 source ~/.config/nvim/startify.vim
-
-" Ranger
-let g:ranger_map_keys = 0
-map <leader>r :RangerCurrentDirectory<CR>
-map <leader>- :Ranger<CR>
-
-" navigating thourgh windows
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
 
 " fugitive
 hi DiffAdd gui=NONE guifg=green guibg=black
