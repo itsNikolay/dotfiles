@@ -11,7 +11,7 @@
   "solargraph.formatting": true,
   "solargraph.hover": true,
   "solargraph.rename": true,
-  "translator.toLang": "en",
+  "translator.toLang": "ru",
   "translator.engines":  [
     "google"
   ],
@@ -32,5 +32,7 @@
         }
       }
     }
-  }
+  },
+  "eslint.autoFixOnSave": true,
+  "tslint.autoFixOnSave": true
 }

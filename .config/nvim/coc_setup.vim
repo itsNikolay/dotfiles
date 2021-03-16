@@ -178,6 +178,19 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
 
+" coc-smartf
+" press <esc> to cancel.
+nmap f <Plug>(coc-smartf-forward)
+nmap F <Plug>(coc-smartf-backward)
+nmap ; <Plug>(coc-smartf-repeat)
+nmap , <Plug>(coc-smartf-repeat-opposite)
+
+augroup Smartf
+  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=black
+  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=white
+augroup end
+" coc-smartf
+
 
 " warnings
 let g:coc_status_warning_sign="W"
@@ -191,6 +204,7 @@ let g:coc_global_extensions = [
       \ 'coc-fzf-preview',
       \ 'coc-git',
       \ 'coc-html',
+      \ 'coc-jest',
       \ 'coc-json',
       \ 'coc-markdownlint',
       \ 'coc-marketplace',
@@ -207,6 +221,7 @@ let g:coc_global_extensions = [
       \ 'coc-tslint',
       \ 'coc-tsserver',
       \ 'coc-ultisnips',
+      \ 'coc-vimlsp',
       \ 'coc-word',
       \ 'coc-yaml',
       \ ]
