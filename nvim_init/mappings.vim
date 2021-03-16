@@ -8,6 +8,7 @@ inoremap <c-l> <c-o>$<c-j>
 inoremap <c-p> <c-r>*
 
 vnoremap <leader>c :EasyAlign<CR>
+vnoremap <nowait> <leader>g :<c-u>TranslateRangeFun<CR>
 
 nnoremap <C-M-q> :Kwbd<CR>
 nnoremap <C-M-w> :wq<CR>
@@ -31,16 +32,20 @@ nnoremap <leader>= ggVG=''
 nnoremap <leader>a :Ack! 
 nnoremap <leader>c :EasyAlign<CR>
 nnoremap <leader>d <Plug>DashSearch
-nnoremap <leader>gc :Gcommit 
 nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>h :split<CR>
 nnoremap <leader>l mQviwu`Q
 nnoremap <leader>q :q<CR>
 nnoremap <leader>s :A<CR>
+nnoremap <leader>tf :TestFile<CR>
+nnoremap <leader>tl :TestLast<CR>
+nnoremap <leader>tn :TestNearest<CR>
 nnoremap <leader>u mQviwU`Q
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>w :w<CR>
 nnoremap <leader>x :wq<CR>
 nnoremap `A :AsyncRun! 
 nnoremap `a :AsyncRun 
+nnoremap <nowait> gl :FocusTerminalDispatch<CR>
+nnoremap <leader>gs :Gstatus<CR>
+" nnoremap <nowait> <leader>g :'<,'>TranslateRangeFun<CR>

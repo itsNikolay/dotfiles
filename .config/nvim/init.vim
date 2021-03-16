@@ -67,7 +67,6 @@
   Plug '~/projects/itsNikolay/my-vim/'
   Plug '~/projects/itsNikolay/vim-terminal-dispatch/'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'skywind3000/asynctasks.vim'
   Plug 'skywind3000/asyncrun.vim'
   Plug 'vim-airline/vim-airline'
   Plug 'mhinz/vim-startify'
@@ -78,6 +77,7 @@
   Plug 'vim-test/vim-test'
   Plug 'liuchengxu/vista.vim'
   Plug 'AndrewRadev/splitjoin.vim'
+  Plug 'itchyny/calendar.vim'
 
   " All of your Plugins must be added before the following line
   " call vundle#end()            " required
@@ -407,6 +407,9 @@ autocmd BufWritePost * :echo "ETC?"
 
 " vim-test
 let test#strategy = 'dispatch'
+
+" mappings
+source $HOME/.config/nvim/nvim_init/mappings.vim
 
 "" to the end of the file
 set secure
