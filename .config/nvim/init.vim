@@ -4,83 +4,49 @@
   filetype off                  " required
   set encoding=utf-8
 
-  " set rtp+=~/.vim/bundle/Vundle.vim
-  " call vundle#begin()
   call plug#begin('~/.vim/plugged')
 
-  Plug 'gmarik/Vundle.vim'
-
   Plug 'mileszs/ack.vim'
-  Plug 'othree/html5.vim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
-  Plug 'fatih/vim-go'
-  Plug 'pangloss/vim-javascript'
-  Plug 'vim-ruby/vim-ruby'
-  Plug 'MarcWeber/vim-addon-mw-utils'
-  Plug 'tomtom/tlib_vim'
-  " Plug 'sirver/ultisnips'
-  Plug 'sjl/vitality.vim'
   Plug 'rizzatti/dash.vim'
-  Plug 'mxw/vim-jsx'
   Plug 'plasticboy/vim-markdown' " follows after tabular
   Plug 'Chandlercjy/vim-markdown-edit-code-block'
   Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-dispatch'
-  Plug 'junegunn/fzf'
-  Plug 'junegunn/fzf.vim'
   Plug 'tpope/vim-unimpaired'
-  Plug 'romainl/flattened'
-  Plug 'junegunn/vim-easy-align'
-  Plug 'ayu-theme/ayu-vim'
-  Plug 'stulzer/heroku-colorscheme'
   Plug 'pbrisbin/vim-mkdir'
-  Plug 'kchmck/vim-coffee-script'
-  Plug 'xolox/vim-misc'
-  Plug 'rlue/vim-fold-rspec'
-  Plug 'elzr/vim-json'
-  Plug 'posva/vim-vue'
-  Plug 'vim-scripts/BufOnly.vim'
-  Plug 'wannesm/wmgraphviz.vim'
-  Plug 'Konfekt/FastFold'
-  Plug 'aklt/plantuml-syntax'
-  Plug 'chrisbra/csv.vim'
-  Plug 'lervag/vimtex'
   Plug 'tpope/vim-vinegar'
   Plug 'tpope/vim-projectionist'
-  Plug 'majutsushi/tagbar'
   Plug 'tpope/vim-obsession'
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-abolish'
-  Plug 'elixir-editors/vim-elixir'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'ekalinin/Dockerfile.vim'
-  Plug 'tpope/vim-dadbod'
-  Plug 'tpope/vim-rails'
-  Plug 'tpope/vim-bundler'
-  Plug 'tpope/vim-jdaddy'
-  Plug 'vim-scripts/dbext.vim'
-  Plug 'neo4j-contrib/cypher-vim-syntax'
-  Plug 'scrooloose/vim-slumlord'
-  Plug '~/projects/itsNikolay/my-vim/'
-  Plug '~/projects/itsNikolay/vim-terminal-dispatch/'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'skywind3000/asyncrun.vim'
-  Plug 'vim-airline/vim-airline'
   Plug 'mhinz/vim-startify'
   Plug 'junegunn/gv.vim'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'peitalin/vim-jsx-typescript'
   Plug 'airblade/vim-gitgutter'
   Plug 'vim-test/vim-test'
-  Plug 'liuchengxu/vista.vim'
   Plug 'AndrewRadev/splitjoin.vim'
-  Plug 'itchyny/calendar.vim'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'sainnhe/edge'
+  Plug 'onsails/lspkind-nvim'
 
-  " All of your Plugins must be added before the following line
-  " call vundle#end()            " required
+  Plug '~/projects/itsNikolay/my-vim/'
+  Plug '~/projects/itsNikolay/vim-terminal-dispatch/'
+
   call plug#end()
   " filetype Plug indent on    " required
 " }}}
@@ -112,7 +78,7 @@
       set path=**
       set exrc " enable per project configuration files
 
-      set shm+=s           " Suppress 'search hit BOTTOM, continuing at TOP' message
+      set shm+=sa           " Suppress 'search hit BOTTOM, continuing at TOP' message
       set noerrorbells     " Shut up!
       set novisualbell     " Don't flicker!
       set t_vb=            " Holy ..., be quite!
@@ -137,7 +103,7 @@
       set t_Co=256
 
       set termguicolors     " enable true colors support
-      colorscheme my-heroku-terminal
+      " colorscheme my-heroku-terminal
 
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
       set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
@@ -183,6 +149,8 @@
       set shiftwidth=2 " auto-indent amount when using >> <<
       set softtabstop=2 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
       set tabstop=4 " real tabs should be 4, and they will show with set list on
+      set cmdheight=2
+      set updatetime=1
 
       " set completeopt=menu,preview
       " }}}
@@ -387,12 +355,29 @@ cabbr goo !open https://google.com/search\?q\=
 "
 let g:tex_flavor = "latex"
 
-source ~/.config/nvim/coc_setup.vim
+" source ~/.config/nvim/coc_setup.vim
+
+
+" coc snippets
+
+" Use <C-l> for trigger snippet expand.
+imap <Tab> <Plug>(coc-snippets-expand)
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <Tab> <Plug>(coc-snippets-select)
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
+
 
 " AsyncRun
 let g:asyncrun_open = 6
 
-let g:airline_theme='ayu'
+" let g:airline_theme='ayu'
 
 source ~/.config/nvim/startify.vim
 
@@ -403,13 +388,28 @@ hi DiffText gui=NONE guifg=orange guibg=black
 hi DiffDelete gui=NONE guifg=red guibg=black
 
 " ETC? (Pragmatic Programmer Book p. 60)
-autocmd BufWritePost * :echo "ETC?"
-
+autocmd BufWritePost * echo "ETC?"
 " vim-test
 let test#strategy = 'dispatch'
 
 " mappings
-source $HOME/.config/nvim/nvim_init/mappings.vim
+source ~/.config/nvim/nvim_init/mappings.vim
+
+lua require('mylsp')
+lua require('comp')
+lua require('mydap')
+lua require('mytree')
+lua require('galaxyline3')
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
+colorscheme edge
+
+sign define LspDiagnosticsSignError text=✗ texthl=LspDiagnosticsSignError linehl= numhl=
+sign define LspDiagnosticsSignWarning text=⚠ texthl=LspDiagnosticsSignWarning linehl= numhl=
+sign define LspDiagnosticsSignInformation text=ⓘ texthl=LspDiagnosticsSignInformation linehl= numhl=
+sign define LspDiagnosticsSignHint text=i texthl=LspDiagnosticsSignHint linehl= numhl=
 
 "" to the end of the file
 set secure
