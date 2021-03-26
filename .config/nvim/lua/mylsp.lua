@@ -12,7 +12,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gd', '<CMD>Telescope lsp_definitions<CR>', opts)
   buf_set_keymap('n', 'gr', '<CMD>Telescope lsp_references<CR>', opts)
   buf_set_keymap('n', ',a', '<CMD>Telescope lsp_code_actions<CR>', opts)
-  buf_set_keymap('n', ',ds', '<CMD>Telescope lsp_document_symbols<CR>', opts)
+  buf_set_keymap('n', ',ds', '<CMD>Telescope lspjkj_document_symbols<CR>', opts)
   buf_set_keymap('n', ',dd', '<CMD>Telescope lsp_document_diagnostics<CR>', opts)
   buf_set_keymap('n', ',ws', '<CMD>Telescope lsp_workspace_symbols<CR>', opts)
   buf_set_keymap('n', ',wd', '<CMD>Telescope lsp_workspace_diagnostics<CR>', opts)
@@ -57,17 +57,59 @@ end
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
 local servers = { 
-  "pyright",
   "solargraph",
   "tsserver",
   "vimls",
   "html",
   "jsonls",
-  "tsserver" 
+  "tsserver",
 }
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
+
+require'lspconfig'.diagnosticls.setup{
+  on_attach = on_attach,
+  filetypes = {"javascript", "typescript"},
+  root_dir = function(fname)
+    return nvim_lsp.util.root_pattern("tsconfig.json")(fname) or
+    nvim_lsp.util.root_pattern(".eslintrc.json")(fname);
+  end,
+  init_options = {
+    linters = {
+      eslint = {
+        command = "./node_modules/.bin/eslint",
+        rootPatterns = {".eslintrc.js", ".eslintrc.json", ".git"},
+        debounce = 100,
+        args = {
+          "--stdin",
+          "--stdin-filename",
+          "%filepath",
+          "--format",
+          "json"
+        },
+        sourceName = "eslint",
+        parseJson = {
+          errorsRoot = "[0].messages",
+          line = "line",
+          column = "column",
+          endLine = "endLine",
+          endColumn = "endColumn",
+          message = "[eslint] ${message} [${ruleId}]",
+          security = "severity"
+        },
+        securities = {
+          [2] = "error",
+          [1] = "warning"
+        }
+      },
+    },
+    filetypes = {
+      javascript = "eslint",
+      typescript = "eslint"
+    }
+  }
+}
 
 require('lspkind').init()

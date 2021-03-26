@@ -8,7 +8,7 @@ inoremap <c-l> <c-o>$<c-j>
 inoremap <c-p> <c-r>*
 
 vnoremap <leader>c :EasyAlign<CR>
-vnoremap <nowait> <leader>g :<c-u>TranslateRangeFun<CR>
+" vnoremap <nowait> <leader>g :<c-u>TranslateRangeFun<CR>
 
 nnoremap <C-M-q> :Kwbd<CR>
 nnoremap <C-M-w> :wq<CR>
@@ -18,21 +18,19 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-s> :w<CR>
-nnoremap <Leader>1 :Filetypes<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>f :Files<CR>
-nnoremap <Leader>t :Tags<CR>
+nnoremap <Leader>1 :Telescope filetypes<CR>
+nnoremap <Leader>b :Telescope buffers<CR>
+nnoremap <Leader>f :Telescope find_files<CR>
+nnoremap <Leader>t :Telescope tags<CR>
 nnoremap <buffer> <silent> <leader>e :MarkdownEditBlock<CR>
 nnoremap <leader>, :noh<CR>
 nnoremap <leader>18 :%s/\(\w\+\):\s/:\1 => /gc<CR>
 nnoremap <leader>19 :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<CR>
-nnoremap <leader><Down> :Copen<CR>
-nnoremap <leader><Up> :Copen!<CR>
 nnoremap <leader>= ggVG=''
 nnoremap <leader>a :Ack! 
 nnoremap <leader>c :EasyAlign<CR>
 nnoremap <leader>d <Plug>DashSearch
-nnoremap <leader>gd :Gdiff<CR>
+" nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>h :split<CR>
 nnoremap <leader>l mQviwu`Q
 nnoremap <leader>q :q<CR>
@@ -48,4 +46,3 @@ nnoremap `A :AsyncRun!
 nnoremap `a :AsyncRun 
 nnoremap <nowait> gl :FocusTerminalDispatch<CR>
 nnoremap <leader>gs :Gstatus<CR>
-" nnoremap <nowait> <leader>g :'<,'>TranslateRangeFun<CR>

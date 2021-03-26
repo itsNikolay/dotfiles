@@ -24,7 +24,7 @@
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-abolish'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'skywind3000/asyncrun.vim'
   Plug 'mhinz/vim-startify'
   Plug 'junegunn/gv.vim'
@@ -38,11 +38,12 @@
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+  " Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ryanoasis/vim-devicons'
   Plug 'sainnhe/edge'
   Plug 'onsails/lspkind-nvim'
+  Plug 'SirVer/ultisnips'
 
   Plug '~/projects/itsNikolay/my-vim/'
   Plug '~/projects/itsNikolay/vim-terminal-dispatch/'
@@ -142,6 +143,7 @@
 
       set foldenable " folding text into clusters (+) according to  {{{ }}} or comments for example.
       " set foldmethod=manual " default options, we create fold manually.
+      set foldlevel=5
       set showmatch " when use insert bracket, briefly jump to matching one (i like it, but i might be annoying)
 
       set infercase " case inferred by default
@@ -393,13 +395,13 @@ autocmd BufWritePost * echo "ETC?"
 let test#strategy = 'dispatch'
 
 " mappings
-source ~/.config/nvim/nvim_init/mappings.vim
+source ~/.config/nvim/mappings.vim
 
 lua require('mylsp')
 lua require('comp')
 lua require('mydap')
 lua require('mytree')
-lua require('galaxyline3')
+" lua require('galaxyline3')
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
