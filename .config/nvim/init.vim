@@ -38,12 +38,17 @@
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-symbols.nvim'
   " Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ryanoasis/vim-devicons'
   Plug 'sainnhe/edge'
   Plug 'onsails/lspkind-nvim'
   Plug 'SirVer/ultisnips'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'puremourning/vimspector'
+  " Plug 'mfussenegger/nvim-dap'
 
   Plug '~/projects/itsNikolay/my-vim/'
   Plug '~/projects/itsNikolay/vim-terminal-dispatch/'
@@ -103,7 +108,7 @@
       set background=dark
       set t_Co=256
 
-      set termguicolors     " enable true colors support
+      " set termguicolors     " enable true colors support
       " colorscheme my-heroku-terminal
 
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
@@ -327,12 +332,12 @@ cab vste vs \| te
 set inccommand=nosplit
 
 " Ultisnips
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsListSnippets="<c-tab>"
-" let g:UltiSnipsJumpForwardTrigger="<C-J>"
-" let g:UltiSnipsJumpBackwardTrigger="<C-K>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
 
 " Menu
 " hi clear Pmenu
@@ -391,8 +396,10 @@ hi DiffDelete gui=NONE guifg=red guibg=black
 
 " ETC? (Pragmatic Programmer Book p. 60)
 autocmd BufWritePost * echo "ETC?"
+
 " vim-test
-let test#strategy = 'dispatch'
+let test#strategy = 'neovim'
+let test#neovim#term_position = 'vertical'
 
 " mappings
 source ~/.config/nvim/mappings.vim
@@ -402,10 +409,12 @@ lua require('comp')
 lua require('mydap')
 lua require('mytree')
 " lua require('galaxyline3')
+lua require('mytelescope')
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
+" edge
 colorscheme edge
 
 sign define LspDiagnosticsSignError text=✗ texthl=LspDiagnosticsSignError linehl= numhl=
