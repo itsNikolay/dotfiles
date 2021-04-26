@@ -63,6 +63,7 @@ local servers = {
   "html",
   "jsonls",
   "tsserver",
+  "gopls",
 }
 
 for _, lsp in ipairs(servers) do
