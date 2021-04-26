@@ -178,20 +178,6 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
 
-" coc-smartf
-" press <esc> to cancel.
-nmap f <Plug>(coc-smartf-forward)
-nmap F <Plug>(coc-smartf-backward)
-nmap ; <Plug>(coc-smartf-repeat)
-nmap , <Plug>(coc-smartf-repeat-opposite)
-
-augroup Smartf
-  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=black
-  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=white
-augroup end
-" coc-smartf
-
-
 " warnings
 let g:coc_status_warning_sign="W"
 

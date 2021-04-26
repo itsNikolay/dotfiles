@@ -24,16 +24,19 @@
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-abolish'
   Plug 'jiangmiao/auto-pairs'
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc-snippets'
   Plug 'skywind3000/asyncrun.vim'
   Plug 'mhinz/vim-startify'
   Plug 'junegunn/gv.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'vim-test/vim-test'
   Plug 'AndrewRadev/splitjoin.vim'
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'hrsh7th/nvim-compe'
-  Plug 'mfussenegger/nvim-dap'
+
+  " Plug 'neovim/nvim-lspconfig'
+  " Plug 'onsails/lspkind-nvim'
+  " Plug 'hrsh7th/nvim-compe'
+  " Plug 'mfussenegger/nvim-dap'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
@@ -43,12 +46,13 @@
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ryanoasis/vim-devicons'
   Plug 'sainnhe/edge'
-  Plug 'onsails/lspkind-nvim'
-  Plug 'SirVer/ultisnips'
+
+  " Plug 'SirVer/ultisnips'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'puremourning/vimspector'
   " Plug 'mfussenegger/nvim-dap'
+  Plug 'vim-airline/vim-airline'
 
   Plug '~/projects/itsNikolay/my-vim/'
   Plug '~/projects/itsNikolay/vim-terminal-dispatch/'
@@ -362,24 +366,7 @@ cabbr goo !open https://google.com/search\?q\=
 "
 let g:tex_flavor = "latex"
 
-" source ~/.config/nvim/coc_setup.vim
-
-
-" coc snippets
-
-" Use <C-l> for trigger snippet expand.
-imap <Tab> <Plug>(coc-snippets-expand)
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <Tab> <Plug>(coc-snippets-select)
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-" Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
-
+source ~/.config/nvim/coc_setup.vim
 
 " AsyncRun
 let g:asyncrun_open = 6
@@ -404,12 +391,12 @@ let test#neovim#term_position = 'vertical'
 " mappings
 source ~/.config/nvim/mappings.vim
 
-lua require('mylsp')
-lua require('comp')
-lua require('mydap')
+" lua require('mylsp')
+" lua require('comp')
+" lua require('mydap')
 lua require('mytree')
 " lua require('galaxyline3')
-lua require('mytelescope')
+" lua require('mytelescope')
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()

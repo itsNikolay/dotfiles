@@ -1,4 +1,3 @@
---skip-test
 --skip-sprockets
 --skip-turbolinks
 --database=postgresql
